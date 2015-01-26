@@ -27,7 +27,6 @@
 	<!-- 2. mybatis 的SqlSession 的工厂: SqlSessionFactoryBean -->
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource" />
-<!-- 		<property name="typeAliasesPackage" value="com.atuigu.spring_mybatis2.domain" /> -->
 	</bean>
 	<!-- 3. mybatis 自动扫描加载Sql 映射文件 : MapperScannerConfigurer -->
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">

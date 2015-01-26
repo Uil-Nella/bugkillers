@@ -25,4 +25,5 @@
 	<select id="findAll" resultType="org.bugkillers.back.bean.User">
 		select * from user
 	</select>
+	
 </mapper>
