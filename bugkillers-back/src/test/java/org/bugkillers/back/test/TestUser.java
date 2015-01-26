@@ -5,8 +5,8 @@ import java.util.List;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
-import org.bugkillers.back.bean.MybatisUtil;
-import org.bugkillers.back.bean.User２;
+//import org.bugkillers.back.bean.User２;
+import org.bugkillers.back.util.MybatisUtil;
 import org.junit.Test;
 
 public class TestUser {
@@ -36,22 +36,22 @@ public class TestUser {
 //		session.commit();
 		
 		//查询所有
-		SqlSessionFactory factory = MybatisUtil.getFactory();
-		SqlSession session = factory.openSession();
-		String statement = "org.bugkillers.back.bean.userMapper"+".getAllUsers";
-		List<User２> list= session.selectList(statement);
-		System.out.println(list);
-		session.commit();
+//		SqlSessionFactory factory = MybatisUtil.getFactory();
+//		SqlSession session = factory.openSession();
+//		String statement = "org.bugkillers.back.bean.userMapper"+".getAllUsers";
+//		List<User２> list= session.selectList(statement);
+//		System.out.println(list);
+//		session.commit();
 	
 	
 	}
 	@Test
 	public void TestUpdate(){
-		SqlSessionFactory factory = MybatisUtil.getFactory();
-		SqlSession session = factory.openSession();
-		String statement = "org.bugkillers.back.bean.userMapper"+".updateUser";
-		int insert = session.update(statement, new User２(2,"dh",28));
-		System.out.println(insert);
-		session.commit();
+//		SqlSessionFactory factory = MybatisUtil.getFactory();
+//		SqlSession session = factory.openSession();
+//		String statement = "org.bugkillers.back.bean.userMapper"+".updateUser";
+//		int insert = session.update(statement, new User２(2,"dh",28));
+//		System.out.println(insert);
+//		session.commit();
 	}
 }

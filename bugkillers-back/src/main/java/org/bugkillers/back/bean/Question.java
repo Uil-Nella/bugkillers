@@ -12,7 +12,7 @@ public class Question {
 	 */
 	private Tag tag;    
 	/**
-	 * 提问人pk
+	 * 提问人
 	 */
 	private User createuser;    
 	/**

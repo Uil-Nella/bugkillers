@@ -1,4 +1,4 @@
-package org.bugkillers.back.bean;
+package org.bugkillers.back.util;
 
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
