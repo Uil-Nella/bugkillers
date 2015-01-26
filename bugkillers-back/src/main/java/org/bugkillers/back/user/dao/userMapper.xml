@@ -22,7 +22,7 @@
 		select * from user where pk_user= #{pk_user}
 	</select>
 	
-	<select id="findAllUsers" resultType="org.bugkillers.back.bean.User">
+	<select id="findAll" resultType="org.bugkillers.back.bean.User">
 		select * from user
 	</select>
 </mapper>

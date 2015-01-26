@@ -1,7 +1,7 @@
-package org.bugkillers.back.user;
+package org.bugkillers.back.service;
 
 import org.bugkillers.back.bean.User;
-import org.bugkillers.back.user.dao.UserMapper;
+import org.bugkillers.back.user.service.UserService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,14 +10,13 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("/bean.xml") //加载配置
-public class TestUserDAO {
-	
-	@Autowired //注入
-	private UserMapper userMapper;
+public class TestUserService {
+	@Autowired
+	private UserService userService;
 	@Test
 	public void save(){
 		User user = createUser();
-		System.out.println(userMapper.save(user));
+		System.out.println(userService.save(user));
 		System.out.println(user.getPk_user());
 		
 	}
@@ -35,11 +34,11 @@ public class TestUserDAO {
 	}
 	@Test
 	public void find(){
-		System.out.println(userMapper.findByPk(1));
+		System.out.println(userService.findByPk(1));
 	}
 	@Test
 	public void findAll(){
-		System.out.println(userMapper.findAll());
+		System.out.println(userService.findAll());
 	}
 	private User createUser() {
 		User user = new User();

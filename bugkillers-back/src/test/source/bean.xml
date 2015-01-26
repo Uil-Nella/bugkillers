@@ -41,4 +41,8 @@
 	</bean>
 	<!-- 5. 使用声明式事务 -->
 	<tx:annotation-driven transaction-manager="txManager" />
+	
+	<!-- 扫描注解Bean -->
+    <context:component-scan base-package="org.bugkillers">
+    </context:component-scan>
 </beans>
