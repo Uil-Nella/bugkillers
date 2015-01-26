@@ -4,13 +4,13 @@ import java.util.List;
 
 public interface UserMapper2 {
 	
-	public void add(User user);
+	public void add(User２ user);
 	
 	public int deleteById(int id);
 	
-	public int update(User user);
+	public int update(User２ user);
 	
-	public User getById(int id);
+	public User２ getById(int id);
 	
-	public List<User> getAll();
+	public List<User２> getAll();
 }
