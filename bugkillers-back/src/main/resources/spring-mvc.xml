@@ -20,58 +20,9 @@
 	<bean id="conversionService" name="conversionService"
 		class="org.springframework.format.support.FormattingConversionServiceFactoryBean" />
 
-
-
-	<!-- <mvc:view-controller path="/" view-name="redirect:/admin/index"/> -->
-	<!-- 当在web.xml 中 DispatcherServlet使用 <url-pattern>/</url-pattern> 映射时，能映射静态资源 -->
-	<!-- <mvc:default-servlet-handler/> -->
-
 	<!-- 静态资源映射 -->
 	<mvc:resources mapping="/static/**" location="/WEB-INF/static/" />
-
-
-
-
-	<!-- 内容协商管理器 -->
-	<!--1、首先检查路径扩展名（如my.pdf）；2、其次检查Parameter（如my?format=pdf）；3、检查Accept Header -->
-	<bean id="contentNegotiationManager"
-		class="org.springframework.web.accept.ContentNegotiationManagerFactoryBean">
-		<!-- 扩展名至mimeType的映射,即 /user.json => application/json -->
-		<property name="favorPathExtension" value="true" />
-		<!-- 用于开启 /userinfo/123?format=json 的支持 -->
-		<property name="favorParameter" value="true" />
-		<property name="parameterName" value="format" />
-		<!-- 是否忽略Accept Header -->
-		<property name="ignoreAcceptHeader" value="false" />
-
-		<property name="mediaTypes"> <!--扩展名到MIME的映射；favorPathExtension, favorParameter是true时起作用 -->
-			<value>
-				json=application/json
-				xml=application/xml
-				html=text/html
-			</value>
-		</property>
-		<!-- 默认的content type -->
-		<property name="defaultContentType" value="text/html" />
-	</bean>
-
-
-	<!-- ========================= VIEW定义 ========================= -->
-	<!-- 内容协商视图解析器；根据客户端的不同的请求决定不同的 view进行响应, 如 /blog/1.json /blog/1.xml -->
-	<!-- 会自动根据解析的contentType来决定使用哪个视图解析器（默认使用整个web应用中的viewResolver） -->
-	<bean
-		class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver"
-		p:order="0">
-		<!-- 内容协商管理器 用于决定media type -->
-		<property name="contentNegotiationManager" ref="contentNegotiationManager" />
-		<!-- 默认视图 放在解析链最后 -->
-		<property name="defaultViews">
-			<list>
-				<bean class="com.alibaba.fastjson.support.spring.FastJsonJsonView" />
-			</list>
-		</property>
-	</bean>
-
+	
 	<!-- 默认的视图解析器 在上边的解析错误时使用 (默认使用html)- -->
 	<bean id="defaultViewResolver"
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver"

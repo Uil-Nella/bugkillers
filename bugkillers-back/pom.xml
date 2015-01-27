@@ -88,13 +88,13 @@
 			<artifactId>mybatis-spring</artifactId>
 			<version>1.2.2</version>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>com.alibaba</groupId>
 			<artifactId>druid</artifactId>
 			<version>${druid.version}</version>
 		</dependency>
-		
+
 		<!-- json 相关jar包 -->
 
 		<dependency>
@@ -154,11 +154,64 @@
 					<artifactId>maven-war-plugin</artifactId>
 					<version>2.3</version>
 					<configuration>
+<!-- 						<webResources> -->
+<!-- 							<resource> -->
+<!-- 								<directory>src/main/webapp</directory> -->
+<!-- 								<excludes> -->
+<!-- 									<exclude>**/*.jpg</exclude> -->
+<!-- 								</excludes> -->
+<!-- 							</resource> -->
+<!-- 						</webResources> -->
 						<warName>${project.artifactId}</warName>
 					</configuration>
+
+				</plugin>
+				<!-- 此plugin可以用 利用此plugin，把源代码中的xml文件， 打包到相应位置，这里主要是为了打包Mybatis的mapper.xml文件 -->
+				<plugin>
+					<groupId>org.codehaus.mojo</groupId>
+					<artifactId>build-helper-maven-plugin</artifactId>
+					<version>1.8</version>
+					<executions>
+						<execution>
+							<id>add-resource</id>
+							<phase>generate-resources</phase>
+							<goals>
+								<goal>add-resource</goal>
+							</goals>
+							<configuration>
+								<resources>
+									<resource>
+										<directory>src/main/java</directory>
+										<includes>
+											<include>**/*.xml</include>
+										</includes>
+									</resource>
+								</resources>
+							</configuration>
+						</execution>
+					</executions>
 				</plugin>
 			</plugins>
 		</pluginManagement>
+		
+		<resources>
+			<resource>
+				<directory>src/main/java</directory>
+				<includes>
+					<include>**/*.properties</include>
+					<include>**/*.xml</include>
+				</includes>
+				<filtering>true</filtering>
+			</resource>
+			<resource>
+				<directory>src/main/resources</directory>
+				<includes>
+					<include>**/*.properties</include>
+					<include>**/*.xml</include>
+				</includes>
+				<filtering>true</filtering>
+			</resource>
+		</resources>
 	</build>
 
 
