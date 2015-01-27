@@ -11,6 +11,7 @@
        http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
 	<context:property-placeholder location="classpath:resources.properties" />
+	<context:property-placeholder location="classpath:swagger.properties" />
 
 	<!-- 扫描注解Bean -->
 	<context:component-scan base-package="org.bugkillers">
@@ -21,8 +22,18 @@
 		class="org.springframework.format.support.FormattingConversionServiceFactoryBean" />
 
 	<!-- 静态资源映射 -->
-	<mvc:resources mapping="/static/**" location="/WEB-INF/static/" />
+	<mvc:resources mapping="/static/**" location="/static/" />
 	
+	<!-- Direct static mappings -->
+	<mvc:resources mapping="*.html" location="/"/>
+
+	<!-- Serve static content-->
+	<mvc:default-servlet-handler/>
+	
+	
+	<!-- 	样式话API工具 -->
+<!-- 	<bean class="com.mangofactory.swagger.configuration.SpringSwaggerConfig" /> -->
+	<bean class="org.bugkillers.back.swagger.CustomJavaPluginConfig" />
 	<!-- 默认的视图解析器 在上边的解析错误时使用 (默认使用html)- -->
 	<bean id="defaultViewResolver"
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver"
