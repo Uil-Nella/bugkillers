@@ -19,7 +19,7 @@ public class UserController {
 	public void find(){
 		
 	}
-	
+	@RequestMapping(value = { "/hello.do" }, method = RequestMethod.GET)
 	public String hello(){
 		return "Hello guys";
 	}

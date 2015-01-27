@@ -1,7 +1,14 @@
 package org.bugkillers.back.bean;
 
 import java.util.List;
-
+/**
+ * 问题
+ * <p/>
+ * <p> @author 刘新宇
+ *
+ * <p> @date 2015年1月27日 下午2:07:15
+ * <p> @version 0.0.1
+ */
 public class Question {
 	/**
 	 * 问题主键

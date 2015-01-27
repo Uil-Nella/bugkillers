@@ -7,7 +7,14 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-
+/**
+ * 用户服务测试
+ * <p/>
+ * <p> @author 刘新宇
+ *
+ * <p> @date 2015年1月27日 下午2:15:53
+ * <p> @version 0.0.1
+ */
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("/bean.xml") //加载配置
 public class TestUserService {

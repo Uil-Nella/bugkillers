@@ -7,6 +7,14 @@ import org.bugkillers.back.service.IService;
 import org.bugkillers.back.user.dao.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+/**
+ * 用户后台服务
+ * <p/>
+ * <p> @author 刘新宇
+ *
+ * <p> @date 2015年1月27日 下午2:11:10
+ * <p> @version 0.0.1
+ */
 @Service("userService")
 public class UserService implements IService<User>{
 	@Autowired //注入
