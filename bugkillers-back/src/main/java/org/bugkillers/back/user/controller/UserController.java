@@ -8,9 +8,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.mangofactory.swagger.plugin.EnableSwagger;
 import com.wordnik.swagger.annotations.Api;
 import com.wordnik.swagger.annotations.ApiOperation;
 @Api(value="myapi", description="Operations on Businesses", position = 1)
+@EnableSwagger
 @Controller
 @RequestMapping("/user")
 public class UserController {

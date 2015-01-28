@@ -14,7 +14,10 @@
 	<!-- 扫描注解Bean -->
 	<context:component-scan base-package="org.bugkillers">
 	</context:component-scan>
+	
 	<context:annotation-config />  
+	
+	<bean class="com.mangofactory.swagger.configuration.SpringSwaggerConfig" />
 	<!-- 数据源 -->
 	<!-- 1. 数据源 : DriverManagerDataSource -->
 	<bean id="dataSource"

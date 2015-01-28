@@ -16,22 +16,17 @@
 	<!-- 扫描注解Bean -->
 	<context:component-scan base-package="org.bugkillers">
 	</context:component-scan>
+	<context:annotation-config />  
 	<mvc:annotation-driven />
-	<!-- 类型转换及数据格式化 -->
-	<bean id="conversionService" name="conversionService"
-		class="org.springframework.format.support.FormattingConversionServiceFactoryBean" />
 
-	<!-- 静态资源映射 -->
-	<mvc:resources mapping="/static/**" location="/static/" />
-	
 
 	<!-- Serve static content-->
 	<mvc:default-servlet-handler/>
 	
 	
 <!-- 		样式话API工具 -->
+<!-- 	<bean class="org.bugkillers.back.swagger.CustomJavaPluginConfig" /> -->
 <!-- 	<bean class="com.mangofactory.swagger.configuration.SpringSwaggerConfig" /> -->
-	<bean class="org.bugkillers.back.swagger.CustomJavaPluginConfig" />
 	
 	
 </beans>
