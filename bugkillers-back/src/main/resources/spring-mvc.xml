@@ -31,17 +31,9 @@
 	<mvc:default-servlet-handler/>
 	
 	
-	<!-- 	样式话API工具 -->
+<!-- 		样式话API工具 -->
 <!-- 	<bean class="com.mangofactory.swagger.configuration.SpringSwaggerConfig" /> -->
 	<bean class="org.bugkillers.back.swagger.CustomJavaPluginConfig" />
-	<!-- 默认的视图解析器 在上边的解析错误时使用 (默认使用html)- -->
-	<bean id="defaultViewResolver"
-		class="org.springframework.web.servlet.view.InternalResourceViewResolver"
-		p:order="1">
-		<property name="viewClass"
-			value="org.springframework.web.servlet.view.JstlView" />
-		<property name="contentType" value="text/html" />
-		<property name="prefix" value="/WEB-INF/jsp/" />
-		<property name="suffix" value=".jsp" />
-	</bean>
+	
+	
 </beans>

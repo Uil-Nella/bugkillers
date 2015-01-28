@@ -31,5 +31,6 @@ public class MySwaggerConfig {
       return new SwaggerSpringMvcPlugin(this.springSwaggerConfig)
               .includePatterns(".*pet.*");
    }
+   
 
 }
