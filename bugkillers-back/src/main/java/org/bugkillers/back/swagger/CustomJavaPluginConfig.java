@@ -1,5 +1,10 @@
 package org.bugkillers.back.swagger;
 
+import static org.ajar.swaggermvcui.SwaggerSpringMvcUi.WEB_JAR_RESOURCE_LOCATION;
+import static org.ajar.swaggermvcui.SwaggerSpringMvcUi.WEB_JAR_RESOURCE_PATTERNS;
+import static org.ajar.swaggermvcui.SwaggerSpringMvcUi.WEB_JAR_VIEW_RESOLVER_PREFIX;
+import static org.ajar.swaggermvcui.SwaggerSpringMvcUi.WEB_JAR_VIEW_RESOLVER_SUFFIX;
+
 import org.bugkillers.back.user.controller.UserController;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -15,11 +20,6 @@ import com.mangofactory.swagger.configuration.SpringSwaggerConfig;
 import com.mangofactory.swagger.models.dto.ApiInfo;
 import com.mangofactory.swagger.plugin.EnableSwagger;
 import com.mangofactory.swagger.plugin.SwaggerSpringMvcPlugin;
-
-import static org.ajar.swaggermvcui.SwaggerSpringMvcUi.WEB_JAR_RESOURCE_PATTERNS;
-import static org.ajar.swaggermvcui.SwaggerSpringMvcUi.WEB_JAR_RESOURCE_LOCATION;
-import static org.ajar.swaggermvcui.SwaggerSpringMvcUi.WEB_JAR_VIEW_RESOLVER_PREFIX;
-import static org.ajar.swaggermvcui.SwaggerSpringMvcUi.WEB_JAR_VIEW_RESOLVER_SUFFIX;
 
 @Configuration
 @EnableWebMvc
@@ -70,4 +70,6 @@ public class CustomJavaPluginConfig extends WebMvcConfigurerAdapter {
     public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) {
       configurer.enable();
     }
+   
+    
 }
