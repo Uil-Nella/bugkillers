@@ -20,12 +20,12 @@
 		<druid.version>0.2.23</druid.version>
 		<fastjson.version>1.1.34</fastjson.version>
 	</properties>
-<repositories>
-	    <repository>
-	      <id>jcenter-release</id>
-	      <name>jcenter</name>
-	      <url>http://oss.jfrog.org/artifactory/oss-release-local</url>
-	    </repository>
+	<repositories>
+		<repository>
+			<id>jcenter-release</id>
+			<name>jcenter</name>
+			<url>http://oss.jfrog.org/artifactory/oss-release-local</url>
+		</repository>
 	</repositories>
 	<dependencies>
 		<dependency>
@@ -92,6 +92,12 @@
 			<artifactId>spring-web</artifactId>
 			<version>${spring.version}</version>
 		</dependency>
+		<dependency>
+			<groupId>org.springframework.hateoas</groupId>
+			<artifactId>spring-hateoas</artifactId>
+			<version>0.16.0.RELEASE</version>
+		</dependency>
+
 		<!-- Spring和Mybatis桥接包 -->
 		<dependency>
 			<groupId>org.mybatis</groupId>
@@ -123,6 +129,11 @@
 			<artifactId>jackson-databind</artifactId>
 			<version>2.4.2</version>
 		</dependency>
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>2.4</version>
+		</dependency>
 	</dependencies>
 	<build>
 		<finalName>${project.artifactId}</finalName>
@@ -148,7 +159,7 @@
 						<!--<scanIntervalSeconds>2</scanIntervalSeconds> -->
 						<stopPort>9999</stopPort>
 						<webAppConfig>
-<!-- 							去掉前缀参数${project.build.finalName} -->
+							<!-- 去掉前缀参数${project.build.finalName} -->
 							<contextPath>/</contextPath>
 						</webAppConfig>
 						<connectors>
