@@ -10,8 +10,12 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.mangofactory.swagger.plugin.EnableSwagger;
 import com.wordnik.swagger.annotations.Api;
+import com.wordnik.swagger.annotations.ApiModelProperty;
 import com.wordnik.swagger.annotations.ApiOperation;
-@Api(value="myapi", description="Operations on Businesses", position = 1)
+import com.wordnik.swagger.annotations.ApiParam;
+import com.wordnik.swagger.annotations.ApiResponse;
+import com.wordnik.swagger.annotations.ApiResponses;
+@Api(value="用户API", description="有关于用户的CURD操作", position = 1)
 @EnableSwagger
 @Controller
 @RequestMapping("/user")
@@ -20,9 +24,10 @@ public class UserController {
 	private UserService service;
 	
 	@ApiOperation(value = "regist", position = 1)
+	@ApiModelProperty
 	@ResponseBody
 	@RequestMapping(value = { "/regist.do" }, method = RequestMethod.GET)
-	public void regist(User user){
+	public void regist( User user){
 		service.save(user);
 	}
 	@ApiOperation(value = "find", position = 2)
@@ -33,9 +38,10 @@ public class UserController {
 		
 	}
 	@ApiOperation(value = "hello", position = 3)
+	@ApiResponses(value = {@ApiResponse(code = 405, message = "Invalid input")})
 	@ResponseBody
 	@RequestMapping(value = { "/hello.do" }, method = RequestMethod.GET)
-	public String hello(){
+	public String hello(@ApiParam String who){
 		return "Hello guys";
 	}
 	
