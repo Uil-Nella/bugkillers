@@ -12,12 +12,8 @@
 
 	<context:property-placeholder location="classpath:resources.properties" />
 	<context:property-placeholder location="classpath:swagger.properties" />
-
-	<!-- 扫描注解Bean -->
-<!-- 	<context:component-scan base-package="org.bugkillers"> -->
-<!-- 	</context:component-scan> -->
+	
 	<mvc:annotation-driven />
-
 
 	<!-- Serve static content -->
 	<mvc:default-servlet-handler />

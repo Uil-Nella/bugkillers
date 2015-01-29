@@ -1,6 +1,9 @@
 package org.bugkillers.back.swagger;
 
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -11,6 +14,12 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 
 import com.mangofactory.swagger.configuration.SpringSwaggerConfig;
 import com.mangofactory.swagger.models.dto.ApiInfo;
+import com.mangofactory.swagger.models.dto.AuthorizationScope;
+import com.mangofactory.swagger.models.dto.AuthorizationType;
+import com.mangofactory.swagger.models.dto.GrantType;
+import com.mangofactory.swagger.models.dto.ImplicitGrant;
+import com.mangofactory.swagger.models.dto.LoginEndpoint;
+import com.mangofactory.swagger.models.dto.builder.OAuthBuilder;
 import com.mangofactory.swagger.paths.SwaggerPathProvider;
 import com.mangofactory.swagger.plugin.EnableSwagger;
 import com.mangofactory.swagger.plugin.SwaggerSpringMvcPlugin;
@@ -54,6 +63,8 @@ public class CustomJavaPluginConfig extends WebMvcConfigurerAdapter {
     public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) {
       configurer.enable();
     }
+    
+   
     
     class GtPaths extends SwaggerPathProvider{
 
