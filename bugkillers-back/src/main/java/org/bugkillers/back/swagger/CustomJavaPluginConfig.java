@@ -1,7 +1,6 @@
 package org.bugkillers.back.swagger;
 
 
-import org.bugkillers.back.user.controller.UserController;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -19,7 +18,7 @@ import com.mangofactory.swagger.plugin.SwaggerSpringMvcPlugin;
 @Configuration
 @EnableWebMvc
 @EnableSwagger
-@ComponentScan(basePackageClasses={UserController.class},basePackages ={"org.bugkillers.back.user.controller","com.ak.swaggerspringmvc.shared.controller", "com.ak.spring3.music"})
+@ComponentScan(basePackages ={"com.ak.swaggerspringmvc.shared.controller", "com.ak.spring3.music"})
 public class CustomJavaPluginConfig extends WebMvcConfigurerAdapter {
 
    private SpringSwaggerConfig springSwaggerConfig;

@@ -14,8 +14,8 @@
 	<context:property-placeholder location="classpath:swagger.properties" />
 
 	<!-- 扫描注解Bean -->
-	<context:component-scan base-package="org.bugkillers">
-	</context:component-scan>
+<!-- 	<context:component-scan base-package="org.bugkillers"> -->
+<!-- 	</context:component-scan> -->
 	<mvc:annotation-driven />
 
 
@@ -24,10 +24,8 @@
 
 
 	<!-- 样式话API工具 -->
-	<bean class="org.bugkillers.back.swagger.CustomJavaPluginConfig" />
-	<!-- <bean class="com.mangofactory.swagger.configuration.SpringSwaggerConfig" 
-		/> -->
-<!-- 	对json支持	 -->
+	<!-- <bean class="org.bugkillers.back.swagger.CustomJavaPluginConfig" /> -->
+	<!-- 对json支持 -->
 	<bean id="jsonConverter"
 		class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
 		<property name="supportedMediaTypes" value="application/json" />
