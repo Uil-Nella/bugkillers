@@ -10,7 +10,8 @@
 <!-- 		<typeAlias type="org.dd.note.back.boot.pojo.UserInfo" alias="user"/> -->
 	</typeAliases>
 	<mappers>
-<!-- 		<mapper resource="org/bugkillers/back/user/dao/userMapper.xml" /> -->
+			<mapper class="org.bugkillers.back.tag.dao.TagMapper"/>
+			<mapper class="org.bugkillers.back.user.dao.UserMapper"/>
 	</mappers>
 	
 </configuration>

@@ -11,7 +11,6 @@
        http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
 	<context:property-placeholder location="classpath:resources.properties" />
-	<context:property-placeholder location="classpath:swagger.properties" />
 	
 	<mvc:annotation-driven />
 
