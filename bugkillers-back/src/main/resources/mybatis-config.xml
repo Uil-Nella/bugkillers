@@ -7,7 +7,6 @@
 		<setting name="lazyLoadingEnabled" value="false" />
 	</settings>
 	<typeAliases>
-<!-- 		<typeAlias type="org.dd.note.back.boot.pojo.UserInfo" alias="user"/> -->
 	</typeAliases>
 	<mappers>
 			<mapper class="org.bugkillers.back.tag.dao.TagMapper"/>
