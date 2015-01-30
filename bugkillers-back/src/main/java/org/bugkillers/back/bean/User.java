@@ -1,6 +1,5 @@
 package org.bugkillers.back.bean;
 
-import com.wordnik.swagger.annotations.ApiModel;
 
 /**
  * 用户表
@@ -10,7 +9,6 @@ import com.wordnik.swagger.annotations.ApiModel;
  * <p> @date 2015年1月26日 上午9:17:20
  * <p> @version 0.0.1
  */
-@ApiModel(description="用户实体")
 public class User {
 	/**
 	 * 用户主键

@@ -14,7 +14,7 @@ import java.util.*;
 import java.util.concurrent.atomic.AtomicLong;
 
 //@Controller
-@RestController
+//@RestController
 @RequestMapping("/music")
 @Api(value = "Albums", position = 1)
 public class AlbumController {

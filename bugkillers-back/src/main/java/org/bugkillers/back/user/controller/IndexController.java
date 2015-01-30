@@ -1,19 +1,14 @@
 package org.bugkillers.back.user.controller;
 
-import org.bugkillers.back.bean.User;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.mangofactory.swagger.plugin.EnableSwagger;
 import com.wordnik.swagger.annotations.ApiImplicitParam;
 import com.wordnik.swagger.annotations.ApiImplicitParams;
 import com.wordnik.swagger.annotations.ApiOperation;
 
-@Controller
 public class IndexController {
 	@RequestMapping(value = "/api/index", method = RequestMethod.GET)
 	public String api() {

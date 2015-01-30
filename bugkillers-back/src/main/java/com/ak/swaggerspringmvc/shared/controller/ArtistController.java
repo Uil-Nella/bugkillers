@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import java.util.ArrayList;
 import java.util.List;
 
-@Controller
+//@Controller
 @Api(value = "Artists", position = 0)
 public class ArtistController {
   private static final Logger LOGGER = LoggerFactory.getLogger(ArtistController.class);
