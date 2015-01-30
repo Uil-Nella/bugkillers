@@ -50,6 +50,7 @@ public class Question {
 	 *  关注者
 	 */
 	private List<User> observers;
+	
 	public Integer getPk_question() {
 		return pk_question;
 	}
