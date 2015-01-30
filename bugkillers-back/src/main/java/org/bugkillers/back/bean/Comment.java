@@ -11,7 +11,7 @@ public class Comment {
 	/**
 	 * 评论主键
 	 */
-	private int pk_comment; 
+	private Integer pk_comment; 
 	/**
 	 * 所属问题pk
 	 */
@@ -36,10 +36,10 @@ public class Comment {
 	 * 删除标示位
 	 */
 	private String dr;
-	public int getPk_comment() {
+	public Integer getPk_comment() {
 		return pk_comment;
 	}
-	public void setPk_comment(int pk_comment) {
+	public void setPk_comment(Integer pk_comment) {
 		this.pk_comment = pk_comment;
 	}
 	public Question getQuestion() {

@@ -11,7 +11,7 @@ public class Tag {
 	/**
 	 * 标签主键
 	 */
-	private int pk_tag;   
+	private Integer pk_tag;   
 	/**
 	 * 标签名称
 	 */
@@ -19,7 +19,7 @@ public class Tag {
 	public int getPk_tag() {
 		return pk_tag;
 	}
-	public void setPk_tag(int pk_tag) {
+	public void setPk_tag(Integer pk_tag) {
 		this.pk_tag = pk_tag;
 	}
 	public String getName() {
@@ -35,7 +35,7 @@ public class Tag {
 	public Tag() {
 		super();
 	}
-	public Tag(int pk_tag, String name) {
+	public Tag(Integer pk_tag, String name) {
 		super();
 		this.pk_tag = pk_tag;
 		this.name = name;

@@ -13,7 +13,7 @@ public class Question {
 	/**
 	 * 问题主键
 	 */
-	private int pk_question;
+	private Integer pk_question;
 	/**
 	 * 问题标签
 	 */
@@ -50,10 +50,10 @@ public class Question {
 	 *  关注者
 	 */
 	private List<User> observers;
-	public int getPk_question() {
+	public Integer getPk_question() {
 		return pk_question;
 	}
-	public void setPk_question(int pk_question) {
+	public void setPk_question(Integer pk_question) {
 		this.pk_question = pk_question;
 	}
 	public Tag getTag() {

@@ -13,7 +13,7 @@ public class User {
 	/**
 	 * 用户主键
 	 */
-	private int pk_user;    
+	private Integer pk_user;    
 	/**
 	 * 用户名
 	 */
@@ -46,10 +46,10 @@ public class User {
 	 * 头像
 	 */
 	private String  headpic;
-	public int getPk_user() {
+	public Integer getPk_user() {
 		return pk_user;
 	}
-	public void setPk_user(int pk_user) {
+	public void setPk_user(Integer pk_user) {
 		this.pk_user = pk_user;
 	}
 	public String getName() {
