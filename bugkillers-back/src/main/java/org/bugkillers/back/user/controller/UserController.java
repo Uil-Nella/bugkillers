@@ -45,8 +45,10 @@ public class UserController {
 	@ApiOperation(value = "注册", notes = "注册用户", position = 3)
 	@ResponseBody
 	@RequestMapping(value = { "/regist" }, method = RequestMethod.POST)
-	public void regist(@RequestBody User user) {
+	public ResponseEntity<?> regist(@RequestBody User user) {
 		service.save(user);
+		Result<String> result = ResultUtil.buildSuccessResult("注册成功");
+		return new ResponseEntity<Result<String>>(result, HttpStatus.OK);
 	}
 	
 	/**
@@ -57,9 +59,10 @@ public class UserController {
 	@ApiOperation(value = "根据pk查找用户", notes = "返回用户实体对象", response = User.class, position = 2)
 	@ResponseBody
 	@RequestMapping(value = { "/{userPk}" }, method = RequestMethod.GET)
-	public ResponseEntity<User> findByPk(
+	public ResponseEntity<?> findByPk(
 			@ApiParam(value = "填写Pk", allowableValues = "range[1,5]", required = true, defaultValue = "userPk", allowMultiple = true) @PathVariable("userPk") Integer userPk) {
-		return new ResponseEntity<User>(service.findByPk(userPk), HttpStatus.OK);
+		Result<User> result = ResultUtil.buildSuccessResult(service.findByPk(userPk));
+		return new ResponseEntity<Result<User>>(result, HttpStatus.OK);
 	}
 	
 	/**
@@ -70,9 +73,10 @@ public class UserController {
 	@ApiOperation(value = "Hellow World", notes = "测试功能", position = 1)
 	@ResponseBody
 	@RequestMapping(value = { "/hello/{who}" }, method = RequestMethod.GET)
-	public String hello(
+	public ResponseEntity<?> hello(
 			@ApiParam(value = "填写名称") @PathVariable("who") String who) {
-		return "Hello guys" + " " + who + "!";
+		Result<String> result = ResultUtil.buildSuccessResult( "Hello guys" + " " + who + "!");
+		return new ResponseEntity<Result<String>>(result, HttpStatus.OK);
 	}
 
 	/**
@@ -80,11 +84,18 @@ public class UserController {
 	 * @return
 	 */
 	@ApiOperation(value = "获取所有用户", notes = "返回用户实体对象集合", position = 5)
-	@RequestMapping(value = "/getAll", method = RequestMethod.GET)
-	public @ResponseBody List<User> getAll() {
-		return service.findAll();
+	@RequestMapping(value = "/findAll", method = RequestMethod.GET)
+	public @ResponseBody ResponseEntity<?>  findAll() {
+		Result<List<User>> result = ResultUtil.buildSuccessResult( service.findAll());
+		return  new ResponseEntity<Result<List<User>>>(result, HttpStatus.OK);
 	}
 	
+	/**
+	 * 根据用户pk更新实体
+	 * @param userPk  用户pk
+	 * @param user 返回更新后的实体
+	 * @return
+	 */
 	@ApiOperation(value = "更新用户", notes = "返回更新的用户实体对象",position = 5)
 	@RequestMapping(value = "/update/{userPk}", method = RequestMethod.PUT)
 	public ResponseEntity<?> updateByPk(
@@ -93,6 +104,20 @@ public class UserController {
 		service.update(user);
 		Result<User> result = ResultUtil.buildSuccessResult(user);
 		return new ResponseEntity<Result<User>>(result, HttpStatus.OK);
+	}
+	
+	/**
+	 * 根据用户pk删除实体
+	 * @param userPk  用户pk
+	 * @return
+	 */
+	@ApiOperation(value = "删除用户", notes = "根据pk删除用户",position = 5)
+	@RequestMapping(value = "/delete/{userPk}", method = RequestMethod.GET)
+	public ResponseEntity<?> deleteByPk(
+			@PathVariable("userPk") Integer userPk) {
+		service.delete(userPk);
+		Result<String> result = ResultUtil.buildSuccessResult("删除成功");
+		return new ResponseEntity<Result<String>>(result, HttpStatus.OK);
 	}
 
 }
