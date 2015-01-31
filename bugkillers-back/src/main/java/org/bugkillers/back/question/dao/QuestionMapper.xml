@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.bugkillers.back.user.dao.UserMapper">
+    
+	<insert id="save" parameterType="org.bugkillers.back.bean.User" keyColumn="pk_user" keyProperty="pk_user" useGeneratedKeys="true">
+		insert into user (pk_user,name,nickname,password,email,dr,registtime,logintime,headpic) 
+		           values(#{pk_user},#{name},#{nickname},#{password},#{email},#{dr},#{registtime},#{logintime},#{headpic})
+	</insert>
+	
+	<delete id="delete" parameterType="int">
+		delete from user where pk_user = #{pk_user}
+	</delete>
+
+	<update id="update" parameterType="org.bugkillers.back.bean.User">
+		update user set name = #{name} , nickname = #{nickname}, password = #{password}, email = #{email}, dr = #{dr}, registtime = #{registtime}, 
+		logintime = #{logintime}, headpic = #{headpic} where pk_user = #{pk_user}
+	</update>
+
+	<select id="findByPk" parameterType="int"
+		resultType="org.bugkillers.back.bean.User">
+		select * from user where pk_user= #{pk_user}
+	</select>
+	
+	<select id="findAll" resultType="org.bugkillers.back.bean.User">
+		select * from user
+	</select>
+	
+</mapper>

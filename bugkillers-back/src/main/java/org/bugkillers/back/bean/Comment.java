@@ -60,10 +60,10 @@ public class Comment {
 	public void setCommentuser(User commentuser) {
 		this.commentuser = commentuser;
 	}
-	public String getString() {
+	public String getCommenttime() {
 		return commenttime;
 	}
-	public void setString(String commenttime) {
+	public void setommenttime(String commenttime) {
 		this.commenttime = commenttime;
 	}
 	public String getOrder() {

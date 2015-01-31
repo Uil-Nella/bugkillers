@@ -3,7 +3,6 @@ package org.bugkillers.back.comment.controller;
 import java.util.List;
 
 import org.bugkillers.back.bean.Comment;
-import org.bugkillers.back.bean.User;
 import org.bugkillers.back.comment.service.CommentService;
 import org.bugkillers.back.result.Result;
 import org.bugkillers.back.util.ResultUtil;
@@ -53,8 +52,8 @@ public class CommentController {
 	}
 	
 	/**
-	 * 根据pk查找用户
-	 * @param userPk
+	 * 根据pk查找评论
+	 * @param commentPk
 	 * @return
 	 */
 	@ApiOperation(value = "根据pk查找评论", notes = "返回评论", response = Comment.class, position = 2)
@@ -72,7 +71,7 @@ public class CommentController {
 	 * 查询所有
 	 * @return
 	 */
-	@ApiOperation(value = "获取所有用户", notes = "返回用户实体对象集合", position = 5)
+	@ApiOperation(value = "获取所有评论", notes = "返回评论实体对象集合", position = 5)
 	@RequestMapping(value = "/findAll", method = RequestMethod.GET)
 	public @ResponseBody ResponseEntity<?>  findAll() {
 		Result<List<Comment>> result = ResultUtil.buildSuccessResult( service.findAll());
@@ -80,16 +79,16 @@ public class CommentController {
 	}
 	
 	/**
-	 * 根据用户pk更新实体
-	 * @param userPk  用户pk
-	 * @param user 返回更新后的实体
+	 * 根据pk更新实体
+	 * @param commentPk  pk
+	 * @param comment 返回更新后的实体
 	 * @return
 	 */
 	@ApiOperation(value = "更新用户", notes = "返回更新的用户实体对象",position = 5)
-	@RequestMapping(value = "/update/{userPk}", method = RequestMethod.PUT)
+	@RequestMapping(value = "/update/{commentPk}", method = RequestMethod.PUT)
 	public ResponseEntity<?> updateByPk(
-			@PathVariable("userPk") Integer userPk, @RequestBody Comment comment) {
-		comment.setPk_comment(userPk);
+			@PathVariable("commentPk") Integer commentPk, @RequestBody Comment comment) {
+		comment.setPk_comment(commentPk);
 		service.update(comment);
 		Result<Comment> result = ResultUtil.buildSuccessResult(comment);
 		return new ResponseEntity<Result<Comment>>(result, HttpStatus.OK);
@@ -97,14 +96,14 @@ public class CommentController {
 	
 	/**
 	 * 根据用户pk删除实体
-	 * @param userPk  用户pk
+	 * @param commentPk  pk
 	 * @return
 	 */
-	@ApiOperation(value = "删除用户", notes = "根据pk删除用户",position = 5)
-	@RequestMapping(value = "/delete/{userPk}", method = RequestMethod.GET)
+	@ApiOperation(value = "删除评论", notes = "根据pk删除评论",position = 5)
+	@RequestMapping(value = "/delete/{commentPk}", method = RequestMethod.GET)
 	public ResponseEntity<?> deleteByPk(
-			@PathVariable("userPk") Integer userPk) {
-		service.delete(userPk);
+			@PathVariable("commentPk") Integer commentPk) {
+		service.delete(commentPk);
 		Result<String> result = ResultUtil.buildSuccessResult("删除成功");
 		return new ResponseEntity<Result<String>>(result, HttpStatus.OK);
 	}
