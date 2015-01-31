@@ -1,6 +1,6 @@
 package org.bugkillers.back.question.dao;
 
-import org.bugkillers.back.bean.User;
+import org.bugkillers.back.bean.Question;
 import org.bugkillers.back.dao.Mapper;
 /**
  * 用户操作Mapper
@@ -10,5 +10,5 @@ import org.bugkillers.back.dao.Mapper;
  * <p> @date 2015年1月27日 下午2:10:46
  * <p> @version 0.0.1
  */
-public interface QuestionMapper extends Mapper<User>{
+public interface QuestionMapper extends Mapper<Question>{
 }

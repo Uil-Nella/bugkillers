@@ -17,7 +17,7 @@ public class Question {
 	/**
 	 * 问题标签
 	 */
-	private Tag tag;    
+	private List<Tag> tags;    
 	/**
 	 * 提问人
 	 */
@@ -56,12 +56,6 @@ public class Question {
 	}
 	public void setPk_question(Integer pk_question) {
 		this.pk_question = pk_question;
-	}
-	public Tag getTag() {
-		return tag;
-	}
-	public void setTag(Tag tag) {
-		this.tag = tag;
 	}
 	public User getCreateuser() {
 		return createuser;
@@ -111,14 +105,19 @@ public class Question {
 	public void setObservers(List<User> observers) {
 		this.observers = observers;
 	}
+	public List<Tag> getTags() {
+		return tags;
+	}
+	public void setTags(List<Tag> tags) {
+		this.tags = tags;
+	}
 	@Override
 	public String toString() {
-		return "Question [pk_question=" + pk_question + ", tag=" + tag
+		return "Question [pk_question=" + pk_question + ", tags=" + tags
 				+ ", createuser=" + createuser + ", createtime=" + createtime
 				+ ", updatetime=" + updatetime + ", updateuser=" + updateuser
 				+ ", lookedtimes=" + lookedtimes + ", dr=" + dr + ", text="
 				+ text + ", observers=" + observers + "]";
 	}
-	
 	
 }

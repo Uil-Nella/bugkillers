@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="org.bugkillers.back.user.dao.UserMapper">
+<mapper namespace="org.bugkillers.back.question.dao.QuestionMapper">
     
-	<insert id="save" parameterType="org.bugkillers.back.bean.User" keyColumn="pk_user" keyProperty="pk_user" useGeneratedKeys="true">
+	<insert id="save" parameterType="org.bugkillers.back.bean.Question" keyColumn="pk_user" keyProperty="pk_user" useGeneratedKeys="true">
 		insert into user (pk_user,name,nickname,password,email,dr,registtime,logintime,headpic) 
 		           values(#{pk_user},#{name},#{nickname},#{password},#{email},#{dr},#{registtime},#{logintime},#{headpic})
 	</insert>
@@ -21,6 +21,40 @@
 		resultType="org.bugkillers.back.bean.User">
 		select * from user where pk_user= #{pk_user}
 	</select>
+	
+	 <resultMap type="org.bugkillers.back.bean.Question" id="QuestionReSultMap">  
+        <id column="pk_question" property="pk_question"/> 
+        <result column="createtime" property="createtime"/>  
+        <association property="createuser" column="createuser"
+			select="getUserByPk" javaType="org.bugkillers.back.bean.User" /> 
+        <collection property="tags" ofType="org.bugkillers.back.bean.Tag" column="pid">  
+            <id column="o_id" property="id"/>  
+            <result column="price" property="price"/>  
+        </collection>  
+          
+    </resultMap> 
+	
+	
+	<select id="getUserByPk" resultMap="userResultMap"
+		parameterType="int"  >
+		<!-- //include标签，复用sql标签 -->
+		select *
+		from user
+		where
+		pk_user = #{pk_user}
+	</select>
+
+	<resultMap type="org.bugkillers.back.bean.User" id="userResultMap">
+		<id 	property="pk_user" 		column="pk_user" />
+		<result property="name" 		column="name" />
+		<result property="nickname" 		column="nickname"  />
+		<result property="password" 	column="password"  />
+		<result property="email" 	column="email"  />
+		<result property="dr" 	column="dr"  />
+		<result property="registtime" 	column="registtime"  />
+		<result property="logintime" 	column="logintime"  />
+		<result property="headpic" 	column="headpic"  />
+	</resultMap>
 	
 	<select id="findAll" resultType="org.bugkillers.back.bean.User">
 		select * from user
