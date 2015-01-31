@@ -30,7 +30,7 @@
 	</bean>
 	<!-- 3. mybatis 自动扫描加载Sql 映射文件 : MapperScannerConfigurer -->
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-		<property name="basePackage" value="org.bugkillers.back.user.dao" />
+		<property name="basePackage" value="org.bugkillers.back.*" />
 		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
 	</bean>
 	<!-- 4. 事务管理 : DataSourceTransactionManager -->

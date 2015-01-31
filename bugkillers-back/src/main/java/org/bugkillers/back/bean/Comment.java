@@ -23,11 +23,11 @@ public class Comment {
 	/**
 	 * 评论人
 	 */
-	private User commetuser;  
+	private User commentuser;  
 	/**
 	 * commenttime 评论时间
 	 */
-	private String String; 
+	private String commenttime; 
 	/**
 	 * 评论顺序
 	 */
@@ -54,17 +54,17 @@ public class Comment {
 	public void setText(String text) {
 		this.text = text;
 	}
-	public User getCommetuser() {
-		return commetuser;
+	public User getCommentuser() {
+		return commentuser;
 	}
-	public void setCommetuser(User commetuser) {
-		this.commetuser = commetuser;
+	public void setCommentuser(User commentuser) {
+		this.commentuser = commentuser;
 	}
 	public String getString() {
-		return String;
+		return commenttime;
 	}
-	public void setString(String string) {
-		String = string;
+	public void setString(String commenttime) {
+		this.commenttime = commenttime;
 	}
 	public String getOrder() {
 		return order;
@@ -81,8 +81,8 @@ public class Comment {
 	@Override
 	public String toString() {
 		return "Comment [pk_comment=" + pk_comment + ", question=" + question
-				+ ", text=" + text + ", commetuser=" + commetuser + ", String="
-				+ String + ", order=" + order + ", dr=" + dr + "]";
+				+ ", text=" + text + ", commentuser=" + commentuser + ", commenttime="
+				+ commenttime + ", order=" + order + ", dr=" + dr + "]";
 	} 
 	
 }

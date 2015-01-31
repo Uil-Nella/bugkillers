@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.bugkillers.back.comment.dao.CommentMapper">
+
+	<insert id="save" parameterType="org.bugkillers.back.bean.Comment"
+		keyColumn="pk_comment" keyProperty="pk_comment" useGeneratedKeys="true">
+		insert into comment
+		(pk_user,name,nickname,password,email,dr,registtime,logintime,headpic)
+		values(#{pk_user},#{name},#{nickname},#{password},#{email},#{dr},#{registtime},#{logintime},#{headpic})
+	</insert>
+
+
+
+	<delete id="delete" parameterType="int">
+		delete from comment where
+		pk_comment
+		= #{pk_comment}
+	</delete>
+
+	<update id="update" parameterType="org.bugkillers.back.bean.Comment">
+		update comment set name =
+		#{name}
+		, nickname = #{nickname}, password = #{password}, email =
+		#{email}, dr
+		= #{dr}, registtime = #{registtime},
+		logintime =
+		#{logintime}, headpic = #{headpic} where pk_user = #{pk_user}
+	</update>
+
+	<select id="findByPk" parameterType="int" resultMap="CommentType">
+		select *
+		from comment where pk_comment= #{pk_comment}
+	</select>
+
+	<resultMap type="org.bugkillers.back.bean.Comment" id="CommentType">
+		<id property="pk_comment" column="pk_comment" />
+		<result property="text" column="text" />
+		<result property="commenttime" column="commenttime" />
+		<result property="order" column="order" />
+		<result property="dr" column="dr" />
+		<association property="commentuser" column="pk_commentuser"
+			select="getUserByPk" javaType="org.bugkillers.back.bean.User" />
+	</resultMap>
+
+	<!-- sql标签，用于标记常用的字符. -->
+	<sql id="userFileds">pk_user,name,nickname,password,email,dr,registtime,logintime,headpic</sql>
+
+	<!-- parameterType，参数类型 -->
+	<!-- resultType。返回类型 -->
+	<!-- id。唯一值，调用时使用。 -->
+	<select id="getUserByPk" resultMap="userResultMap"
+		parameterType="int"  >
+		<!-- //include标签，复用sql标签 -->
+		select *
+		from user
+		where
+		pk_user = #{pk_user}
+	</select>
+
+	<resultMap type="org.bugkillers.back.bean.User" id="userResultMap">
+		<id 	property="pk_user" 		column="pk_user" />
+		<result property="name" 		column="name" />
+		<result property="nickname" 		column="nickname"  />
+		<result property="password" 	column="password"  />
+		<result property="email" 	column="email"  />
+		<result property="dr" 	column="dr"  />
+		<result property="registtime" 	column="registtime"  />
+		<result property="logintime" 	column="logintime"  />
+		<result property="headpic" 	column="headpic"  />
+	</resultMap>
+
+	<select id="findAll" resultType="org.bugkillers.back.bean.Comment">
+		select * from comment
+	</select>
+
+</mapper>

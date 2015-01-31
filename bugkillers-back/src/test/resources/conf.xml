@@ -20,6 +20,7 @@
 	
 	<mappers>
 <mapper resource="org/bugkillers/back/bean/userMapper.xml"/>
+<mapper class="org.bugkillers.back.comment.dao.CommentMapper"/>
 </mappers>
 	
 </configuration>
