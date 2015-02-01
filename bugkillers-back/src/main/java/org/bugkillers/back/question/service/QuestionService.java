@@ -2,9 +2,9 @@ package org.bugkillers.back.question.service;
 
 import java.util.List;
 
-import org.bugkillers.back.bean.User;
+import org.bugkillers.back.bean.Question;
+import org.bugkillers.back.question.dao.QuestionMapper;
 import org.bugkillers.back.service.IService;
-import org.bugkillers.back.user.dao.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 /**
@@ -15,35 +15,35 @@ import org.springframework.stereotype.Service;
  * <p> @date 2015年1月27日 下午2:11:10
  * <p> @version 0.0.1
  */
-@Service("userService")
-public class QuestionService implements IService<User>{
+@Service("questionService")
+public class QuestionService implements IService<Question>{
 	@Autowired //注入
-	private UserMapper userMapper;
+	private QuestionMapper questionMapper;
 
 	@Override
-	public boolean save(User t) {
+	public boolean save(Question t) {
 		
-		return userMapper.save(t)==0?false:true;
+		return questionMapper.save(t)==0?false:true;
 	}
 
 	@Override
-	public boolean update(User t) {
-		return userMapper.update(t)==0?false:true;
+	public boolean update(Question t) {
+		return questionMapper.update(t)==0?false:true;
 	}
 
 	@Override
 	public boolean delete(int pk) {
-		return userMapper.delete(pk)==0?false:true;
+		return questionMapper.delete(pk)==0?false:true;
 	}
 
 	@Override
-	public User findByPk(int pk) {
-		return userMapper.findByPk(pk);
+	public Question findByPk(int pk) {
+		return questionMapper.findByPk(pk);
 	}
 
 	@Override
-	public List<User> findAll() {
-		return userMapper.findAll();
+	public List<Question> findAll() {
+		return questionMapper.findAll();
 	}
 	
 	

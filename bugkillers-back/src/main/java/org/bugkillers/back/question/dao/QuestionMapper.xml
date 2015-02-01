@@ -18,19 +18,27 @@
 	</update>
 
 	<select id="findByPk" parameterType="int"
-		resultType="org.bugkillers.back.bean.User" resultMap="QuestionReSultMap">
-		select * from question where pk_question= #{pk_question}
+		 resultMap="tagQuestionMap">
+		select q.pk_question,q.createtime, t.pk_tag ,t.name
+		from question q left join tag_question tq on q.pk_question=tq.pk_question  
+        left join tag t on tq.pk_tag=t.pk_tag where q.pk_question = #{pk_question}  
 	</select>
+	
+
+	<resultMap type="org.bugkillers.back.bean.Question" id="tagQuestionMap" extends="QuestionReSultMap">  
+        <collection property="tags" ofType="org.bugkillers.back.bean.Tag">  
+            <id property="pk_tag" column="pk_tag" />  
+            <result property="name" column="name" />  
+        </collection>  
+    </resultMap>  
 	
 	 <resultMap type="org.bugkillers.back.bean.Question" id="QuestionReSultMap">  
         <id column="pk_question" property="pk_question"/> 
         <result column="createtime" property="createtime"/>  
         <association property="createuser" column="createuser"
 			select="getUserByPk" javaType="org.bugkillers.back.bean.User" /> 
-        <collection property="tags" ofType="org.bugkillers.back.bean.Tag" column="pk_tag" select="org.bugkillers.back.tag.dao.TagMapper.findByPk">  
-            <id column="pk_tag" property="pk_tag"/>  
-            <result column="name" property="name"/>  
-        </collection>  
+          <association property="updateuser" column="updateuser"
+			select="getUserByPk" javaType="org.bugkillers.back.bean.User" />
           
     </resultMap> 
 	
