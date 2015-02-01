@@ -18,8 +18,8 @@
 	</update>
 
 	<select id="findByPk" parameterType="int"
-		resultType="org.bugkillers.back.bean.User">
-		select * from user where pk_user= #{pk_user}
+		resultType="org.bugkillers.back.bean.User" resultMap="QuestionReSultMap">
+		select * from question where pk_question= #{pk_question}
 	</select>
 	
 	 <resultMap type="org.bugkillers.back.bean.Question" id="QuestionReSultMap">  
@@ -27,9 +27,9 @@
         <result column="createtime" property="createtime"/>  
         <association property="createuser" column="createuser"
 			select="getUserByPk" javaType="org.bugkillers.back.bean.User" /> 
-        <collection property="tags" ofType="org.bugkillers.back.bean.Tag" column="pid">  
-            <id column="o_id" property="id"/>  
-            <result column="price" property="price"/>  
+        <collection property="tags" ofType="org.bugkillers.back.bean.Tag" column="pk_tag" select="org.bugkillers.back.tag.dao.TagMapper.findByPk">  
+            <id column="pk_tag" property="pk_tag"/>  
+            <result column="name" property="name"/>  
         </collection>  
           
     </resultMap> 
