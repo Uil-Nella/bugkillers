@@ -12,6 +12,7 @@
 * 项目CI平台使用jenkins。
 * 安全权限框架---待定。
 * 加密解密算法
+
 ###前段架构
 * bootstrap ui
 * AngularJS mvvm
