@@ -19,7 +19,7 @@
 
 	<select id="findByPk" parameterType="int"
 		 resultMap="tagQuestionMap">
-		select q.pk_question,q.createtime, t.pk_tag ,t.name
+		select q.pk_question,q.createtime,q.updatetime,q.createuser,q.updateuser,q.lookedtimes,q.dr,q.text, t.pk_tag ,t.name
 		from question q left join tag_question tq on q.pk_question=tq.pk_question  
         left join tag t on tq.pk_tag=t.pk_tag where q.pk_question = #{pk_question}  
 	</select>
@@ -35,6 +35,11 @@
 	 <resultMap type="org.bugkillers.back.bean.Question" id="QuestionReSultMap">  
         <id column="pk_question" property="pk_question"/> 
         <result column="createtime" property="createtime"/>  
+        <result column="updatetime" property="updatetime"/>  
+        <result column="lookedtimes" property="lookedtimes"/>  
+        <result column="dr" property="dr"/>  
+        <result column="text" property="text"/>  
+        
         <association property="createuser" column="createuser"
 			select="getUserByPk" javaType="org.bugkillers.back.bean.User" /> 
           <association property="updateuser" column="updateuser"
