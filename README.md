@@ -4,6 +4,7 @@
 * 官网：http://bugkillers.org
 * 团队：bugkiller、lxy
 * 代码托管：https://github.com/qq291462491/bugkillers/
+
 ###后端架构
 * 后端采用Springmvc + Mybatis持久化操作.
 * 基于RESTful的访问API，json交互。
