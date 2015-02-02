@@ -1,0 +1,52 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>org.bugkillers</groupId>
+	<artifactId>bugkillers-web</artifactId>
+	<packaging>war</packaging>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>bugkillers-web Maven Webapp</name>
+	<url>http://maven.apache.org</url>
+	
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<jetty.version>8.1.8.v20121106</jetty.version>
+	</properties>
+	<dependencies>
+	</dependencies>
+	<build>
+		<finalName>bugkillers-web</finalName>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.mortbay.jetty</groupId>
+					<artifactId>jetty-maven-plugin</artifactId>
+					<version>${jetty.version}</version>
+					<configuration>
+						<reload>manual</reload>
+						<!--<scanIntervalSeconds>2</scanIntervalSeconds> -->
+						<stopPort>9999</stopPort>
+						<webAppConfig>
+							<!-- 去掉前缀参数${project.build.finalName} -->
+							<contextPath>/</contextPath>
+						</webAppConfig>
+						<connectors>
+							<connector implementation="org.eclipse.jetty.server.nio.SelectChannelConnector">
+								<port>9082</port>
+								<!--<maxIdleTime>60000</maxIdleTime> -->
+							</connector>
+						</connectors>
+						<!-- spring profile -->
+						<systemProperties>
+							<systemProperty>
+								<name>spring.profiles.active</name>
+								<value>development</value>
+							</systemProperty>
+						</systemProperties>
+					</configuration>
+				</plugin>
+				</plugins>
+		</pluginManagement>
+
+	</build>
+</project>
