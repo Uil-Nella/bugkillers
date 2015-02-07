@@ -325,35 +325,45 @@ ul#nav li.current a { color: #F06000; }
    border-radius: 3px 0 0 3px;
 }
 
-.photoshop {
-  	width: 60%;
-  	-moz-animation: photoshop 2s ease;
-  	-webkit-animation: photoshop 2s ease;
-}
-.illustrator {
-  	width: 55%;
-  	-moz-animation: illustrator 2s ease;
-  	-webkit-animation: illustrator 2s ease;
-}
-.wordpress {
-  	width: 50%;
-  	-moz-animation: wordpress 2s ease;
-  	-webkit-animation: wordpress 2s ease;
-}
-.css {
-  	width: 90%;
-  	-moz-animation: css 2s ease;
-  	-webkit-animation: css 2s ease;
-}
-.html5 {
+.java {
   	width: 80%;
-  	-moz-animation: html5 2s ease;
-  	-webkit-animation: html5 2s ease;
+  	-moz-animation: java 2s ease;
+  	-webkit-animation: java 2s ease;
 }
-.jquery {
+.git {
+  	width: 85%;
+  	-moz-animation: git 2s ease;
+  	-webkit-animation: git 2s ease;
+}
+.maven {
+  	width: 70%;
+  	-moz-animation: maven 2s ease;
+  	-webkit-animation: maven 2s ease;
+}
+.spring {
+  	width: 70%;
+  	-moz-animation: spring 2s ease;
+  	-webkit-animation: spring 2s ease;
+}
+.patten {
+  	width: 60%;
+  	-moz-animation: patten 2s ease;
+  	-webkit-animation: patten 2s ease;
+}
+.linux {
   	width: 50%;
-  	-moz-animation: jquery 2s ease;
-  	-webkit-animation: jquery 2s ease;
+  	-moz-animation: linux 2s ease;
+  	-webkit-animation: linux 2s ease;
+}
+.python {
+  	width: 40%;
+  	-moz-animation: python 2s ease;
+  	-webkit-animation: python 2s ease;
+}
+.mybatis {
+  	width: 40%;
+  	-moz-animation: mybatis 2s ease;
+  	-webkit-animation: mybatis 2s ease;
 }
 
 @-moz-keyframes photoshop {
@@ -633,66 +643,53 @@ call-to-action .button {
 /* ------------------------------------------------------------------
 /* g. Testimonials
 /* ------------------------------------------------------------------ */
-
 #testimonials {
-   background: #1F1F1F url(../images/testimonials-bg.jpg) no-repeat center center;
-   background-size: cover !important;
-	-webkit-background-size: cover !important;
-   background-attachment: fixed;
-
-   position: relative;
-   min-height: 200px;
-   width: 100%;
+   background: #fff;
+   padding-top: 90px;
+   padding-bottom: 72px;
    overflow: hidden;
 }
-#testimonials .text-container {
-   padding-top: 96px;
-   padding-bottom: 66px;
-}
+
+#testimonials a, #testimonials a:visited  { color: #11ABB0; }
+#testimonials a:hover, #testimonials a:focus { color: #313131; }
+
 #testimonials h1 {
-   font: 18px/24px 'opensans-bold', sans-serif;   
+   font: 18px/24px 'opensans-bold', sans-serif;
    text-transform: uppercase;
-   letter-spacing: 3px;
-   color: #fff;
+   letter-spacing: 1px;
 }
-#testimonials h1 span { display: none; }
-#testimonials .header-col { padding-top: 9px; }
-#testimonials .header-col h1:before {
-   font-family: 'FontAwesome';
-   content: "\f10d";
-	padding-right: 10px;
-	font-size: 72px;
-   line-height: 72px;
-   text-align: left;
-   float: left;
-   color: #fff;
+#testimonials h1 span {
+   border-bottom: 3px solid #11ABB0;
+   padding-bottom: 6px;
+}
+#testimonials h3 {
+   font: 25px/30px 'opensans-bold', sans-serif;
 }
 
-/*	Blockquotes */
-#testimonials blockquote {
-   margin: 0 0px 30px 0px;
-   padding-left: 0;
-   position: relative;
-   text-shadow: 0px 1px 3px rgba(0, 0, 0, 1);
+#testimonials .header-col { padding-top: 9px; }
+#testimonials .main-col { padding-right: 10%; }
+
+.education, .work {
+   margin-bottom: 48px;
+   padding-bottom: 24px;
+   border-bottom: 1px solid #E8E8E8;
 }
-#testimonials blockquote:before { content: none; }
-#testimonials blockquote p {
-   font-family: 'librebaskerville-italic', serif;
-   padding: 0;
-   font-size: 24px;
-   line-height: 48px;
-   color: #fff
+#testimonials .info {
+   font: 16px/24px 'librebaskerville-italic', serif;
+   color: #6E7881;
+   margin-bottom: 18px;
+   margin-top: 9px;
 }
-#testimonials blockquote cite {
-   display: block;
-   font-size: 12px;
-   font-style: normal;
-   line-height: 18px;
-   color: #fff;
+#testimonials .info span {
+   margin-right: 5px;
+   margin-left: 5px;
 }
-#testimonials blockquote cite:before { content: "\2014 \0020"; }
-#testimonials blockquote cite a,
-#testimonials blockquote cite a:visited { color: #8B9798; border: none }
+#testimonials .date {
+   font: 15px/24px 'opensans-regular', sans-serif;
+   margin-top: 6px;
+}
+
+
 
 /* Flex Slider
 /* ------------------------------------------------------------------ */
