@@ -24,7 +24,7 @@
 		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
 		<property name="url" value="jdbc:mysql://115.29.170.213:3306/lxy?useUnicode=true&amp;characterEncoding=utf8" />
 		<property name="username" value="root" />
-		<property name="password" value="LIUxinyu0718" />
+		<property name="password" value="******" />
 	</bean>
 	<!-- 2. mybatis 的SqlSession 的工厂: SqlSessionFactoryBean -->
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
