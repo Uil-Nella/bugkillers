@@ -19,5 +19,11 @@ public class DispatchController {
 	public String job(){
 		return "index.html";
 	}
+	
+	//TODO 
+		@RequestMapping("/job/send")
+		public String send(){
+			return "OK";
+		}
 
 }
