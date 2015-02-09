@@ -14,13 +14,15 @@
 * 项目CI平台使用jenkins。
 * 安全权限框架---待定。
 * 加密解密算法
+* 使用Mencache和Redis缓存
 
 ###前段架构
 * bootstrap ui
 * AngularJS mvvm
+* CDN静态加速
 
 
 ###服务器
 * CentOS6.3阿里云服务器
-* Web容器Tomcat
+* Web容器Tomcat，Ngnix做反向
 * Mysql5.5  
