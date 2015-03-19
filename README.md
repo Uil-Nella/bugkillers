@@ -15,6 +15,8 @@
 * 安全权限框架---待定。
 * 加密解密算法
 * 使用Mencache和Redis缓存
+* 使用Python的Django框架定时在像StackOverflow类似的网站抓取问题，并管理。
+
 
 ###前段架构
 * bootstrap ui
