@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+     http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd
+     http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.5.xsd
+     http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+     http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd
+     http://www.springframework.org/schema/lang http://www.springframework.org/schema/lang/spring-lang-2.5.xsd
+     http://activemq.apache.org/schema/core http://activemq.apache.org/schema/core/activemq-core-5.4.2.xsd
+     http://www.springframework.org/schema/util
+     http://www.springframework.org/schema/util/spring-util-4.1.xsd">
+
+    <!--<bean id="configProperties" class="org.springframework.beans.factory.config.PropertiesFactoryBean">-->
+        <!--<property name="locations">-->
+            <!--<list>-->
+                <!--<value>classpath*:*.properties</value>-->
+            <!--</list>-->
+        <!--</property>-->
+    <!--</bean>-->
+
+    <!--&lt;!&ndash; 使用annotation 自动注册bean, 并保证@Required、@Autowired的属性被注入&ndash;&gt;-->
+    <!--<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">-->
+        <!--<property name="basePackage" value="com.meituan.hotel.goods.dao.db" />-->
+    <!--</bean>-->
+
+    <!--<context:annotation-config/>-->
+    <!--<context:component-scan base-package="com.meituan.hotel.goods">-->
+        <!--<context:exclude-filter type="annotation"-->
+                                <!--expression="org.springframework.stereotype.Controller" />-->
+        <!--<context:exclude-filter type="annotation"-->
+                                <!--expression="org.springframework.web.servlet.config.annotation.EnableWebMvc" />-->
+    <!--</context:component-scan>-->
+    <!--<bean class="org.springframework.context.annotation.CommonAnnotationBeanPostProcessor"/>-->
+
+    <!--<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">-->
+        <!--<property name="basePackage" value="com.meituan.hotel.goods.dao.db" />-->
+    <!--</bean>-->
+
+    <!--<import resource="spring/dao/mysql-datasource.xml"/>-->
+    <!--<import resource="spring/mq/rabbitmq.xml"/>-->
+    <!--<import resource="spring/mq/activemq.xml"/>-->
+    <!--<import resource="spring-mvc-context.xml"/>-->
+
+    <!--&lt;!&ndash;thrift相关&ndash;&gt;-->
+    <!--<import resource="spring/thrift/thrift-server.xml"/>-->
+    <!--<import resource="spring/thrift/thrift-client.xml"/>-->
+
+    <!--&lt;!&ndash;service相关&ndash;&gt;-->
+    <!--<import resource="spring/service/biz-service.xml"/>-->
+    <!--<import resource="spring/service/medis-service.xml"/>-->
+    <!--<import resource="spring/service/memcache-service.xml"/>-->
+
+    <!--&lt;!&ndash;task相关&ndash;&gt;-->
+    <!--<import resource="spring/task/memcache-timer-task.xml"/>-->
+
+    <!--&lt;!&ndash;solr相关&ndash;&gt;-->
+    <!--<import resource="spring/solr/solr.xml"/>-->
+
+    <!--&lt;!&ndash;加载SpringContextHolder&ndash;&gt;-->
+    <!--<bean class="com.meituan.hotel.goods.utils.SpringContextHolder" lazy-init="false"/>-->
+    <!--&lt;!&ndash;  dozer配置  &ndash;&gt;-->
+    <!--<bean id="dozer" class="org.dozer.spring.DozerBeanMapperFactoryBean"-->
+          <!--scope="singleton">-->
+        <!--<property name="mappingFiles">-->
+            <!--<list>-->
+                <!--<value>classpath*:/dozer/dozer-config.xml</value>-->
+                <!--<value>classpath*:/dozer/mapping/*.xml</value>-->
+            <!--</list>-->
+        <!--</property>-->
+    <!--</bean>-->
+
+    <!--<context:component-scan base-package="com.meituan.hotel.common.logman">-->
+    <!--</context:component-scan>-->
+    <!--<util:properties id="emailProperties" location="classpath:logman/logman.properties"/>-->
+
+</beans>

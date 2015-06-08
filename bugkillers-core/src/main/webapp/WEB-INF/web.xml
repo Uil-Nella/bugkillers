@@ -6,13 +6,13 @@
         version="3.0"
         metadata-complete="false">
 
-    <display-name>bugkillers-back</display-name>
+    <display-name>bugkillers-core</display-name>
 
     <!-- Spring配置文件开始  -->
      <context-param>
          <param-name>contextConfigLocation</param-name>
          <param-value>
-             classpath:spring-config.xml
+             classpath:spring/spring/spring-config.xml
          </param-value>
      </context-param>
      <listener>
@@ -52,7 +52,7 @@
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
         <init-param>
             <param-name>contextConfigLocation</param-name>
-            <param-value>classpath:spring-mvc.xml</param-value>
+            <param-value>classpath:spring/mvc/spring-mvc.xml</param-value>
         </init-param>
         <load-on-startup>1</load-on-startup>
         <async-supported>true</async-supported>
