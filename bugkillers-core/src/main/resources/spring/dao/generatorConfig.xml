@@ -8,9 +8,11 @@
     <!--指定特定数据库的jdbc驱动jar包的位置 -->
     <classPathEntry location="${jdbc.driverLocation}"/>
     <context id="default" targetRuntime="MyBatis3">
+        <!--防止亂碼-->
+        <property name="javaFileEncoding" value="UTF-8"/>
         <!-- optional，旨在创建class时，对注释进行控制 -->
         <commentGenerator>
-            <property name="suppressDate" value="true"/>
+            <property name="suppressDate" value="false"/>
         </commentGenerator>
         <!--jdbc的数据库连接 -->
         <jdbcConnection driverClass="${jdbc.driverClass}" connectionURL="${jdbc.connectionURL}" userId="${jdbc.userId}"
@@ -75,9 +77,9 @@
         </javaClientGenerator>
 
 
-        <table tableName="bk_user" schema="bugkillers" domainObjectName="UserDO" enableCountByExample="true" enableUpdateByExample="true"
-               enableDeleteByExample="true" enableSelectByExample="true"
-               selectByExampleQueryId="true">
+        <table tableName="bk_user" schema="bugkillers" domainObjectName="UserDO" enableCountByExample="false" enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false" >
             <!-- optional   , only for mybatis3 runtime
                  自动生成的键值（identity,或者序列值）
                如果指定此元素，MBG将会生成<selectKey>元素，然后将此元素插入到SQL Map的<insert> 元素之中
@@ -122,17 +124,17 @@
             -->
             <!--<columnOverride column="" javaType="" jdbcType="" typeHandler="" delimitedColumnName=""/>-->
         </table>
-        <table tableName="bk_tag" schema="bugkillers" domainObjectName="TagDO" enableCountByExample="true" enableUpdateByExample="true"
-               enableDeleteByExample="true" enableSelectByExample="true"
-               selectByExampleQueryId="true">
+        <table tableName="bk_tag" schema="bugkillers" domainObjectName="TagDO" enableCountByExample="false" enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false">
         </table>
-        <table tableName="bk_question" schema="bugkillers" domainObjectName="QuestionDO" enableCountByExample="true" enableUpdateByExample="true"
-               enableDeleteByExample="true" enableSelectByExample="true"
-               selectByExampleQueryId="true">
+        <table tableName="bk_question" schema="bugkillers" domainObjectName="QuestionDO" enableCountByExample="false" enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false">
         </table>
-        <table tableName="bk_comment" schema="bugkillers" domainObjectName="CommentDO" enableCountByExample="true" enableUpdateByExample="true"
-               enableDeleteByExample="true" enableSelectByExample="true"
-               selectByExampleQueryId="true">
+        <table tableName="bk_comment" schema="bugkillers" domainObjectName="CommentDO" enableCountByExample="false" enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false">
         </table>
     </context>
 </generatorConfiguration>
