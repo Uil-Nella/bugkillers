@@ -12,7 +12,6 @@ public class CommentDO {
     private Integer userId;
     private Date createTime;
     private Date updateTime;
-    private Integer order;
     private Integer dr;
     private Date bkCreate;
     private Date bkModefied;
@@ -63,14 +62,6 @@ public class CommentDO {
 
     public void setUpdateTime(Date updateTime) {
         this.updateTime = updateTime;
-    }
-
-    public Integer getOrder() {
-        return order;
-    }
-
-    public void setOrder(Integer order) {
-        this.order = order;
     }
 
     public Integer getDr() {
