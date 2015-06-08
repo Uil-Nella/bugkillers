@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx" xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="
+    http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd
+    http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+    http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-3.0.xsd
+    http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
+    http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd"
+       default-autowire="byName">
+
+    <!-- context:property-placeholder location="classpath:mysql.properties"
+        / -->
+    <!-- 定义使用C3P0连接池的数据源(产品中心) -->
+    <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+        <!-- 指定连接数据库的JDBC驱动 -->
+        <property name="driverClass">
+            <value>com.mysql.jdbc.Driver</value>
+        </property>
+        <!-- 连接数据库所用的URL -->
+        <property name="jdbcUrl">
+            <value>jdbc:mysql://192.168.22.129/bugkillers?useUnicode=true&amp;characterEncoding=UTF8&amp;connectTimeout=5000&amp;socketTimeout=10000</value>
+        </property>
+        <!-- 连接数据库的用户名 -->
+        <property name="user">
+            <value>lxy</value>
+        </property>
+        <!-- 连接数据库的密码 -->
+        <property name="password">
+            <value>lxy</value>
+        </property>
+        <!-- 设置数据库连接池的最大连接数 -->
+        <property name="maxPoolSize">
+            <value>20</value>
+        </property>
+        <!-- 设置数据库连接池的最小连接数 -->
+        <property name="minPoolSize">
+            <value>3</value>
+        </property>
+        <!-- 设置数据库连接池的初始化连接数 -->
+        <property name="initialPoolSize">
+            <value>10</value>
+        </property>
+        <!-- 设置数据库连接池的连接的最大空闲时间,单位为秒 -->
+        <property name="maxIdleTime">
+            <value>600</value>
+        </property>
+
+        <property name="preferredTestQuery" value="SELECT 1 FROM DUAL"/>
+
+    </bean>
+
+    <!-- 定义使用C3P0连接池的数据源(同步预付数据库连接使用) -->
+    <bean id="synchronizedPrepayForDataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+        <!-- 指定连接数据库的JDBC驱动 -->
+        <property name="driverClass">
+            <value>com.mysql.jdbc.Driver</value>
+        </property>
+        <!-- 连接数据库所用的URL -->
+        <property name="jdbcUrl">
+            <value>jdbc:mysql://192.168.11.84/mta?useUnicode=true&amp;characterEncoding=UTF8&amp;connectTimeout=5000&amp;socketTimeout=10000&amp;allowMultiQueries=true</value>
+        </property>
+        <!-- 连接数据库的用户名 -->
+        <property name="user">
+            <value>hotel</value>
+        </property>
+        <!-- 连接数据库的密码 -->
+        <property name="password">
+            <value>123</value>
+        </property>
+        <!-- 设置数据库连接池的最大连接数 -->
+        <property name="maxPoolSize">
+            <value>20</value>
+        </property>
+        <!-- 设置数据库连接池的最小连接数 -->
+        <property name="minPoolSize">
+            <value>3</value>
+        </property>
+        <!-- 设置数据库连接池的初始化连接数 -->
+        <property name="initialPoolSize">
+            <value>10</value>
+        </property>
+        <!-- 设置数据库连接池的连接的最大空闲时间,单位为秒 -->
+        <property name="maxIdleTime">
+            <value>600</value>
+        </property>
+
+        <property name="preferredTestQuery" value="SELECT 1 FROM DUAL"/>
+    </bean>
+
+    <!-- 配置动态数据源 -->
+    <bean id="dynamicDataSource" class="org.bugkillers.core.config.datesource.DynamicDataSource">
+        <!-- 通过key-value的形式来关联数据源 -->
+        <property name="defaultTargetDataSource" ref="dataSource"/>
+        <property name="targetDataSources">
+            <map key-type="java.lang.String">
+                <entry key="dataSource" value-ref="dataSource"/>
+                <entry key="synchronizedPrepayForDataSource" value-ref="synchronizedPrepayForDataSource"/>
+            </map>
+        </property>
+    </bean>
+
+    <!-- jdbcTemplate -->
+    <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+
+    <!-- 集成myBaits框架,配置sqlSessionFatory -->
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="configLocation" value="classpath:spring/dao/mybatis-config.xml"/>
+        <property name="dataSource" ref="dynamicDataSource"/>
+    </bean>
+
+    <!-- 配置sqlSessionTemplate -->
+    <bean id="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
+        <constructor-arg name="sqlSessionFactory" ref="sqlSessionFactory"/>
+    </bean>
+
+    <!-- 数据库的事务管理器配置 -->
+    <bean id="transactionManager"
+          class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dynamicDataSource"/>
+    </bean>
+
+    <tx:annotation-driven transaction-manager="transactionManager"/>
+
+    <bean id="batchSqlSession" class="org.mybatis.spring.SqlSessionTemplate">
+        <constructor-arg index="0" ref="sqlSessionFactory"/>
+        <constructor-arg index="1" value="BATCH"/>
+    </bean>
+</beans>

@@ -62,6 +62,11 @@
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
+            <artifactId>spring-orm</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
             <artifactId>spring-jdbc</artifactId>
             <version>${spring.version}</version>
         </dependency>
@@ -133,7 +138,20 @@
             <artifactId>commons-io</artifactId>
             <version>2.4</version>
         </dependency>
+        <!--mysql -->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>5.1.16</version>
+        </dependency>
+        <dependency>
+            <groupId>c3p0</groupId>
+            <artifactId>c3p0</artifactId>
+            <version>0.9.1.2</version>
+        </dependency>
+
     </dependencies>
+
     <build>
         <finalName>${project.artifactId}</finalName>
         <pluginManagement>
