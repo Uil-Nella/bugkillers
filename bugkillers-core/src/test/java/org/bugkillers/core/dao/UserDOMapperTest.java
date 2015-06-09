@@ -30,4 +30,8 @@ public class UserDOMapperTest extends AbstractJunitTest {
         user.setRegistTime(new Date());
         userDOMapper.insert(user);
     }
+
+    @Test
+    public void updateTest(){
+    }
 }

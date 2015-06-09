@@ -46,7 +46,7 @@ public class QuestionDO {
     /**
      *  1=正常  2=删除,所属表字段为bk_question.dr
      */
-    private Byte dr;
+    private Integer dr;
 
     /**
      * 获取 主键 字段:bk_question.id
@@ -197,7 +197,7 @@ public class QuestionDO {
      *
      * @return bk_question.dr, 1=正常  2=删除
      */
-    public Byte getDr() {
+    public Integer getDr() {
         return dr;
     }
 
@@ -206,7 +206,7 @@ public class QuestionDO {
      *
      * @param dr bk_question.dr, 1=正常  2=删除
      */
-    public void setDr(Byte dr) {
+    public void setDr(Integer dr) {
         this.dr = dr;
     }
 }

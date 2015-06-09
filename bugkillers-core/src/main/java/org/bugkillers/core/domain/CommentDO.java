@@ -46,7 +46,7 @@ public class CommentDO {
     /**
      *  1=正常  2=删除,所属表字段为bk_comment.dr
      */
-    private Byte dr;
+    private Integer dr;
 
     /**
      * 获取 主键 字段:bk_comment.id
@@ -197,7 +197,7 @@ public class CommentDO {
      *
      * @return bk_comment.dr, 1=正常  2=删除
      */
-    public Byte getDr() {
+    public Integer getDr() {
         return dr;
     }
 
@@ -206,7 +206,7 @@ public class CommentDO {
      *
      * @param dr bk_comment.dr, 1=正常  2=删除
      */
-    public void setDr(Byte dr) {
+    public void setDr(Integer dr) {
         this.dr = dr;
     }
 }

@@ -56,7 +56,7 @@ public class UserDO {
     /**
      *  1=正常  2=删除,所属表字段为bk_user.dr
      */
-    private Byte dr;
+    private Integer dr;
 
     /**
      * 获取 主键 字段:bk_user.id
@@ -243,7 +243,7 @@ public class UserDO {
      *
      * @return bk_user.dr, 1=正常  2=删除
      */
-    public Byte getDr() {
+    public Integer getDr() {
         return dr;
     }
 
@@ -252,7 +252,7 @@ public class UserDO {
      *
      * @param dr bk_user.dr, 1=正常  2=删除
      */
-    public void setDr(Byte dr) {
+    public void setDr(Integer dr) {
         this.dr = dr;
     }
 }

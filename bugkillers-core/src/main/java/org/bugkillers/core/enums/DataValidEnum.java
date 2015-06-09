@@ -4,22 +4,22 @@ package org.bugkillers.core.enums;
  * Created by liuxinyu on 15/6/9.
  */
 public enum DataValidEnum {
-    VALID((byte) 1, "有效"),
-    INVALID((byte) 2, "无效");
+    VALID(1, "有效"),
+    INVALID( 2, "无效");
 
-    private byte index;
+    private int index;
     private String desc;
 
-    private DataValidEnum(byte index, String desc) {
+    private DataValidEnum(int index, String desc) {
         this.index = index;
         this.desc = desc;
     }
 
-    public byte getIndex() {
+    public int getIndex() {
         return index;
     }
 
-    public void setIndex(byte index) {
+    public void setIndex(int index) {
         this.index = index;
     }
 

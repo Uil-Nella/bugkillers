@@ -10,8 +10,10 @@ CREATE TABLE `bk_user` (
   `login_time` datetime NOT NULL,
   `bk_create` datetime NOT NULL,
   `bk_modified` datetime NOT NULL,
-  `dr` tinyint(4) unsigned NOT NULL DEFAULT '1' COMMENT '1=正常  2=删除',
-  PRIMARY KEY (`id`)
+  `dr` int(4) unsigned NOT NULL DEFAULT '1' COMMENT '1=正常  2=删除',
+  PRIMARY KEY (`id`),
+  UNIQUE `idx_user_name` (user_name),
+  UNIQUE `idx_email` (email)
 ) ENGINE=InnoDB CHARACTER SET=utf8 COMMENT='用户表';
 #问题表
 CREATE TABLE `bk_question` (
@@ -23,7 +25,7 @@ CREATE TABLE `bk_question` (
   `update_time` datetime NOT NULL,
   `bk_create` datetime NOT NULL,
   `bk_modified` datetime NOT NULL,
-  `dr` tinyint(4) unsigned NOT NULL DEFAULT '1' COMMENT '1=正常  2=删除',
+  `dr` int(4) unsigned NOT NULL DEFAULT '1' COMMENT '1=正常  2=删除',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB CHARACTER SET=utf8 COMMENT='问题表';
 #标签表
@@ -32,7 +34,7 @@ CREATE TABLE `bk_tag` (
   `tag_name` VARCHAR(50) NOT NULL COMMENT '标签名',
   `bk_create` datetime NOT NULL,
   `bk_modified` datetime NOT NULL,
-  `dr` tinyint(4) unsigned NOT NULL DEFAULT '1' COMMENT '1=正常  2=删除',
+  `dr` int(4) unsigned NOT NULL DEFAULT '1' COMMENT '1=正常  2=删除',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB CHARACTER SET=utf8 COMMENT='标签表';
 #评论表
@@ -45,6 +47,6 @@ CREATE TABLE `bk_comment` (
   `update_time` datetime NOT NULL,
   `bk_create` datetime NOT NULL,
   `bk_modified` datetime NOT NULL,
-  `dr` tinyint(4) unsigned NOT NULL DEFAULT '1' COMMENT '1=正常  2=删除',
+  `dr` int(4) unsigned NOT NULL DEFAULT '1' COMMENT '1=正常  2=删除',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB CHARACTER SET=utf8 COMMENT='评论表';
