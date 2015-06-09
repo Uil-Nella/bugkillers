@@ -1,6 +1,7 @@
 package org.bugkillers.core.service.impl;
 
 import org.apache.commons.collections.CollectionUtils;
+import org.apache.commons.lang.StringUtils;
 import org.bugkillers.core.dao.UserDOMapper;
 import org.bugkillers.core.domain.UserDO;
 import org.bugkillers.core.domain.UserDOExample;
@@ -65,6 +66,27 @@ public class UserServiceImpl implements IUserService {
      */
     @Override
     public boolean login(UserDO user) throws UserException {
+        //密码处理
+        user.setPassword(SecurityUtil.passAlgorithmsCiphering(user.getPassword(), SecurityUtil.MD5));
+        UserDOExample userDOExample = new UserDOExample();
+        if (StringUtils.isNotEmpty(user.getUserName())){
+            //使用用户名登录
+            userDOExample.or().andUserNameEqualTo(user.getUserName()).andPasswordEqualTo(user.getPassword());
+            List<UserDO> userDOs =  userDOMapper.selectByExample(userDOExample);
+            if (CollectionUtils.isNotEmpty(userDOs)){
+                return true;
+            }
+
+        }
+        if (StringUtils.isNotEmpty(user.getEmail())){
+            //使用邮箱登录
+            userDOExample = new UserDOExample();
+            userDOExample.or().andEmailEqualTo(user.getEmail()).andPasswordEqualTo(user.getPassword());
+            List<UserDO> userDOs =  userDOMapper.selectByExample(userDOExample);
+            if (CollectionUtils.isNotEmpty(userDOs)){
+                return true;
+            }
+        }
         return false;
     }
 }

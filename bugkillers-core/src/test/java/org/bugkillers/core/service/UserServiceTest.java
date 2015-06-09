@@ -40,6 +40,54 @@ public class UserServiceTest extends AbstractJunitTest{
         }
     }
 
+    /**
+     *用户名登录
+     */
+    @Test
+    public void login01(){
+        UserDO userDO = new UserDO();
+        userDO.setUserName("AllenX");
+        userDO.setPassword("pp");
+        try {
+            boolean b = userService.login(userDO);
+            Assert.assertNotNull(b);
+        } catch (UserException e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     *邮箱登录
+     */
+    @Test
+    public void login02(){
+        UserDO userDO = new UserDO();
+        userDO.setEmail("liuxy1@meituan.com");
+        userDO.setPassword("pp");
+        try {
+            boolean b = userService.login(userDO);
+            Assert.assertNotNull(b);
+        } catch (UserException e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     *错误登录
+     */
+    @Test
+    public void login03(){
+        UserDO userDO = new UserDO();
+        userDO.setEmail("liuxy1@meituan.com");
+        userDO.setPassword("ppp");
+        try {
+            boolean b = userService.login(userDO);
+            Assert.assertNotNull(b);
+        } catch (UserException e) {
+            e.printStackTrace();
+        }
+    }
+
     public UserDO getUserDO(){
         UserDO user = new UserDO();
         user.setDr(DataValidEnum.VALID.getIndex());
