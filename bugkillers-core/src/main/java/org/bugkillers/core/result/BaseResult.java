@@ -4,7 +4,7 @@ package org.bugkillers.core.result;
  * 抽象的返回结果
  * Created by liuxinyu on 15/6/9.
  */
-public abstract  class BaseResult<T> {
+public class BaseResult<T> {
     /**
      * 返回标示位
      */
