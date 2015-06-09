@@ -58,15 +58,15 @@
     <!--&lt;!&ndash;加载SpringContextHolder&ndash;&gt;-->
     <!--<bean class="com.meituan.hotel.goods.utils.SpringContextHolder" lazy-init="false"/>-->
     <!--&lt;!&ndash;  dozer配置  &ndash;&gt;-->
-    <!--<bean id="dozer" class="org.dozer.spring.DozerBeanMapperFactoryBean"-->
-          <!--scope="singleton">-->
-        <!--<property name="mappingFiles">-->
-            <!--<list>-->
-                <!--<value>classpath*:/dozer/dozer-config.xml</value>-->
+    <bean id="dozer" class="org.dozer.spring.DozerBeanMapperFactoryBean"
+          scope="singleton">
+        <property name="mappingFiles">
+            <list>
+                <value>classpath*:/dozer/dozer-config.xml</value>
                 <!--<value>classpath*:/dozer/mapping/*.xml</value>-->
-            <!--</list>-->
-        <!--</property>-->
-    <!--</bean>-->
+            </list>
+        </property>
+    </bean>
 
     <!--<context:component-scan base-package="com.meituan.hotel.common.logman">-->
     <!--</context:component-scan>-->
