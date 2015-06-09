@@ -7,5 +7,6 @@
     </settings>
     <mappers>
         <!--此处配置mapper文件-->
+        <mapper resource="spring/dao/mapper/UserDOMapper.xml"/>
     </mappers>
 </configuration>

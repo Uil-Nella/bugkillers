@@ -49,27 +49,21 @@ public class CommentDO {
     private Byte dr;
 
     /**
-     *  构造查询条件,bk_comment
-     */
-    public CommentDO(Integer id, Integer questionId, Integer userId, String commentText, Date createTime, Date updateTime, Date bkCreate, Date bkModified, Byte dr) {
-        this.id = id;
-        this.questionId = questionId;
-        this.userId = userId;
-        this.commentText = commentText;
-        this.createTime = createTime;
-        this.updateTime = updateTime;
-        this.bkCreate = bkCreate;
-        this.bkModified = bkModified;
-        this.dr = dr;
-    }
-
-    /**
      * 获取 主键 字段:bk_comment.id
      *
      * @return bk_comment.id, 主键
      */
     public Integer getId() {
         return id;
+    }
+
+    /**
+     * 设置 主键 字段:bk_comment.id
+     *
+     * @param id bk_comment.id, 主键
+     */
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     /**
@@ -82,12 +76,30 @@ public class CommentDO {
     }
 
     /**
+     * 设置 问题主键 字段:bk_comment.question_id
+     *
+     * @param questionId bk_comment.question_id, 问题主键
+     */
+    public void setQuestionId(Integer questionId) {
+        this.questionId = questionId;
+    }
+
+    /**
      * 获取 问题所属者主键 字段:bk_comment.user_id
      *
      * @return bk_comment.user_id, 问题所属者主键
      */
     public Integer getUserId() {
         return userId;
+    }
+
+    /**
+     * 设置 问题所属者主键 字段:bk_comment.user_id
+     *
+     * @param userId bk_comment.user_id, 问题所属者主键
+     */
+    public void setUserId(Integer userId) {
+        this.userId = userId;
     }
 
     /**
@@ -100,12 +112,30 @@ public class CommentDO {
     }
 
     /**
+     * 设置 评论正文 字段:bk_comment.comment_text
+     *
+     * @param commentText bk_comment.comment_text, 评论正文
+     */
+    public void setCommentText(String commentText) {
+        this.commentText = commentText == null ? null : commentText.trim();
+    }
+
+    /**
      * 获取  字段:bk_comment.create_time
      *
      * @return bk_comment.create_time, 
      */
     public Date getCreateTime() {
         return createTime;
+    }
+
+    /**
+     * 设置  字段:bk_comment.create_time
+     *
+     * @param createTime bk_comment.create_time, 
+     */
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
     }
 
     /**
@@ -118,12 +148,30 @@ public class CommentDO {
     }
 
     /**
+     * 设置  字段:bk_comment.update_time
+     *
+     * @param updateTime bk_comment.update_time, 
+     */
+    public void setUpdateTime(Date updateTime) {
+        this.updateTime = updateTime;
+    }
+
+    /**
      * 获取  字段:bk_comment.bk_create
      *
      * @return bk_comment.bk_create, 
      */
     public Date getBkCreate() {
         return bkCreate;
+    }
+
+    /**
+     * 设置  字段:bk_comment.bk_create
+     *
+     * @param bkCreate bk_comment.bk_create, 
+     */
+    public void setBkCreate(Date bkCreate) {
+        this.bkCreate = bkCreate;
     }
 
     /**
@@ -136,11 +184,29 @@ public class CommentDO {
     }
 
     /**
+     * 设置  字段:bk_comment.bk_modified
+     *
+     * @param bkModified bk_comment.bk_modified, 
+     */
+    public void setBkModified(Date bkModified) {
+        this.bkModified = bkModified;
+    }
+
+    /**
      * 获取 1=正常  2=删除 字段:bk_comment.dr
      *
      * @return bk_comment.dr, 1=正常  2=删除
      */
     public Byte getDr() {
         return dr;
+    }
+
+    /**
+     * 设置 1=正常  2=删除 字段:bk_comment.dr
+     *
+     * @param dr bk_comment.dr, 1=正常  2=删除
+     */
+    public void setDr(Byte dr) {
+        this.dr = dr;
     }
 }

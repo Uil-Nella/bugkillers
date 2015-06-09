@@ -49,27 +49,21 @@ public class QuestionDO {
     private Byte dr;
 
     /**
-     *  构造查询条件,bk_question
-     */
-    public QuestionDO(Integer id, Integer tagId, Integer userId, String questionText, Date createTime, Date updateTime, Date bkCreate, Date bkModified, Byte dr) {
-        this.id = id;
-        this.tagId = tagId;
-        this.userId = userId;
-        this.questionText = questionText;
-        this.createTime = createTime;
-        this.updateTime = updateTime;
-        this.bkCreate = bkCreate;
-        this.bkModified = bkModified;
-        this.dr = dr;
-    }
-
-    /**
      * 获取 主键 字段:bk_question.id
      *
      * @return bk_question.id, 主键
      */
     public Integer getId() {
         return id;
+    }
+
+    /**
+     * 设置 主键 字段:bk_question.id
+     *
+     * @param id bk_question.id, 主键
+     */
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     /**
@@ -82,12 +76,30 @@ public class QuestionDO {
     }
 
     /**
+     * 设置 标签主键 字段:bk_question.tag_id
+     *
+     * @param tagId bk_question.tag_id, 标签主键
+     */
+    public void setTagId(Integer tagId) {
+        this.tagId = tagId;
+    }
+
+    /**
      * 获取 问题所属者主键 字段:bk_question.user_id
      *
      * @return bk_question.user_id, 问题所属者主键
      */
     public Integer getUserId() {
         return userId;
+    }
+
+    /**
+     * 设置 问题所属者主键 字段:bk_question.user_id
+     *
+     * @param userId bk_question.user_id, 问题所属者主键
+     */
+    public void setUserId(Integer userId) {
+        this.userId = userId;
     }
 
     /**
@@ -100,12 +112,30 @@ public class QuestionDO {
     }
 
     /**
+     * 设置 问题正文 字段:bk_question.question_text
+     *
+     * @param questionText bk_question.question_text, 问题正文
+     */
+    public void setQuestionText(String questionText) {
+        this.questionText = questionText == null ? null : questionText.trim();
+    }
+
+    /**
      * 获取  字段:bk_question.create_time
      *
      * @return bk_question.create_time, 
      */
     public Date getCreateTime() {
         return createTime;
+    }
+
+    /**
+     * 设置  字段:bk_question.create_time
+     *
+     * @param createTime bk_question.create_time, 
+     */
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
     }
 
     /**
@@ -118,12 +148,30 @@ public class QuestionDO {
     }
 
     /**
+     * 设置  字段:bk_question.update_time
+     *
+     * @param updateTime bk_question.update_time, 
+     */
+    public void setUpdateTime(Date updateTime) {
+        this.updateTime = updateTime;
+    }
+
+    /**
      * 获取  字段:bk_question.bk_create
      *
      * @return bk_question.bk_create, 
      */
     public Date getBkCreate() {
         return bkCreate;
+    }
+
+    /**
+     * 设置  字段:bk_question.bk_create
+     *
+     * @param bkCreate bk_question.bk_create, 
+     */
+    public void setBkCreate(Date bkCreate) {
+        this.bkCreate = bkCreate;
     }
 
     /**
@@ -136,11 +184,29 @@ public class QuestionDO {
     }
 
     /**
+     * 设置  字段:bk_question.bk_modified
+     *
+     * @param bkModified bk_question.bk_modified, 
+     */
+    public void setBkModified(Date bkModified) {
+        this.bkModified = bkModified;
+    }
+
+    /**
      * 获取 1=正常  2=删除 字段:bk_question.dr
      *
      * @return bk_question.dr, 1=正常  2=删除
      */
     public Byte getDr() {
         return dr;
+    }
+
+    /**
+     * 设置 1=正常  2=删除 字段:bk_question.dr
+     *
+     * @param dr bk_question.dr, 1=正常  2=删除
+     */
+    public void setDr(Byte dr) {
+        this.dr = dr;
     }
 }

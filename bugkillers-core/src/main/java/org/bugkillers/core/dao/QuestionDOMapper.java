@@ -1,10 +1,5 @@
 package org.bugkillers.core.dao;
 
-import org.apache.ibatis.annotations.Delete;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.ResultMap;
-import org.apache.ibatis.annotations.Select;
-import org.apache.ibatis.annotations.Update;
 import org.bugkillers.core.domain.QuestionDO;
 
 public interface QuestionDOMapper {
@@ -13,10 +8,6 @@ public interface QuestionDOMapper {
      *
      * @param id
      */
-    @Delete({
-        "delete from bk_question",
-        "where id = #{id,jdbcType=INTEGER}"
-    })
     int deleteByPrimaryKey(Integer id);
 
     /**
@@ -24,18 +15,6 @@ public interface QuestionDOMapper {
      *
      * @param record
      */
-    @Insert({
-        "insert into bk_question (id, tag_id, ",
-        "user_id, question_text, ",
-        "create_time, update_time, ",
-        "bk_create, bk_modified, ",
-        "dr)",
-        "values (#{id,jdbcType=INTEGER}, #{tagId,jdbcType=INTEGER}, ",
-        "#{userId,jdbcType=INTEGER}, #{questionText,jdbcType=VARCHAR}, ",
-        "#{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, ",
-        "#{bkCreate,jdbcType=TIMESTAMP}, #{bkModified,jdbcType=TIMESTAMP}, ",
-        "#{dr,jdbcType=TINYINT})"
-    })
     int insert(QuestionDO record);
 
     /**
@@ -50,14 +29,6 @@ public interface QuestionDOMapper {
      *
      * @param id
      */
-    @Select({
-        "select",
-        "id, tag_id, user_id, question_text, create_time, update_time, bk_create, bk_modified, ",
-        "dr",
-        "from bk_question",
-        "where id = #{id,jdbcType=INTEGER}"
-    })
-    @ResultMap("BaseResultMap")
     QuestionDO selectByPrimaryKey(Integer id);
 
     /**
@@ -72,17 +43,5 @@ public interface QuestionDOMapper {
      *
      * @param record
      */
-    @Update({
-        "update bk_question",
-        "set tag_id = #{tagId,jdbcType=INTEGER},",
-          "user_id = #{userId,jdbcType=INTEGER},",
-          "question_text = #{questionText,jdbcType=VARCHAR},",
-          "create_time = #{createTime,jdbcType=TIMESTAMP},",
-          "update_time = #{updateTime,jdbcType=TIMESTAMP},",
-          "bk_create = #{bkCreate,jdbcType=TIMESTAMP},",
-          "bk_modified = #{bkModified,jdbcType=TIMESTAMP},",
-          "dr = #{dr,jdbcType=TINYINT}",
-        "where id = #{id,jdbcType=INTEGER}"
-    })
     int updateByPrimaryKey(QuestionDO record);
 }

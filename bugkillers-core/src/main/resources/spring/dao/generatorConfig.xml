@@ -31,13 +31,13 @@
         -->
         <javaModelGenerator targetPackage="org.bugkillers.core.domain" targetProject="src/main/java">
             <!-- 是否对model添加 构造函数 -->
-            <property name="constructorBased" value="true"/>
+            <property name="constructorBased" value="false"/>
 
             <!-- 是否允许子包，即targetPackage.schemaName.tableName -->
             <property name="enableSubPackages" value="false"/>
 
             <!-- 建立的Model对象是否 不可改变  即生成的Model对象不会有 setter方法，只有构造方法 -->
-            <property name="immutable" value="true"/>
+            <property name="immutable" value="false"/>
 
             <!-- 给Model添加一个父类 -->
             <!--<property name="rootClass" value="org.bugkillers.core.domain"/>-->
@@ -57,7 +57,7 @@
                 type="MIXEDMAPPER",生成基于注解的Java Model 和相应的Mapper对象
                 type="XMLMAPPER",生成SQLMap XML文件和独立的Mapper接口
         -->
-        <javaClientGenerator targetPackage="org.bugkillers.core.dao" targetProject="src/main/java" type="MIXEDMAPPER">
+        <javaClientGenerator targetPackage="org.bugkillers.core.dao" targetProject="src/main/java" type="XMLMAPPER">
             <property name="enableSubPackages" value=""/>
             <!--
                     定义Maper.java 源代码中的ByExample() 方法的可视性，可选的值有：
