@@ -1,6 +1,8 @@
 package org.bugkillers.core.dao;
 
+import java.util.List;
 import org.bugkillers.core.domain.QuestionDO;
+import org.bugkillers.core.domain.QuestionDOExample;
 
 public interface QuestionDOMapper {
     /**
@@ -23,6 +25,13 @@ public interface QuestionDOMapper {
      * @param record
      */
     int insertSelective(QuestionDO record);
+
+    /**
+     *  根据指定的条件查询符合条件的数据库记录,bk_question
+     *
+     * @param example
+     */
+    List<QuestionDO> selectByExample(QuestionDOExample example);
 
     /**
      *  根据指定主键获取一条数据库记录,bk_question

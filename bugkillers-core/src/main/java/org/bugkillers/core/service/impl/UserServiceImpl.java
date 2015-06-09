@@ -30,12 +30,12 @@ public class UserServiceImpl implements IUserService {
      */
     @Override
     public UserDO regist(UserDO user) throws UserException {
-        //校验唯一性
+        //校验唯一性 (用户名和邮箱)
         UserDOExample userDOExample = new UserDOExample();
-        userDOExample.or().andUserNameEqualTo(user.getUserName());
+        userDOExample.or().andUserNameEqualTo(user.getUserName()).andEmailEqualTo(user.getEmail());
         List<UserDO> userDOs =  userDOMapper.selectByExample(userDOExample);
         if (CollectionUtils.isNotEmpty(userDOs)){
-            throw new UserException("用户名已经存在");
+            throw new UserException("用户名或邮箱已经存在");
         }
 
         //处理部分参数
@@ -47,9 +47,14 @@ public class UserServiceImpl implements IUserService {
         //对密码进行md5
         user.setPassword(SecurityUtil.passAlgorithmsCiphering(user.getPassword(), SecurityUtil.MD5));
 
-        int id = userDOMapper.insert(user);
+        try {
+            int id = userDOMapper.insert(user);
+            user = userDOMapper.selectByPrimaryKey(id);
+        } catch (Exception e) {
+            throw new UserException("DAO出现异常",e);
+        }
 
-        return userDOMapper.selectByPrimaryKey(id);
+        return user;
     }
 
     /**

@@ -125,15 +125,15 @@
             <!--<columnOverride column="" javaType="" jdbcType="" typeHandler="" delimitedColumnName=""/>-->
         </table>
         <table tableName="bk_tag" schema="bugkillers" domainObjectName="TagDO" enableCountByExample="false" enableUpdateByExample="false"
-               enableDeleteByExample="false" enableSelectByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="true"
                selectByExampleQueryId="false">
         </table>
         <table tableName="bk_question" schema="bugkillers" domainObjectName="QuestionDO" enableCountByExample="false" enableUpdateByExample="false"
-               enableDeleteByExample="false" enableSelectByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="true"
                selectByExampleQueryId="false">
         </table>
         <table tableName="bk_comment" schema="bugkillers" domainObjectName="CommentDO" enableCountByExample="false" enableUpdateByExample="false"
-               enableDeleteByExample="false" enableSelectByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="true"
                selectByExampleQueryId="false">
         </table>
     </context>

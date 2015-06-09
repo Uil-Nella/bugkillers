@@ -44,7 +44,7 @@ public class UserServiceTest extends AbstractJunitTest{
         UserDO user = new UserDO();
         user.setDr(DataValidEnum.VALID.getIndex());
         user.setBkCreate(new Date());
-        user.setEmail("liuxy@meituan.com");
+        user.setEmail("liuxy1@meituan.com");
         user.setBkModified(new Date());
         user.setNickName("新宇");
         user.setUserName("AllenX");

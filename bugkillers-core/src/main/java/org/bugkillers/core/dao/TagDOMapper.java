@@ -1,6 +1,8 @@
 package org.bugkillers.core.dao;
 
+import java.util.List;
 import org.bugkillers.core.domain.TagDO;
+import org.bugkillers.core.domain.TagDOExample;
 
 public interface TagDOMapper {
     /**
@@ -23,6 +25,13 @@ public interface TagDOMapper {
      * @param record
      */
     int insertSelective(TagDO record);
+
+    /**
+     *  根据指定的条件查询符合条件的数据库记录,bk_tag
+     *
+     * @param example
+     */
+    List<TagDO> selectByExample(TagDOExample example);
 
     /**
      *  根据指定主键获取一条数据库记录,bk_tag
