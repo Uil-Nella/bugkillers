@@ -34,16 +34,16 @@ public class ResultUtil {
     /**
      * 失败
      * @param t
-     * @param errcode
-     * @param errmsg
+     * @param errCode
+     * @param errMsg
      * @param <T>
      * @return
      */
-    public static <T> BaseResult<T> buildErrorResult(T t, String errcode, String errmsg) {
+    public static <T> BaseResult<T> buildErrorResult(T t, String errCode, String errMsg) {
         BaseResult<T> BaseResult = new BaseResult<T>();
         BaseResult.setT(t);
-        BaseResult.setErrCode(errcode);
-        BaseResult.setErrMsg(errmsg);
+        BaseResult.setErrCode(errCode);
+        BaseResult.setErrMsg(errMsg);
         return BaseResult;
     }
 }

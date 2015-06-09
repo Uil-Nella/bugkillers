@@ -1,12 +1,12 @@
 package org.bugkillers.core.controller;
 
-import com.wordnik.swagger.annotations.ApiOperation;
 import org.bugkillers.core.domain.UserDO;
 import org.bugkillers.core.exception.UserException;
 import org.bugkillers.core.model.User;
 import org.bugkillers.core.result.BaseResult;
 import org.bugkillers.core.service.IUserService;
 import org.bugkillers.core.util.BeanMapper;
+import org.bugkillers.core.util.ResultUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -35,14 +35,16 @@ public class UserController {
     @ResponseBody
     @RequestMapping(value = { "/regist" }, method = RequestMethod.POST)
     public ResponseEntity<?> regist(@RequestBody User user) {
+        BaseResult<String> result = null;
         UserDO userDO = new UserDO();
         beanMapper.copy(user,userDO);
         try {
             userService.regist(userDO);
         } catch (UserException e) {
-
+            result = ResultUtil.buildErrorResult("注册失败","注册失败","注册失败");
+            return new ResponseEntity<BaseResult<String>>(result, HttpStatus.OK);
         }
-        BaseResult<String> result = ResultUtil.buildSuccessResult("注册成功");
-        return new ResponseEntity<Result<String>>(result, HttpStatus.OK);
+        result = ResultUtil.buildSuccessResult("注册成功");
+        return new ResponseEntity<BaseResult<String>>(result, HttpStatus.OK);
     }
 }
