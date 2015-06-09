@@ -38,7 +38,7 @@ public class SpringFoxController {
         //获取url地址
         String reqUrl = request.getRequestURL().toString();
         //logger.info("api页面请求：" + reqUrl);
-        reqUrl = reqUrl.replace("api", "api") + "/index.html";
+        reqUrl = reqUrl.replace("api", "api") + "index.html";
         HttpClient client = new HttpClient();
         HttpMethod method = new GetMethod(reqUrl);
         client.executeMethod(method);
