@@ -60,15 +60,15 @@
         </property>
         <!-- 连接数据库所用的URL -->
         <property name="jdbcUrl">
-            <value>jdbc:mysql://192.168.11.84/mta?useUnicode=true&amp;characterEncoding=UTF8&amp;connectTimeout=5000&amp;socketTimeout=10000&amp;allowMultiQueries=true</value>
+            <value>jdbc:mysql://192.168.22.129/bugkillers?useUnicode=true&amp;characterEncoding=UTF8&amp;connectTimeout=5000&amp;socketTimeout=10000&amp;allowMultiQueries=true</value>
         </property>
         <!-- 连接数据库的用户名 -->
         <property name="user">
-            <value>hotel</value>
+            <value>lxy</value>
         </property>
         <!-- 连接数据库的密码 -->
         <property name="password">
-            <value>123</value>
+            <value>lxy</value>
         </property>
         <!-- 设置数据库连接池的最大连接数 -->
         <property name="maxPoolSize">
@@ -110,7 +110,7 @@
     <!-- 集成myBaits框架,配置sqlSessionFatory -->
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
         <property name="configLocation" value="classpath:spring/dao/mybatis-config.xml"/>
-        <property name="dataSource" ref="dynamicDataSource"/>
+        <!--<property name="dataSource" ref="dynamicDataSource"/>-->
     </bean>
 
     <!-- 配置sqlSessionTemplate -->
@@ -126,8 +126,8 @@
 
     <tx:annotation-driven transaction-manager="transactionManager"/>
 
-    <bean id="batchSqlSession" class="org.mybatis.spring.SqlSessionTemplate">
-        <constructor-arg index="0" ref="sqlSessionFactory"/>
-        <constructor-arg index="1" value="BATCH"/>
-    </bean>
+    <!--<bean id="batchSqlSession" class="org.mybatis.spring.SqlSessionTemplate">-->
+        <!--<constructor-arg index="0" ref="sqlSessionFactory"/>-->
+        <!--<constructor-arg index="1" value="BATCH"/>-->
+    <!--</bean>-->
 </beans>

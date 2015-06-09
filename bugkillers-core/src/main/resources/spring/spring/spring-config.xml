@@ -35,7 +35,7 @@
 
 
 
-    <import resource="/spring/dao/mysql-datasource.xml"/>
+    <import resource="../dao/mysql-datasource.xml"/>
     <!--<import resource="spring/mq/rabbitmq.xml"/>-->
     <!--<import resource="spring/mq/activemq.xml"/>-->
     <!--<import resource="spring-mvc-context.xml"/>-->

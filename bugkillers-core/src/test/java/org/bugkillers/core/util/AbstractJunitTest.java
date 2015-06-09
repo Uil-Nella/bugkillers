@@ -2,10 +2,14 @@ package org.bugkillers.core.util;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.AbstractTransactionalJUnit4SpringContextTests;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.transaction.TransactionConfiguration;
+
+import javax.sql.DataSource;
 
 import static org.junit.Assert.assertTrue;
 
@@ -21,6 +25,11 @@ import static org.junit.Assert.assertTrue;
 @ContextConfiguration(locations = { "classpath*:/spring/spring/spring-config.xml" })
 public abstract class AbstractJunitTest extends
         AbstractTransactionalJUnit4SpringContextTests {
+    @Autowired
+    @Qualifier("dataSource")
+    @Override public void setDataSource(DataSource dataSource) {
+        super.setDataSource(dataSource);
+    }
     @Test
     public void emptyTest(){
         assertTrue(true);
