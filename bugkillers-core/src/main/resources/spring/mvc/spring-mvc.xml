@@ -11,10 +11,9 @@
 		                         http://www.springframework.org/schema/context
 		                         http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 
-    <!--<context:component-scan base-package="com.meituan"/>-->
-    <!--<context:component-scan base-package="com.meituan.hotel.goods.view">-->
-        <!--<context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>-->
-    <!--</context:component-scan>-->
+    <context:component-scan base-package="org.bugkillers.core">
+        <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+    </context:component-scan>
     <!--&lt;!&ndash; api的静态资源文件访问,webjar版本暂时写死&ndash;&gt;-->
-    <!--<mvc:resources mapping="/api/**" location="/webjars/swagger-ui/2.1.8-M1/dist/"/>-->
+    <!--<mvc:resources mapping="/api/**" location="/webjars/swag ger-ui/2.1.8-M1/dist/"/>-->
 </beans:beans>
