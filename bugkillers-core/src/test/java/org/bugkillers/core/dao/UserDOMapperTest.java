@@ -1,6 +1,7 @@
 package org.bugkillers.core.dao;
 
 import org.bugkillers.core.domain.UserDO;
+import org.bugkillers.core.enums.DataValidEnum;
 import org.bugkillers.core.util.AbstractJunitTest;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +18,7 @@ public class UserDOMapperTest extends AbstractJunitTest {
     @Test
     public void insertTest(){
         UserDO user = new UserDO();
-        user.setDr((byte)1);
+        user.setDr(DataValidEnum.VALID.getIndex());
         user.setBkCreate(new Date());
         user.setEmail("liuxy@meituan.com");
         user.setBkModified(new Date());
