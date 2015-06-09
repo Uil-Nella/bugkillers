@@ -1,6 +1,8 @@
 package org.bugkillers.core.dao;
 
+import java.util.List;
 import org.bugkillers.core.domain.UserDO;
+import org.bugkillers.core.domain.UserDOExample;
 
 public interface UserDOMapper {
     /**
@@ -23,6 +25,13 @@ public interface UserDOMapper {
      * @param record
      */
     int insertSelective(UserDO record);
+
+    /**
+     *  根据指定的条件查询符合条件的数据库记录,bk_user
+     *
+     * @param example
+     */
+    List<UserDO> selectByExample(UserDOExample example);
 
     /**
      *  根据指定主键获取一条数据库记录,bk_user
