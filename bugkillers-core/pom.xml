@@ -160,7 +160,7 @@
                 <plugin>
                     <groupId>org.mybatis.generator</groupId>
                     <artifactId>mybatis-generator-maven-plugin</artifactId>
-                    <version>1.3.2</version>
+                    <version>1.3.3-SNAPSHOT</version>
                     <configuration>
                         <configurationFile>src/main/resources/spring/dao/generatorConfig.xml</configurationFile>
                         <verbose>true</verbose>
