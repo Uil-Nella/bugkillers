@@ -23,4 +23,12 @@ public interface IUserService {
      */
     boolean login(UserDO user) throws UserException;
 
+    /**
+     * 根据id查找用户
+     * @param userId
+     * @return
+     * @throws UserException
+     */
+    UserDO findById(Integer userId) throws UserException;
+
 }

@@ -89,4 +89,16 @@ public class UserServiceImpl implements IUserService {
         }
         return false;
     }
+
+    /**
+     * 根据id查找用户
+     *
+     * @param userId
+     * @return
+     * @throws UserException
+     */
+    @Override
+    public UserDO findById(Integer userId) throws UserException {
+        return userDOMapper.selectByPrimaryKey(userId);
+    }
 }
