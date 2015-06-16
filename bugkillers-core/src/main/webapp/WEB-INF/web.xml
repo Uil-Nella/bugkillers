@@ -30,6 +30,10 @@
         <param-name>log4jConfigLocation</param-name>
         <param-value>classpath:log/log4j.xml</param-value>
     </context-param>
+    <!-- 加载log4j配置文件 -->
+    <listener>
+        <listener-class>org.springframework.web.util.Log4jConfigListener</listener-class>
+    </listener>
 
     <!-- 设置servlet编码开始 -->
     <filter>
