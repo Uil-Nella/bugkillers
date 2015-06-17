@@ -80,66 +80,42 @@
         <li role="presentation"><a href="#">热门的</a></li>
         <li role="presentation"><a href="#">未答得</a></li>
     </ul>
-    <div class="container">
-        <div class="row-fluid">
-            <div class="span12">
-                <div class="row-fluid">
-                    <div class="col-md-1">
-                        <div class="row-fluid">
-                            <button class="btn btn-primary" type="button">
-                                <small>投票</small><span class="badge">4</span>
-                            </button>
-                            <button class="btn btn-primary" type="button">
-                                <small>赞同</small><span class="badge">4</span>
-                            </button>
-                            <button class="btn btn-primary" type="button">
-                                <small>关注</small><span class="badge">4</span>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="col-md-11">
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h3 class="panel-title">关于Java内存溢出</h3>
-                            </div>
-                            <div class="panel-body">
-                                JVM管理两种类型的内存，堆和非堆。堆是给开发人员用的上面说的就是，是在JVM启动时创建；非堆是留给JVM自己用的，用来存放类的信息的。它和堆不同，运行期内GC不会释放空间。如果web
-                                app用了大量的第三方jar或者应用有太多的class文件而恰好MaxPermSize设置较小，超出了也会导致这块内存的占用过多造成溢出，或者tomcat热部署时侯不会清理前面加载的环境，只会将context更改为新部署的，非堆存的内容就会越来越多。
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 
     <div class="panel panel-default">
         <div class="panel-heading">
-            <h3 class="panel-title">关于Java内存溢出</h3>
-        </div>
-        <div class="row-fluid">
-            <div class="panel-body">
-                <div class="span12">
-                    <div class="span4">
-                        <button class="btn btn-primary" type="button">
-                            投票 <span class="badge">4</span>
-                        </button>
-                    </div>
-                    <div class="span8">
-
-                        JVM管理两种类型的内存，堆和非堆。堆是给开发人员用的上面说的就是，是在JVM启动时创建；非堆是留给JVM自己用的，用来存放类的信息的。它和堆不同，运行期内GC不会释放空间。如果web
-                        app用了大量的第三方jar或者应用有太多的class文件而恰好MaxPermSize设置较小，超出了也会导致这块内存的占用过多造成溢出，或者tomcat热部署时侯不会清理前面加载的环境，只会将context更改为新部署的，非堆存的内容就会越来越多。
-                    </div>
-                </div>
-            </div>
+            <p class="panel-title">关于Java内存溢出&emsp;
+                <span class="label label-primary">Java</span>
+                <span class="label label-success">Spring</span>
+                <button class="btn btn-primary pull-right btn-xs" type="button">
+                    投票 <span class="badge">14</span>
+                </button>
+                <button class="btn btn-success pull-right btn-xs" type="button">
+                    回答 <span class="badge">1</span>
+                </button>
+                <button class="btn btn-warning pull-right btn-xs" type="button">
+                    浏览 <span class="badge">403</span>
+                </button>
+            </p>
 
         </div>
-
+        <div class="panel-body">
+            JVM管理两种类型的内存，堆和非堆。堆是给开发人员用的上面说的就是，是在JVM启动时创建；非堆是留给JVM自己用的，用来存放类的信息的。它和堆不同，运行期内GC不会释放空间。如果web
+        </div>
     </div>
     <div class="panel panel-default">
         <div class="panel-heading">
-            <h3 class="panel-title">Mysql索引</h3>
+            <p class="panel-title">Mysql索引&emsp;
+                <span class="label label-info">Mysql</span>
+                <button class="btn btn-primary pull-right btn-xs" type="button">
+                    投票 <span class="badge">11</span>
+                </button>
+                <button class="btn btn-success pull-right btn-xs" type="button">
+                    回答 <span class="badge">6</span>
+                </button>
+                <button class="btn btn-warning pull-right btn-xs" type="button">
+                    浏览 <span class="badge">7113</span>
+                </button>
+            </p>
         </div>
         <div class="panel-body">
             索引的目的在于提高查询效率，可以类比字典，如果要查“mysql”这个单词，我们肯定需要定位到m字母，然后从下往下找到y字母，再找到剩下的sql。如果没有索引，那么你可能需要把所有单词看一遍才能找到你想要的，如果我想找到m开头的单词呢？或者ze开头的单词呢？是不是觉得如果没有索引，这个事情根本无法完成？
@@ -147,11 +123,21 @@
     </div>
     <div class="panel panel-default">
         <div class="panel-heading">
-            <h3 class="panel-title">Spring AOP</h3>
+            <p class="panel-title">Spring AOP&emsp;
+                <span class="label label-danger">Spring</span>
+                <button class="btn btn-primary pull-right btn-xs" type="button">
+                    投票 <span class="badge">1</span>
+                </button>
+                <button class="btn btn-success pull-right btn-xs" type="button">
+                    回答 <span class="badge">0</span>
+                </button>
+                <button class="btn btn-warning pull-right btn-xs" type="button">
+                    浏览 <span class="badge">3</span>
+                </button>
+            </p>
         </div>
         <div class="panel-body">
             面向方面编程 (AOP) 提供从另一个角度来考虑程序结构以完善面向对象编程（OOP）。 面向对象将应用程序分解成 各个层次的对象，而AOP将程序分解成各个方面 或者说 关注点 。
-            这使得可以模块化诸如事务管理等这些横切多个对象的关注点。(这些关注点术语称作 横切关注点。)
         </div>
     </div>
 </div>
