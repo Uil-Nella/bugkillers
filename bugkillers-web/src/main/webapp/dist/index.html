@@ -1,13 +1,187 @@
 ﻿<!DOCTYPE HTML>
-<html xmlns:wb="http://open.weibo.com/wb">
+<html lang="zh-CN">
 <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <meta name="description" content="">
+    <meta name="author" content="">
 
+    <title>Fixed Top Navbar Example for Bootstrap</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="http://cdn.bootcss.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap core JavaScript
+================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="http://cdn.bootcss.com/jquery/1.11.2/jquery.min.js"></script>
+    <script src="http://cdn.bootcss.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
 </head>
-<body bgcolor="red">
-	<h1>------------------</h1>
-<script type="text/javascript" src="http://p90.v.stonepoll.com/ijs/7713cd3a-1035-8638-f6dc-c36b20e240f3.js?mvote_w=610&mvote_h=1193&type=vote"></script>	
-	
-	<h1>------------------</h1>
+
+<body>
+
+<!-- Fixed navbar -->
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</a>
+            <a class="navbar-brand" href="#">Bugkillers</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#">问答 <span class="sr-only">(current)</span></a></li>
+                <li><a href="#">标签</a></li>
+            </ul>
+            <form class="navbar-form navbar-left" role="search">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="搜索问题">
+                </div>
+                <button type="submit" class="btn btn-default">搜索</button>
+            </form>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#">提问</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">新宇
+                        <span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="#">我的主页</a></li>
+                        <li><a href="#">帮助中心</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#">退出</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
+</nav>
+
+<div class="container">
+    <ul class="nav nav-pills">
+        <li role="presentation" class="active"><a href="#">最新的</a></li>
+        <li role="presentation"><a href="#">热门的</a></li>
+        <li role="presentation"><a href="#">未答得</a></li>
+    </ul>
+    <div class="container">
+        <div class="row-fluid">
+            <div class="span12">
+                <div class="row-fluid">
+                    <div class="col-md-1">
+                        <div class="row-fluid">
+                            <button class="btn btn-primary" type="button">
+                                <small>投票</small><span class="badge">4</span>
+                            </button>
+                            <button class="btn btn-primary" type="button">
+                                <small>赞同</small><span class="badge">4</span>
+                            </button>
+                            <button class="btn btn-primary" type="button">
+                                <small>关注</small><span class="badge">4</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="col-md-11">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">关于Java内存溢出</h3>
+                            </div>
+                            <div class="panel-body">
+                                JVM管理两种类型的内存，堆和非堆。堆是给开发人员用的上面说的就是，是在JVM启动时创建；非堆是留给JVM自己用的，用来存放类的信息的。它和堆不同，运行期内GC不会释放空间。如果web
+                                app用了大量的第三方jar或者应用有太多的class文件而恰好MaxPermSize设置较小，超出了也会导致这块内存的占用过多造成溢出，或者tomcat热部署时侯不会清理前面加载的环境，只会将context更改为新部署的，非堆存的内容就会越来越多。
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">关于Java内存溢出</h3>
+        </div>
+        <div class="row-fluid">
+            <div class="panel-body">
+                <div class="span12">
+                    <div class="span4">
+                        <button class="btn btn-primary" type="button">
+                            投票 <span class="badge">4</span>
+                        </button>
+                    </div>
+                    <div class="span8">
+
+                        JVM管理两种类型的内存，堆和非堆。堆是给开发人员用的上面说的就是，是在JVM启动时创建；非堆是留给JVM自己用的，用来存放类的信息的。它和堆不同，运行期内GC不会释放空间。如果web
+                        app用了大量的第三方jar或者应用有太多的class文件而恰好MaxPermSize设置较小，超出了也会导致这块内存的占用过多造成溢出，或者tomcat热部署时侯不会清理前面加载的环境，只会将context更改为新部署的，非堆存的内容就会越来越多。
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">Mysql索引</h3>
+        </div>
+        <div class="panel-body">
+            索引的目的在于提高查询效率，可以类比字典，如果要查“mysql”这个单词，我们肯定需要定位到m字母，然后从下往下找到y字母，再找到剩下的sql。如果没有索引，那么你可能需要把所有单词看一遍才能找到你想要的，如果我想找到m开头的单词呢？或者ze开头的单词呢？是不是觉得如果没有索引，这个事情根本无法完成？
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">Spring AOP</h3>
+        </div>
+        <div class="panel-body">
+            面向方面编程 (AOP) 提供从另一个角度来考虑程序结构以完善面向对象编程（OOP）。 面向对象将应用程序分解成 各个层次的对象，而AOP将程序分解成各个方面 或者说 关注点 。
+            这使得可以模块化诸如事务管理等这些横切多个对象的关注点。(这些关注点术语称作 横切关注点。)
+        </div>
+    </div>
+</div>
+<nav>
+    <ul class="pagination">
+        <li>
+            <a href="#" aria-label="Previous">
+                <span aria-hidden="true">&laquo;</span>
+            </a>
+        </li>
+        <li><a href="#">1</a></li>
+        <li><a href="#">2</a></li>
+        <li><a href="#">3</a></li>
+        <li><a href="#">4</a></li>
+        <li><a href="#">5</a></li>
+        <li>
+            <a href="#" aria-label="Next">
+                <span aria-hidden="true">&raquo;</span>
+            </a>
+        </li>
+    </ul>
+</nav>
+</div>
+<!-- /container -->
+<div id="footer">
+    <div class="container">
+        <p class="muted credit">Example courtesy <a href="http://meituan.com">刘新宇</a> and <a href="http://meituan.com">Bugkillers</a>.
+        </p>
+    </div>
+</div>
+
 
 </body>
-</html>

@@ -1,7 +1,6 @@
 package org.bugkillers.core.controller;
 
 import com.wordnik.swagger.annotations.ApiOperation;
-import com.wordnik.swagger.annotations.ApiParam;
 import org.bugkillers.core.constants.LogConstants;
 import org.bugkillers.core.domain.UserDO;
 import org.bugkillers.core.exception.UserException;
