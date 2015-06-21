@@ -55,7 +55,7 @@ public class SpringfoxConfig extends WebMvcConfigurerAdapter {
 
     private SpringSwaggerConfig springSwaggerConfig;
 
-    @Autowired
+    //@Autowired
     public void setSpringSwaggerConfig(SpringSwaggerConfig springSwaggerConfig) {
         this.springSwaggerConfig = springSwaggerConfig;
     }
