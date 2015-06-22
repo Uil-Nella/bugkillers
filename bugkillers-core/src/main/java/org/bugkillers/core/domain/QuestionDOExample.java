@@ -336,6 +336,146 @@ public class QuestionDOExample {
             return (Criteria) this;
         }
 
+        public Criteria andQuestionTitleIsNull() {
+            addCriterion("question_title is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andQuestionTitleIsNotNull() {
+            addCriterion("question_title is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andQuestionTitleEqualTo(String value) {
+            addCriterion("question_title =", value, "questionTitle");
+            return (Criteria) this;
+        }
+
+        public Criteria andQuestionTitleNotEqualTo(String value) {
+            addCriterion("question_title <>", value, "questionTitle");
+            return (Criteria) this;
+        }
+
+        public Criteria andQuestionTitleGreaterThan(String value) {
+            addCriterion("question_title >", value, "questionTitle");
+            return (Criteria) this;
+        }
+
+        public Criteria andQuestionTitleGreaterThanOrEqualTo(String value) {
+            addCriterion("question_title >=", value, "questionTitle");
+            return (Criteria) this;
+        }
+
+        public Criteria andQuestionTitleLessThan(String value) {
+            addCriterion("question_title <", value, "questionTitle");
+            return (Criteria) this;
+        }
+
+        public Criteria andQuestionTitleLessThanOrEqualTo(String value) {
+            addCriterion("question_title <=", value, "questionTitle");
+            return (Criteria) this;
+        }
+
+        public Criteria andQuestionTitleLike(String value) {
+            addCriterion("question_title like", value, "questionTitle");
+            return (Criteria) this;
+        }
+
+        public Criteria andQuestionTitleNotLike(String value) {
+            addCriterion("question_title not like", value, "questionTitle");
+            return (Criteria) this;
+        }
+
+        public Criteria andQuestionTitleIn(List<String> values) {
+            addCriterion("question_title in", values, "questionTitle");
+            return (Criteria) this;
+        }
+
+        public Criteria andQuestionTitleNotIn(List<String> values) {
+            addCriterion("question_title not in", values, "questionTitle");
+            return (Criteria) this;
+        }
+
+        public Criteria andQuestionTitleBetween(String value1, String value2) {
+            addCriterion("question_title between", value1, value2, "questionTitle");
+            return (Criteria) this;
+        }
+
+        public Criteria andQuestionTitleNotBetween(String value1, String value2) {
+            addCriterion("question_title not between", value1, value2, "questionTitle");
+            return (Criteria) this;
+        }
+
+        public Criteria andQuestionSummaryIsNull() {
+            addCriterion("question_summary is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andQuestionSummaryIsNotNull() {
+            addCriterion("question_summary is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andQuestionSummaryEqualTo(String value) {
+            addCriterion("question_summary =", value, "questionSummary");
+            return (Criteria) this;
+        }
+
+        public Criteria andQuestionSummaryNotEqualTo(String value) {
+            addCriterion("question_summary <>", value, "questionSummary");
+            return (Criteria) this;
+        }
+
+        public Criteria andQuestionSummaryGreaterThan(String value) {
+            addCriterion("question_summary >", value, "questionSummary");
+            return (Criteria) this;
+        }
+
+        public Criteria andQuestionSummaryGreaterThanOrEqualTo(String value) {
+            addCriterion("question_summary >=", value, "questionSummary");
+            return (Criteria) this;
+        }
+
+        public Criteria andQuestionSummaryLessThan(String value) {
+            addCriterion("question_summary <", value, "questionSummary");
+            return (Criteria) this;
+        }
+
+        public Criteria andQuestionSummaryLessThanOrEqualTo(String value) {
+            addCriterion("question_summary <=", value, "questionSummary");
+            return (Criteria) this;
+        }
+
+        public Criteria andQuestionSummaryLike(String value) {
+            addCriterion("question_summary like", value, "questionSummary");
+            return (Criteria) this;
+        }
+
+        public Criteria andQuestionSummaryNotLike(String value) {
+            addCriterion("question_summary not like", value, "questionSummary");
+            return (Criteria) this;
+        }
+
+        public Criteria andQuestionSummaryIn(List<String> values) {
+            addCriterion("question_summary in", values, "questionSummary");
+            return (Criteria) this;
+        }
+
+        public Criteria andQuestionSummaryNotIn(List<String> values) {
+            addCriterion("question_summary not in", values, "questionSummary");
+            return (Criteria) this;
+        }
+
+        public Criteria andQuestionSummaryBetween(String value1, String value2) {
+            addCriterion("question_summary between", value1, value2, "questionSummary");
+            return (Criteria) this;
+        }
+
+        public Criteria andQuestionSummaryNotBetween(String value1, String value2) {
+            addCriterion("question_summary not between", value1, value2, "questionSummary");
+            return (Criteria) this;
+        }
+
         public Criteria andQuestionTextIsNull() {
             addCriterion("question_text is null");
             return (Criteria) this;

@@ -21,7 +21,8 @@
         </property>
         <!-- 连接数据库所用的URL -->
         <property name="jdbcUrl">
-            <value>jdbc:mysql://192.168.22.129/bugkillers?useUnicode=true&amp;characterEncoding=UTF8&amp;connectTimeout=5000&amp;socketTimeout=10000</value>
+            <!--<value>jdbc:mysql://192.168.22.129/bugkillers?useUnicode=true&amp;characterEncoding=UTF8&amp;connectTimeout=5000&amp;socketTimeout=10000</value>-->
+            <value>jdbc:mysql://localhost/bugkillers?useUnicode=true&amp;characterEncoding=UTF8&amp;connectTimeout=5000&amp;socketTimeout=10000</value>
         </property>
         <!-- 连接数据库的用户名 -->
         <property name="user">

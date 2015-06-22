@@ -19,6 +19,16 @@ public class QuestionDO {
     private Integer userId;
 
     /**
+     *  问题标题,所属表字段为bk_question.question_title
+     */
+    private String questionTitle;
+
+    /**
+     *  问题摘要,所属表字段为bk_question.question_summary
+     */
+    private String questionSummary;
+
+    /**
      *  问题正文,所属表字段为bk_question.question_text
      */
     private String questionText;
@@ -100,6 +110,42 @@ public class QuestionDO {
      */
     public void setUserId(Integer userId) {
         this.userId = userId;
+    }
+
+    /**
+     * 获取 问题标题 字段:bk_question.question_title
+     *
+     * @return bk_question.question_title, 问题标题
+     */
+    public String getQuestionTitle() {
+        return questionTitle;
+    }
+
+    /**
+     * 设置 问题标题 字段:bk_question.question_title
+     *
+     * @param questionTitle bk_question.question_title, 问题标题
+     */
+    public void setQuestionTitle(String questionTitle) {
+        this.questionTitle = questionTitle == null ? null : questionTitle.trim();
+    }
+
+    /**
+     * 获取 问题摘要 字段:bk_question.question_summary
+     *
+     * @return bk_question.question_summary, 问题摘要
+     */
+    public String getQuestionSummary() {
+        return questionSummary;
+    }
+
+    /**
+     * 设置 问题摘要 字段:bk_question.question_summary
+     *
+     * @param questionSummary bk_question.question_summary, 问题摘要
+     */
+    public void setQuestionSummary(String questionSummary) {
+        this.questionSummary = questionSummary == null ? null : questionSummary.trim();
     }
 
     /**
