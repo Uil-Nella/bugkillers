@@ -10,5 +10,6 @@
         <mapper resource="spring/dao/mapper/UserDOMapper.xml"/>
         <mapper resource="spring/dao/mapper/QuestionDOMapper.xml"/>
         <mapper resource="spring/dao/mapper/QuestionTagDOMapper.xml"/>
+        <mapper resource="spring/dao/mapper/TagDOMapper.xml"/>
     </mappers>
 </configuration>
