@@ -1,3 +1,5 @@
+CREATE DATABASE `bugkillers` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+
 #用户表
 CREATE TABLE `bk_user` (
   `id` int(10) NOT NULL AUTO_INCREMENT COMMENT '主键',
