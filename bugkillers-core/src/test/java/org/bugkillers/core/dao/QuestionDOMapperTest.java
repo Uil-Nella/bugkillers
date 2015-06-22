@@ -20,7 +20,6 @@ public class QuestionDOMapperTest extends AbstractJunitTest {
     @Test
     public void insertTest(){
         QuestionDO questionDO = new QuestionDO();
-        questionDO.setTagId(1);
         questionDO.setDr(1);
         questionDO.setUserId(1);
         questionDO.setQuestionTitle("Java 虚拟机");
@@ -37,7 +36,7 @@ public class QuestionDOMapperTest extends AbstractJunitTest {
 
     @Test
     public void selectTest(){
-
+        
         QuestionDO questionDO = questionDOMapper.selectByPrimaryKey(1);
         Assert.assertNotNull(questionDO);
     }

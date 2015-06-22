@@ -136,5 +136,9 @@
                <!--enableDeleteByExample="false" enableSelectByExample="true"-->
                <!--selectByExampleQueryId="false">-->
         <!--</table>-->
+        <table tableName="bk_question_tag" schema="bugkillers" domainObjectName="QuestionTagDO" enableCountByExample="false" enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="true"
+               selectByExampleQueryId="false">
+        </table>
     </context>
 </generatorConfiguration>

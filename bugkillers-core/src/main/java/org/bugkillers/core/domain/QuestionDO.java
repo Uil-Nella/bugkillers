@@ -9,11 +9,6 @@ public class QuestionDO {
     private Integer id;
 
     /**
-     *  标签主键,所属表字段为bk_question.tag_id
-     */
-    private Integer tagId;
-
-    /**
      *  问题所属者主键,所属表字段为bk_question.user_id
      */
     private Integer userId;
@@ -74,24 +69,6 @@ public class QuestionDO {
      */
     public void setId(Integer id) {
         this.id = id;
-    }
-
-    /**
-     * 获取 标签主键 字段:bk_question.tag_id
-     *
-     * @return bk_question.tag_id, 标签主键
-     */
-    public Integer getTagId() {
-        return tagId;
-    }
-
-    /**
-     * 设置 标签主键 字段:bk_question.tag_id
-     *
-     * @param tagId bk_question.tag_id, 标签主键
-     */
-    public void setTagId(Integer tagId) {
-        this.tagId = tagId;
     }
 
     /**

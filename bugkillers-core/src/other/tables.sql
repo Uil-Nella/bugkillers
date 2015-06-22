@@ -20,7 +20,6 @@ CREATE TABLE `bk_user` (
 #问题表
 CREATE TABLE `bk_question` (
   `id` int(10) NOT NULL AUTO_INCREMENT COMMENT '主键',
-  `tag_id` int(10) NOT NULL COMMENT '标签主键',
   `user_id` int(10) NOT NULL COMMENT '问题所属者主键',
   `question_title` VARCHAR(50) NOT NULL COMMENT '问题标题',
   `question_summary` VARCHAR(200) NOT NULL COMMENT '问题摘要',
@@ -41,6 +40,17 @@ CREATE TABLE `bk_tag` (
   `dr` int(4) unsigned NOT NULL DEFAULT '1' COMMENT '1=正常  2=删除',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB CHARACTER SET=utf8 COMMENT='标签表';
+#问题标签关联表
+CREATE TABLE `bk_question_tag`(
+  `id` int(10) NOT NULL AUTO_INCREMENT COMMENT '主键',
+  `tag_id` int(10) NOT NULL COMMENT '标签主键',
+  `tag_name` VARCHAR(50) NOT NULL  COMMENT '标签名称',
+  `question_id` INT(10) NOT NULL  COMMENT '问题主键' ,
+  `bk_create` datetime NOT NULL,
+  `bk_modified` datetime NOT NULL,
+  `dr` int(4) unsigned NOT NULL DEFAULT '1' COMMENT '1=正常  2=删除',
+  PRIMARY KEY (`id`)
+)ENGINE=InnoDB CHARACTER SET=utf8 COMMENT='问题标签关联表';
 #评论表
 CREATE TABLE `bk_comment` (
   `id` int(10) NOT NULL AUTO_INCREMENT COMMENT '主键',
