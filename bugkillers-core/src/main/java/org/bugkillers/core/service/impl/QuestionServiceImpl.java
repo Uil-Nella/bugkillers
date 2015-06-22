@@ -4,7 +4,10 @@ import org.apache.commons.collections.CollectionUtils;
 import org.bugkillers.core.dao.QuestionDOMapper;
 import org.bugkillers.core.dao.QuestionTagDOMapper;
 import org.bugkillers.core.dao.UserDOMapper;
-import org.bugkillers.core.domain.*;
+import org.bugkillers.core.domain.QuestionDO;
+import org.bugkillers.core.domain.QuestionTagDO;
+import org.bugkillers.core.domain.QuestionTagDOExample;
+import org.bugkillers.core.domain.UserDO;
 import org.bugkillers.core.model.Question;
 import org.bugkillers.core.model.Tag;
 import org.bugkillers.core.model.User;
@@ -40,9 +43,12 @@ public class QuestionServiceImpl implements IQuestionService {
     @Override
     public Question findById(Integer id) {
         QuestionDO questionDO = questionDOMapper.selectByPrimaryKey(id);
-        
+        if (questionDO == null) {
+            return null;
+        }
+
         Question question = new Question();
-        beanMapper.copy(questionDO,question);
+        beanMapper.copy(questionDO, question);
         //***************组装question上的标签
         QuestionTagDOExample example = new QuestionTagDOExample();
         example.or().andQuestionIdEqualTo(id);
@@ -50,8 +56,8 @@ public class QuestionServiceImpl implements IQuestionService {
         List<Tag> tags = new ArrayList<>();
         //TODO 使用dozer转换
 //        beanMapper.mapList(questionTagDOs, Tag);
-        if (CollectionUtils.isNotEmpty(questionTagDOs)){
-            for (QuestionTagDO questionTagDO:questionTagDOs){
+        if (CollectionUtils.isNotEmpty(questionTagDOs)) {
+            for (QuestionTagDO questionTagDO : questionTagDOs) {
                 Tag tag = new Tag();
                 tag.setId(questionTagDO.getTagId());
                 tag.setTagName(questionTagDO.getTagName());
@@ -61,9 +67,11 @@ public class QuestionServiceImpl implements IQuestionService {
         }
         //*************组装question上的用户
         UserDO userDO = userDOMapper.selectByPrimaryKey(questionDO.getUserId());
-        User user = new User();
-        beanMapper.copy(userDO,user);
-        question.setUser(user);
+        if (null != userDO) {
+            User user = new User();
+            beanMapper.copy(userDO, user);
+            question.setUser(user);
+        }
 
         return question;
     }
