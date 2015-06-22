@@ -20,6 +20,8 @@ CREATE TABLE `bk_question` (
   `id` int(10) NOT NULL AUTO_INCREMENT COMMENT '主键',
   `tag_id` int(10) NOT NULL COMMENT '标签主键',
   `user_id` int(10) NOT NULL COMMENT '问题所属者主键',
+  `question_title` VARCHAR(50) NOT NULL COMMENT '问题标题',
+  `question_summary` VARCHAR(50) NOT NULL COMMENT '问题摘要',
   `question_text` VARCHAR(500) NOT NULL COMMENT '问题正文',
   `create_time` datetime NOT NULL,
   `update_time` datetime NOT NULL,
