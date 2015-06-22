@@ -8,5 +8,6 @@
     <mappers>
         <!--此处配置mapper文件-->
         <mapper resource="spring/dao/mapper/UserDOMapper.xml"/>
+        <mapper resource="spring/dao/mapper/QuestionDOMapper.xml"/>
     </mappers>
 </configuration>
