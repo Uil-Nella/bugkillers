@@ -40,4 +40,4 @@
 * Docker
 
 ###架构设计
-[img](res/bugkillers.png)
+![img](res/bugkillers.png)
