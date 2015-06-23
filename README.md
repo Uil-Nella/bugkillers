@@ -38,3 +38,6 @@
 
 ###备用
 * Docker
+
+###架构设计
+[img](res/bugkillers.png)
