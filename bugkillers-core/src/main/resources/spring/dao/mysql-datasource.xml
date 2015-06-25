@@ -29,7 +29,7 @@
         </property>
         <!-- 连接数据库的密码 -->
         <property name="password">
-            <value>${pass}</value>
+            <value>${password}</value>
         </property>
         <!-- 设置数据库连接池的最大连接数 -->
         <property name="maxPoolSize">
