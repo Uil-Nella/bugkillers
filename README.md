@@ -6,6 +6,9 @@
 * 代码托管：https://github.com/qq291462491/bugkillers/
 * demo演示：http://bugkillers.org/api/
 
+###成为开发者
+
+
 ###后端架构
 * 后端采用Springmvc + Mybatis持久化操作.
 * 基于RESTful的访问API，json交互。
@@ -38,3 +41,6 @@
 
 ###备用
 * Docker
+
+###架构设计
+![img](res/bugkillers.png)
