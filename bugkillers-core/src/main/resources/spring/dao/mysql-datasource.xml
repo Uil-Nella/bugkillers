@@ -11,8 +11,7 @@
     http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd"
        default-autowire="byName">
 
-    <!-- context:property-placeholder location="classpath:mysql.properties"
-        / -->
+    <context:property-placeholder location="classpath:properties/mysql.properties"/>
     <!-- 定义使用C3P0连接池的数据源(产品中心) -->
     <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
         <!-- 指定连接数据库的JDBC驱动 -->
@@ -22,15 +21,15 @@
         <!-- 连接数据库所用的URL -->
         <property name="jdbcUrl">
             <!--<value>jdbc:mysql://192.168.22.129/bugkillers?useUnicode=true&amp;characterEncoding=UTF8&amp;connectTimeout=5000&amp;socketTimeout=10000</value>-->
-            <value>jdbc:mysql://localhost/bugkillers?useUnicode=true&amp;characterEncoding=UTF8&amp;connectTimeout=5000&amp;socketTimeout=10000</value>
+            <value>${jdbc_url}</value>
         </property>
         <!-- 连接数据库的用户名 -->
         <property name="user">
-            <value>lxy</value>
+            <value>${user}</value>
         </property>
         <!-- 连接数据库的密码 -->
         <property name="password">
-            <value>lxy</value>
+            <value>${pass}</value>
         </property>
         <!-- 设置数据库连接池的最大连接数 -->
         <property name="maxPoolSize">
@@ -49,11 +48,11 @@
             <value>600</value>
         </property>
 
-        <property name="preferredTestQuery" value="SELECT 1 FROM DUAL"/>
+        <property name="preferredTestQuery" value="SELECT 1 "/>
 
     </bean>
 
-    <!-- 定义使用C3P0连接池的数据源(同步预付数据库连接使用) -->
+    <!-- 定义使用C3P0连接池的数据源 -->
     <bean id="synchronizedPrepayForDataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
         <!-- 指定连接数据库的JDBC驱动 -->
         <property name="driverClass">
@@ -88,7 +87,7 @@
             <value>600</value>
         </property>
 
-        <property name="preferredTestQuery" value="SELECT 1 FROM DUAL"/>
+        <property name="preferredTestQuery" value="SELECT 1 "/>
     </bean>
 
     <!-- 配置动态数据源 -->

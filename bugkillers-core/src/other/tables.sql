@@ -1,4 +1,5 @@
 CREATE DATABASE `bugkillers` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+USE bugkillers;
 
 #用户表
 CREATE TABLE `bk_user` (
