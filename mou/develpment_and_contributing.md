@@ -49,7 +49,7 @@ mvn package -U  jetty:run
   
 * 查看目前的分支，并切换到根分支，在创建。            
 ```
-git brach -a 
+git branch -a 
 git checkout origin master
 ```
 
