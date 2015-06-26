@@ -41,6 +41,10 @@
 
 ###备用
 * Docker
+* Git Book
+
+###爬虫
+https://github.com/code4craft/webmagic
 
 ###架构设计
 ![img](res/bugkillers.png)
