@@ -7,7 +7,7 @@
 * demo演示：http://bugkillers.org/api/
 
 ###成为开发者
-参考：[Development And Contributing](https://github.com/qq291462491/bugkillers/blob/master/mou/develpment_and_contributing.md)
+参考：[Development And Contributing](https://github.com/qq291462491/bugkillers/blob/master/mou/DevelpmentAndContributing.md)
 
 ###后端架构
 * 后端采用Springmvc + Mybatis持久化操作.
