@@ -8,7 +8,7 @@ import org.bugkillers.core.result.BaseResult;
  */
 public class ResultUtil {
 
-    public static final String SUCCESS_CODE = "0";
+    public static final int SUCCESS_CODE = 0;
     public static final String SUCCESS_MSG = "success";
 
     public static <T> BaseResult<T> buildResult(T t) {
@@ -34,16 +34,16 @@ public class ResultUtil {
     /**
      * 失败
      * @param t
-     * @param errCode
-     * @param errMsg
+     * @param Code
+     * @param Msg
      * @param <T>
      * @return
      */
-    public static <T> BaseResult<T> buildErrorResult(T t, String errCode, String errMsg) {
+    public static <T> BaseResult<T> buildErrorResult(T t, int Code, String Msg) {
         BaseResult<T> BaseResult = new BaseResult<T>();
         BaseResult.setT(t);
-        BaseResult.setCode(errCode);
-        BaseResult.setMsg(errMsg);
+        BaseResult.setCode(Code);
+        BaseResult.setMsg(Msg);
         return BaseResult;
     }
 }
