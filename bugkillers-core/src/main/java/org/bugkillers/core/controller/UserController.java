@@ -36,18 +36,13 @@ public class UserController {
     @ResponseBody
     @RequestMapping(value = {"/regist"}, method = RequestMethod.POST)
     public ResponseEntity<?> regist(@RequestBody User user) {
-        BaseResult<String> result = null;
-        UserDO userDO = new UserDO();
-        beanMapper.copy(user, userDO);
+        BaseResult<User> result = null;
         try {
-            userService.regist(userDO);
+            result = userService.regist(user);
         } catch (UserException e) {
-            result = ResultUtil.buildErrorResult("注册失败", "注册失败", "注册失败");
             LogConstants.SERVICE_LOGGER.error("注册失败", e);
-            return new ResponseEntity<BaseResult<String>>(result, HttpStatus.OK);
         }
-        result = ResultUtil.buildSuccessResult("注册成功");
-        return new ResponseEntity<BaseResult<String>>(result, HttpStatus.OK);
+        return new ResponseEntity<BaseResult<User>>(result, HttpStatus.OK);
     }
 
     /**
@@ -59,18 +54,13 @@ public class UserController {
     @ResponseBody
     @RequestMapping(value = {"/login"}, method = RequestMethod.POST)
     public ResponseEntity<?> login(@RequestBody User user) {
-        BaseResult<String> result = null;
-        UserDO userDO = new UserDO();
-        beanMapper.copy(user, userDO);
+        BaseResult<User> result = null;
         try {
-            boolean b = userService.login(userDO);
+            result = userService.login(user);
         } catch (UserException e) {
-            result = ResultUtil.buildErrorResult("注册失败", "注册失败", "注册失败");
             LogConstants.SERVICE_LOGGER.error("注册失败", e);
-            return new ResponseEntity<BaseResult<String>>(result, HttpStatus.OK);
         }
-        result = ResultUtil.buildSuccessResult("注册成功");
-        return new ResponseEntity<BaseResult<String>>(result, HttpStatus.OK);
+        return new ResponseEntity<BaseResult<User>>(result, HttpStatus.OK);
     }
 
     /**
@@ -83,15 +73,12 @@ public class UserController {
     @ResponseBody
     @RequestMapping(value = {"/{userId}"}, method = RequestMethod.GET)
     public ResponseEntity<?> findById(@PathVariable("userId") Integer userId) {
-        UserDO userDO = new UserDO();
+        BaseResult<User> result = null;
         try {
-            userDO = userService.findById(userId);
+            result = userService.findById(userId);
         } catch (UserException e) {
             LogConstants.SERVICE_LOGGER.error("查找失败", e);
         }
-        User user = new User();
-        beanMapper.copy(userDO, user);
-        BaseResult<User> result = ResultUtil.buildSuccessResult(user);
         return new ResponseEntity<BaseResult<User>>(result, HttpStatus.OK);
     }
 }

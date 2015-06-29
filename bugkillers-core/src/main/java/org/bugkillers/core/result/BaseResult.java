@@ -27,31 +27,36 @@ public class BaseResult<T> {
         return ret;
     }
 
-    public void setRet(boolean ret) {
+    public BaseResult<T> setRet(boolean ret) {
         this.ret = ret;
+        return this;
     }
 
     public String getCode() {
         return code;
     }
 
-    public void setCode(String code) {
+    public BaseResult<T> setCode(String code) {
         this.code = code;
+        return this;
     }
 
     public String getMsg() {
         return msg;
     }
 
-    public void setMsg(String msg) {
+    public BaseResult<T> setMsg(String msg) {
         this.msg = msg;
+        return this;
     }
 
     public T getT() {
         return t;
     }
 
-    public void setT(T t) {
+    public BaseResult<T> setT(T t) {
         this.t = t;
+        return this;
     }
+
 }

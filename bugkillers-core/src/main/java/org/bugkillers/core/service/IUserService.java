@@ -1,7 +1,8 @@
 package org.bugkillers.core.service;
 
-import org.bugkillers.core.domain.UserDO;
 import org.bugkillers.core.exception.UserException;
+import org.bugkillers.core.model.User;
+import org.bugkillers.core.result.BaseResult;
 
 /**
  * Created by liuxinyu on 15/6/9.
@@ -9,19 +10,19 @@ import org.bugkillers.core.exception.UserException;
 public interface IUserService {
     /**
      * 用户注册
-     *
      * @param user
      * @return
+     * @throws UserException
      */
-    UserDO regist(UserDO user) throws UserException;
+    BaseResult<User> regist(User user) throws UserException;
 
     /**
      * 用户登录
-     *
      * @param user
      * @return
+     * @throws UserException
      */
-    boolean login(UserDO user) throws UserException;
+    BaseResult<User> login(User user) throws UserException;
 
     /**
      * 根据id查找用户
@@ -29,6 +30,6 @@ public interface IUserService {
      * @return
      * @throws UserException
      */
-    UserDO findById(Integer userId) throws UserException;
+    BaseResult<User> findById(Integer userId) throws UserException;
 
 }
