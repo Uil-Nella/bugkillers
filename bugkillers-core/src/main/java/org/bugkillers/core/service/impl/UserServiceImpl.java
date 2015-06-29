@@ -43,10 +43,16 @@ public class UserServiceImpl implements IUserService {
         BaseResult<User> result = new BaseResult<User>();
         //校验唯一性 (用户名和邮箱)
         UserDOExample userDOExample = new UserDOExample();
-        userDOExample.or().andUserNameEqualTo(user.getUserName()).andEmailEqualTo(user.getEmail());
+        userDOExample.or().andUserNameEqualTo(user.getUserName());
         List<UserDO> userDOs = userDOMapper.selectByExample(userDOExample);
         if (CollectionUtils.isNotEmpty(userDOs)) {
-            return result.setMsg("用户名或邮箱已经存在!");
+            return result.setMsg("用户名已经存在!");
+        }
+        userDOExample = new UserDOExample();
+        userDOExample.or().andEmailEqualTo(user.getEmail());
+        userDOs = userDOMapper.selectByExample(userDOExample);
+        if (CollectionUtils.isNotEmpty(userDOs)) {
+            return result.setMsg("邮箱已经存在!");
         }
 
         UserDO dbUser = new UserDO();
@@ -87,8 +93,14 @@ public class UserServiceImpl implements IUserService {
         UserDOExample userDOExample = new UserDOExample();
         if (StringUtils.isNotEmpty(user.getUserName())) {
             //使用用户名登录
-            userDOExample.or().andUserNameEqualTo(user.getUserName()).andPasswordEqualTo(user.getPassword());
+            userDOExample.or().andUserNameEqualTo(user.getUserName());
             List<UserDO> userDOs = userDOMapper.selectByExample(userDOExample);
+            if (CollectionUtils.isEmpty(userDOs)){
+                return result.setMsg("用户名不存在！");
+            }
+            userDOExample = new UserDOExample();
+            userDOExample.or().andUserNameEqualTo(user.getUserName()).andPasswordEqualTo(user.getPassword());
+            userDOs = userDOMapper.selectByExample(userDOExample);
             if (CollectionUtils.isNotEmpty(userDOs)) {
                 dbUser = userDOs.get(0);
             }
@@ -97,14 +109,19 @@ public class UserServiceImpl implements IUserService {
         if (StringUtils.isNotEmpty(user.getEmail())) {
             //使用邮箱登录
             userDOExample = new UserDOExample();
-            userDOExample.or().andEmailEqualTo(user.getEmail()).andPasswordEqualTo(user.getPassword());
+            userDOExample.or().andEmailEqualTo(user.getEmail());
             List<UserDO> userDOs = userDOMapper.selectByExample(userDOExample);
+            if (CollectionUtils.isEmpty(userDOs)){
+                return result.setMsg("邮箱不存在！");
+            }
+            userDOExample.or().andEmailEqualTo(user.getEmail()).andPasswordEqualTo(user.getPassword());
+            userDOs = userDOMapper.selectByExample(userDOExample);
             if (CollectionUtils.isNotEmpty(userDOs)) {
                 dbUser = userDOs.get(0);
             }
         }
-        if (null == dbUser) {
-            return result.setMsg("用户名或密码不正确！");
+        if (null == dbUser || null == dbUser.getId()) {
+            return result.setMsg("密码不正确！");
         }
         beanMapper.copy(dbUser, user);
         return result.setT(user).setRet(true).setMsg("登录成功");
