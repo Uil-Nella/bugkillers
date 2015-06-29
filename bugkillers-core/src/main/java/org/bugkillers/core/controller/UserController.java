@@ -2,13 +2,11 @@ package org.bugkillers.core.controller;
 
 import com.wordnik.swagger.annotations.ApiOperation;
 import org.bugkillers.core.constants.LogConstants;
-import org.bugkillers.core.domain.UserDO;
 import org.bugkillers.core.exception.UserException;
 import org.bugkillers.core.model.User;
 import org.bugkillers.core.result.BaseResult;
 import org.bugkillers.core.service.IUserService;
 import org.bugkillers.core.util.BeanMapper;
-import org.bugkillers.core.util.ResultUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
