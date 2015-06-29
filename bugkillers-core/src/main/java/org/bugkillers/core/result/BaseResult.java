@@ -12,11 +12,11 @@ public class BaseResult<T> {
     /**
      * 错误码
      */
-    private String errCode;
+    private String code;
     /**
      * 错误信息
      */
-    private String errMsg;
+    private String msg;
 
     /**
      * 返回的数据信息
@@ -31,20 +31,20 @@ public class BaseResult<T> {
         this.ret = ret;
     }
 
-    public String getErrCode() {
-        return errCode;
+    public String getCode() {
+        return code;
     }
 
-    public void setErrCode(String errCode) {
-        this.errCode = errCode;
+    public void setCode(String code) {
+        this.code = code;
     }
 
-    public String getErrMsg() {
-        return errMsg;
+    public String getMsg() {
+        return msg;
     }
 
-    public void setErrMsg(String errMsg) {
-        this.errMsg = errMsg;
+    public void setMsg(String msg) {
+        this.msg = msg;
     }
 
     public T getT() {

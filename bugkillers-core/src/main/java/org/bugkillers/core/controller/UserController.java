@@ -51,6 +51,29 @@ public class UserController {
     }
 
     /**
+     * 用户登录
+     * 支持邮箱登录和用户名登录
+     *
+     * @param user
+     */
+    @ResponseBody
+    @RequestMapping(value = {"/login"}, method = RequestMethod.POST)
+    public ResponseEntity<?> login(@RequestBody User user) {
+        BaseResult<String> result = null;
+        UserDO userDO = new UserDO();
+        beanMapper.copy(user, userDO);
+        try {
+            boolean b = userService.login(userDO);
+        } catch (UserException e) {
+            result = ResultUtil.buildErrorResult("注册失败", "注册失败", "注册失败");
+            LogConstants.SERVICE_LOGGER.error("注册失败", e);
+            return new ResponseEntity<BaseResult<String>>(result, HttpStatus.OK);
+        }
+        result = ResultUtil.buildSuccessResult("注册成功");
+        return new ResponseEntity<BaseResult<String>>(result, HttpStatus.OK);
+    }
+
+    /**
      * 根据pk查找用户
      *
      * @param userId

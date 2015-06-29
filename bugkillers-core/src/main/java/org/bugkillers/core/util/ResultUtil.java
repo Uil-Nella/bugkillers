@@ -26,8 +26,8 @@ public class ResultUtil {
     public static <T> BaseResult<T> buildSuccessResult(T t) {
         BaseResult<T> BaseResult = new BaseResult<T>();
         BaseResult.setT(t);
-        BaseResult.setErrCode(SUCCESS_CODE);
-        BaseResult.setErrMsg(SUCCESS_MSG);
+        BaseResult.setCode(SUCCESS_CODE);
+        BaseResult.setMsg(SUCCESS_MSG);
         return BaseResult;
     }
 
@@ -42,8 +42,8 @@ public class ResultUtil {
     public static <T> BaseResult<T> buildErrorResult(T t, String errCode, String errMsg) {
         BaseResult<T> BaseResult = new BaseResult<T>();
         BaseResult.setT(t);
-        BaseResult.setErrCode(errCode);
-        BaseResult.setErrMsg(errMsg);
+        BaseResult.setCode(errCode);
+        BaseResult.setMsg(errMsg);
         return BaseResult;
     }
 }
