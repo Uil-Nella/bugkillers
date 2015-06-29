@@ -2,6 +2,7 @@ package org.bugkillers.core.service.impl;
 
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang.StringUtils;
+import org.bugkillers.core.constants.RetCode;
 import org.bugkillers.core.dao.UserDOMapper;
 import org.bugkillers.core.domain.UserDO;
 import org.bugkillers.core.domain.UserDOExample;
@@ -46,13 +47,13 @@ public class UserServiceImpl implements IUserService {
         userDOExample.or().andUserNameEqualTo(user.getUserName());
         List<UserDO> userDOs = userDOMapper.selectByExample(userDOExample);
         if (CollectionUtils.isNotEmpty(userDOs)) {
-            return result.setMsg("用户名已经存在!");
+            return result.setMsg("用户名已经存在!").setCode(RetCode.REGIST_NAME_EXIST);
         }
         userDOExample = new UserDOExample();
         userDOExample.or().andEmailEqualTo(user.getEmail());
         userDOs = userDOMapper.selectByExample(userDOExample);
         if (CollectionUtils.isNotEmpty(userDOs)) {
-            return result.setMsg("邮箱已经存在!");
+            return result.setMsg("邮箱已经存在!").setCode(RetCode.REGIST_EMAIL_EXIST);
         }
 
         UserDO dbUser = new UserDO();
@@ -96,7 +97,7 @@ public class UserServiceImpl implements IUserService {
             userDOExample.or().andUserNameEqualTo(user.getUserName());
             List<UserDO> userDOs = userDOMapper.selectByExample(userDOExample);
             if (CollectionUtils.isEmpty(userDOs)){
-                return result.setMsg("用户名不存在！");
+                return result.setMsg("用户名不存在！").setCode(RetCode.LOGIN_NAME_NOT_EXIST);
             }
             userDOExample = new UserDOExample();
             userDOExample.or().andUserNameEqualTo(user.getUserName()).andPasswordEqualTo(user.getPassword());
@@ -112,7 +113,7 @@ public class UserServiceImpl implements IUserService {
             userDOExample.or().andEmailEqualTo(user.getEmail());
             List<UserDO> userDOs = userDOMapper.selectByExample(userDOExample);
             if (CollectionUtils.isEmpty(userDOs)){
-                return result.setMsg("邮箱不存在！");
+                return result.setMsg("邮箱不存在！").setCode(RetCode.LOGIN_EMAIL_NOT_EXIST);
             }
             userDOExample.or().andEmailEqualTo(user.getEmail()).andPasswordEqualTo(user.getPassword());
             userDOs = userDOMapper.selectByExample(userDOExample);
@@ -121,7 +122,7 @@ public class UserServiceImpl implements IUserService {
             }
         }
         if (null == dbUser || null == dbUser.getId()) {
-            return result.setMsg("密码不正确！");
+            return result.setMsg("密码不正确！").setCode(RetCode.LOGIN_PASS_ERROR);
         }
         beanMapper.copy(dbUser, user);
         return result.setT(user).setRet(true).setMsg("登录成功");

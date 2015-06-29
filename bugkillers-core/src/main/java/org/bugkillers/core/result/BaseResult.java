@@ -12,7 +12,7 @@ public class BaseResult<T> {
     /**
      * 错误码
      */
-    private String code;
+    private int code;
     /**
      * 错误信息
      */
@@ -32,11 +32,11 @@ public class BaseResult<T> {
         return this;
     }
 
-    public String getCode() {
+    public int getCode() {
         return code;
     }
 
-    public BaseResult<T> setCode(String code) {
+    public BaseResult<T> setCode(int code) {
         this.code = code;
         return this;
     }
