@@ -62,7 +62,7 @@ public class UserServiceImpl implements IUserService {
 
         try {
             int id = userDOMapper.insert(dbUser);
-            dbUser = userDOMapper.selectByPrimaryKey(id);
+            //dbUser = userDOMapper.selectByPrimaryKey(id);
         } catch (Exception e) {
             SERVICE_LOGGER.error("DAO出现异常", e);
             return result.setMsg("注册失败");
@@ -103,7 +103,7 @@ public class UserServiceImpl implements IUserService {
                 dbUser = userDOs.get(0);
             }
         }
-        if (0 == dbUser.getId()) {
+        if (null == dbUser) {
             return result.setMsg("用户名或密码不正确！");
         }
         beanMapper.copy(dbUser, user);
@@ -122,11 +122,11 @@ public class UserServiceImpl implements IUserService {
         BaseResult<User> result = new BaseResult<>();
         UserDO dbUser = new UserDO();
         dbUser = userDOMapper.selectByPrimaryKey(userId);
-        if (0 == dbUser.getId()){
+        if (0 == dbUser.getId()) {
             return result.setMsg("没有符合条件的用户！");
         }
         User user = new User();
-        beanMapper.copy(dbUser,user);
+        beanMapper.copy(dbUser, user);
         return result.setT(user).setRet(true);
     }
 }
