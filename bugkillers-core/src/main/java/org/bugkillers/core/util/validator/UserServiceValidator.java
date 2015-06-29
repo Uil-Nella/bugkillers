@@ -6,9 +6,6 @@ import org.bugkillers.core.model.User;
 import org.bugkillers.core.result.BaseResult;
 import org.bugkillers.core.util.RegexUtil;
 
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
 /**
  * Created by liuxinyu on 15/6/29.
  */
@@ -25,8 +22,8 @@ public class UserServiceValidator {
      */
     public static BaseResult<User> loginValidator(User user) {
         BaseResult<User> result = new BaseResult<>();
-        if (null == user||StringUtils.isEmpty(user.getEmail())||StringUtils.isEmpty(user.getEmail())
-                ||StringUtils.isEmpty(user.getPassword())){
+        if (null == user||StringUtils.isEmpty(user.getEmail())||(StringUtils.isEmpty(user.getUserName())
+                &StringUtils.isEmpty(user.getPassword()))){
             return result.setMsg("必要请求参数不可为空").setCode(RetCode.PARAM_EMPTY);
         }
         return result.setRet(true);
