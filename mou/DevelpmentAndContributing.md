@@ -14,6 +14,7 @@ git clone ssh://github.com/$yours/bugkillers
 ```    
 > git使用指南：[Git Book](https://git-scm.com/book/zh/v1)      
 > github使用指南：[Github秘籍](https://github.com/bugkillerz/github-cheat-sheet/blob/master/README.zh-cn.md)
+> github协作指南：[原文](http://code.tutsplus.com/articles/team-collaboration-with-github--net-29876)、[中文](http://blog.csdn.net/lw5180822/article/details/14121751)
 
 ####2. 项目目录结构
 #####2.1 bugkillers-core         
