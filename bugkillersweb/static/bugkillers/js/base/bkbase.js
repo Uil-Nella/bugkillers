@@ -18,13 +18,21 @@ var BK = {
     url: {
         registerPage: { //注册页面的url
             local: {
-                backUrl: '/bugkillers/index/' //回到点击注册页的页面
+                backUrl: '/bugkillers/index/' //回到点击注册页的页面 默认是主页
             },
             remote: {
                 registerUrl: remoteip + '/bugkillers/user/regist'
             }
         },
-        loginPage: {}
+        loginPage: {
+            local: {
+                registerUrl: '../register/',
+                backUrl: '/bugkillers/index/' //回到点击注册页的页面 默认是主页
+            },
+            remote: {
+                loginUrl: remoteip + '/user/login'
+            }
+        }
     }
 };
 /**
