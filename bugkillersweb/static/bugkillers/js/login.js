@@ -40,22 +40,45 @@ login.factory('Url', function () {
                 delete loginuserdata.email;
             }
         }
-        alert(JSON.stringify(loginuserdata))
-        $http.post(Url.remote.loginUrl, loginuserdata)
-            .success(function (returndata) {
-                $scope.ret = returndata.ret;
-                $scope.code = returndata.code;
-                $scope.msg = returndata.msg;
+        //$http.post(Url.remote.loginUrl, loginuserdata)
+        //    .success(function (returndata) {
+        //        $scope.setReturnData(returndata);
+        //        if (returndata.ret) {
+        //            $scope.goBackToMainPage();
+        //        }
+        //    }).error(function (returndata) {
+        //        $scope.setReturnData(returndata);
+        //    });
+
+        $http({
+            method: 'POST',
+            url: Url.remote.loginUrl,
+            data: loginuserdata,
+            dataType: 'json',
+            headers: {'Origin': 'http://127.0.0.1:3333'},
+            async: false,
+            cache: false,
+            success: function (returndata) {
+                $scope.setReturnData(returndata);
                 if (returndata.ret) {
                     $scope.goBackToMainPage();
                 }
-            })
+            },
+            error: function (returndata) {
+                $scope.setReturnData(returndata);
+            }
+        });
+    };
+    //设置返回提示信息
+    $scope.setReturnData = function (returndata) {
+        $scope.ret = returndata.ret;
+        $scope.code = returndata.code;
+        $scope.msg = returndata.msg;
     };
     //跳转到之前的界面
     $scope.goBackToMainPage = function () {
         location.href = Url.local.backUrl;
     };
-
     //跳转到注册页
     $scope.goToRegisterPage = function () {
         location.href = Url.local.registerUrl;
