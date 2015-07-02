@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Bugkillers - 登录</title>
+
+
+    <!--  CSS -->
+    <link href="/static/common/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/bugkillers/css/login.css" rel="stylesheet">
+    <!-- Bootstrap core JavaScript
+================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="/static/common/lib/jquery/jquery-1.11.1.min.js"></script>
+    <script src="/static/common/lib/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/static/common/lib/angularjs/angular.min.js"></script>
+
+    <script src="/static/bugkillers/js/base/bkbase.js"></script>
+    <script src="/static/bugkillers/js/login.js"></script>
+
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body ng-app="login" ng-controller="loginCtrl">
+<div id="head" class="container head">
+    <div class="logocontainer"><img class="logo" src="/static/bugkillers/img/killerlogo.png" alt="killer"/></div>
+    <hr/>
+</div>
+<div class="logindiv">
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="text-center">
+                <img class="backimg" src="/static/bugkillers/img/backgroud.png" alt="bugkillers"/>
+            </div>
+        </div>
+        <div class="container">
+            <div class="col-lg-6 main">
+                <div class="text-left">
+                    <!-- 登录主体 -->
+                    <div ng-if="msg.length>0" class="alert alert-danger" role="alert">
+                        <p ng-bind="msg"></p>
+                    </div>
+                    <div class="input-group input-group-lg">
+                            <span class="input-group-addon" id="sizing-addon1">
+                                 <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                            </span>
+                        <input type="text" class="form-control" ng-model="user.userName" placeholder="用户名/邮箱"
+                               aria-describedby="sizing-addon1">
+                    </div>
+                    <div class="input-group input-group-lg">
+                            <span class="input-group-addon" id="sizing-addon1">
+                                <span class="glyphicon glyphicon-lock" aria-hidden="true"></span>
+                            </span>
+                        <input type="password" class="form-control" ng-model="user.password" placeholder="密码"
+                               aria-describedby="sizing-addon1">
+                    </div>
+                    <div class="action">
+                        <div class="row">
+                            <div class="col-xs-6 text-info">
+                                <a href="#" ng-click="forgetPassword();">忘记登录密码？</a>
+                            </div>
+                            <div class="col-xs-6 text-right">
+                                <a href="#" ng-click="goToRegisterPage();" class="text-justify">免费注册</a>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="button" ng-click="dologin();" class="btn btn-primary btn-lg btn-block">登录</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container introduce">
+    <p> Bugkillers 致力打造最大的中文的Coder问答社区！</p>
+
+    <p> 我们期望每一个Coder的加入，上下求索，</p>
+
+    <p class="text-success">keep coding...</p>
+</div>
+<div id="footer" class="container">
+    <hr/>
+    <p class="muted credit">Design by <a href="https://github.com/qq291462491/bugkillers"> Bugkillers. </a>Copyright&copy;2015
+        bugkillers.org All rights reserved.
+    </p>
+</div>
+</body>
+</html>

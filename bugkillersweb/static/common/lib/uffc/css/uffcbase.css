@@ -1,0 +1,10 @@
+/**
+ * Created by wangming on 2015/03/13.
+ */
+* {
+margin: 0;
+padding: 0;
+}
+
+/* 清除高版本ie文本框出现的x号*/
+input::-ms-clear{display:none;}

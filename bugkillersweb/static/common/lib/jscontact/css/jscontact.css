@@ -1,0 +1,18 @@
+@charset "utf-8";
+/* 初始化样式 */
+* { margin:0; padding:0; font-family:Arial, "宋体", "微软雅黑"; font-size:12px; color:#333; list-style:none; text-decoration:none; }
+html{_text-overflow:ellipsis; background:#eee;}
+a img { border:0; }
+a.linkscroll { position:relative; z-index:0; }
+a:hover { color:#d90000; }
+.clear { clear:both; overflow:hidden; visibility:hidden; height:0;}
+.line { background:url(../images/navmenuline.gif) repeat-x; height:2px; overflow:hidden; }
+/* 快读导航 */
+.jcContact { position:absolute; top:80%; left:0; z-index:9; width:214px; }
+.jcConraper { width:171px; overflow:hidden; background:url(../images/navmenu.png) no-repeat 0 0; padding-top:3px; }
+.jcConraper dd { background:url(../images/navmenu.png) repeat-y -171px 0; height:35px; padding:0 15px; }
+.jcConraper dd a { display:block; line-height:35px;height:35px;cursor:pointer; position:relative; padding-left:20px; }
+.jcConraper dt { background:url(../images/navmenu.png) no-repeat -342px 0; height:3px; }
+.jcConBtn { background:url(../images/a1.gif) no-repeat 0 0; position:absolute; top:0; left:0; width:43px; height:118px; cursor:pointer; }
+.jcContact b { height:35px; background-repeat:no-repeat; background-position:0 center; width:18px; display:block; position:absolute; left:0; top:0; }
+
