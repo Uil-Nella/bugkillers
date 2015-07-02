@@ -1,4 +1,4 @@
-web¶Ë¼òÒªËµÃ÷£º
-ÔËĞĞbugkillerswebÏîÄ¿ºó
-1.×¢²áÒ³£ºhttp://yourip:port/bugkillers/register/
-2.µÇÂ¼Ò³£ºhttp://yourip:port/bugkillers/login/
+webç«¯ç®€è¦è¯´æ˜ï¼š  
+è¿è¡Œbugkillerswebé¡¹ç›®å  
+1.æ³¨å†Œé¡µï¼šhttp://yourip:port/bugkillers/register/  
+2.ç™»å½•é¡µï¼šhttp://yourip:port/bugkillers/login/  
