@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="/static/common/lib/jquery/jquery-1.11.1.min.js"></script>
+    <script src="/static/common/lib/bootstrap/js/bootstrap.min.js"></script>
+    <link href="/static/common/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body ng-app="myapp" ng-controller="appCtrl">
+
+
+<input type="file" id="fileupload"/>
+
+
+<div>
+    {% verbatim root %}
+        顶级作用域： {{ root.name }}
+        <input type="text" ng-model="root.name" placeholder="数据双向绑定"/>
+    {% endverbatim root %}
+    <hr/>
+</div>
+
+
+<div ng-controller="myController">
+    {% verbatim ng1 %}
+        <ul>
+            <li ng-repeat="image in images">
+                <img ng-src="/static/common/lib/easyui/1.4.2/themes/icons/{{ image.image }}"/>
+            </li>
+        </ul>
+    {% endverbatim ng1 %}
+    <hr/>
+</div>
+
+
+<div ng-controller="ajaxController">
+    {% verbatim ajax %}
+        利用angular的$http发送ajax请求，从后台返回数据：{{ data }}
+    {% endverbatim ajax %}
+</div>
+<hello></hello>
+
+<section class="navbar navbar-fixed-top navbar-inverse"><a href="http://www.html5jq.com/" class="navbar-link"
+                                                           style="line-height:50px; padding-left:20px; color:#fff"><span
+        class="glyphicon glyphicon-home" style="color:#fff; margin-right:5px;"></span>fe演示平台</a></section>
+<section class="container"
+         style="padding:20px; background:#fafafa; width:600px; margin:100px auto; border-radius:10px;">
+    <form action="" class="form-horizontal showcase-form" role="form" id="myform" name="myform">
+        <div class="form-group">
+            <h3 class="col-sm-offset-2 clo-sm-10">注册</h3>
+        </div>
+        <div class="form-group">
+            <label for="" class="col-sm-2 control-label">邮箱</label>
+
+            <div class="col-sm-10">
+                <input type="email" name="userEmail" ng-model="vm.user.email" required="" class="form-control"
+                       placeholder="邮箱" ng-pattern="/^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="" class="control-label col-sm-2">用户名</label>
+
+            <div class="col-sm-10">
+                <input type="text" name="userName" ng-model="vm.user.name" required="" class="form-control"
+                       placeholder="由字母、数字、下划线组成，以字母开头，3-30个字符" ng-pattern="/^[A-Za-z]{1}[0-9A-Za-z_]{2,29}$/">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="" class="col-sm-2 control-label">密码</label>
+
+            <div class="col-sm-10">
+                <input type="password" name="userPassword" class="form-control" placeholder="6-20个字符" ng-minlength="6"
+                       ng-maxlength="20" required="" ng-model="vm.user.password">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="" class="col-sm-2 control-label">重复密码</label>
+
+            <div class="col-sm-10">
+                <input type="password" name="repeatPassword" ng-model="vm.user.repeatPassword" class="form-control"
+                       placeholder="重复密码" repeat="userPassword" required="" ng-minlength="6" ng-maxlength="20">
+            </div>
+        </div>
+        <div class="form-group" ng-show="myform.$invalid && myform.$dirty  && vm.show_error">
+            <label class="col-sm-2 control-label"></label>
+
+            <div class="col-sm-10">
+                <div class="alert alert-danger" style="margin-bottom: 0px">
+                    <ul>
+                        <li ng-show=" myform.userEmail.$error.required">邮箱地址不能为空！</li>
+                        <li ng-show="myform.userEmail.$dirty  && myform.userEmail.$error.pattern">邮箱格式不正确！</li>
+                        <li ng-show="myform.userName.$error.required">用户名不能为空！</li>
+                        <li ng-show="myform.userName.$dirty  && myform.userName.$error.pattern">用户名格式不正确！</li>
+                        <li ng-show="myform.userPassword.$error.required">密码不能为空！</li>
+                        <li ng-show="myform.userPassword.$dirty  && myform.userPassword.$error.maxlength">密码不能大于20个字符！
+                        </li>
+                        <li ng-show="myform.userPassword.$dirty  && myform.userPassword.$error.minlength">密码不能小于6个字符！
+                        </li>
+                        <li ng-show="myform.repeatPassword.$dirty  && myform.repeatPassword.$error.repeat">两次输入的密码不一致！
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-sm-10">
+                <botton class="btn btn-success" ng-click="vm.submit(myform)">提交</botton>
+            </div>
+        </div>
+    </form>
+</section>
+
+
+<script src="/static/common/lib/jquery/jquery-1.11.1.min.js"></script>
+<script src="/static/jstest/angular.min.js"></script>
+<script>
+
+
+    //1加载Angular  2并且新建组件和控制器 3设置双向变量绑定
+    //$scope：控制器和视图层之间的粘合剂。基本上，变量使用$scope从我们的控制器和视图层之间传递和往来。
+    //$http：Angular服务来帮助我们处理请求
+    //设置双向变量绑定 $scope中的属性 如果在html中和ng-model一致的话就进行了双向绑定
+    var my_app = angular.module('myapp', []);//加载Angular
+
+    //顶级作用域
+    my_app.run(function ($rootScope) {
+        //与ng-model="root.name" 双向绑定 在view中修改 这里的 $rootScope.root 也发生随之更改；
+        //在这里修改 view中的root也发生随之更改；
+        $rootScope.root = {name: 'test'};
+    });
+
+    //数据遍历
+    my_app.controller('myController', function ($scope) {//与界面上的ng-controller对应
+        $scope.images = [
+            {"image": "tip.png", "description": "Image 01 description"},
+            {"image": "back.png", "description": "Image 02 description"}
+        ];
+    });
+
+    //ajax  post时 和jqueryajax的区别：
+    //jquery的默认headers: { 'Content-Type' : 'application/x-www-form-urlencoded; charset=UTF-8' }
+    my_app.controller("ajaxController", function ($http, $scope) {
+        $scope.getAjaxUser = function () {
+            $http({
+                method: 'GET',
+                url: '/jstest/getinfo/'
+            }).success(function (data) {
+                $scope.data = data;
+            }).error(function (data, status) {
+                alert(data);
+                alert(status);
+            });
+        }();
+    });
+
+    my_app.directive('hello', function () {
+        return {
+            restrict: 'E',
+            template: '<div>Hi there</div>',
+            replace: true
+        };
+    });
+
+    my_app.controller('appCtrl', function ($scope) {
+        var vm = $scope.vm = {
+            show_error: false,
+            user: {}
+        };
+        vm.submit = function (myform) {
+            vm.show_error = true;
+            myform.$setDirty();
+            if (myform.$valid) {
+                alert("提交成功！");
+            } else {
+                alert('验证失败')
+            }
+        }
+    })
+
+</script>
+</body>
+</html>

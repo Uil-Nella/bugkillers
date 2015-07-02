@@ -1,0 +1,37 @@
+.content {
+    min-height: 600px;
+}
+
+.content div {
+    /*margin: 20px 0;*/
+}
+
+.step1 {
+    text-align: center;
+    padding-top: 50px;
+}
+
+.step2 {
+    text-align: center;
+    padding: 150px;
+}
+
+.step3 {
+    text-align: center;
+    padding: 150px;
+}
+
+input.ng-dirty.ng-invalid {
+    border-color: #e9322d;
+    -webkit-box-shadow: 0 0 6px #f8b9b7;
+    -moz-box-shadow: 0 0 6px #f8b9b7;
+    box-shadow: 0 0 6px #f8b9b7;
+}
+
+.messagealert {
+    padding: 0 25px;
+}
+
+.alert-danger li {
+    text-align: left;
+}

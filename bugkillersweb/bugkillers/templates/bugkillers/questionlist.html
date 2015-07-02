@@ -1,0 +1,195 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>bugkillers</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="/static/common/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap core JavaScript
+================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="/static/common/lib/jquery/jquery-1.11.1.min.js"></script>
+    <script src="/static/common/lib/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+
+<!-- Fixed navbar -->
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</a>
+            <a class="navbar-brand" href="#">Bugkillers</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#">问答 <span class="sr-only">(current)</span></a></li>
+                <li><a href="#">标签</a></li>
+            </ul>
+            <form class="navbar-form navbar-left" role="search">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="搜索问题">
+                </div>
+                <button type="submit" class="btn btn-default">搜索</button>
+            </form>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#">提问</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">新宇
+                        <span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="#">我的主页</a></li>
+                        <li><a href="#">帮助中心</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#">退出</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
+</nav>
+
+<div class="container">
+    <ul class="nav nav-pills">
+        <li role="presentation" class="active"><a href="#">最新的</a></li>
+        <li role="presentation"><a href="#">热门的</a></li>
+        <li role="presentation"><a href="#">未答得</a></li>
+    </ul>
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <p class="panel-title"><a href="#">关于Java内存溢出</a>&emsp;
+                <span class="label label-primary">Java</span>
+                <span class="label label-success">Spring</span>
+                <button class="btn btn-primary pull-right btn-xs" type="button">
+                    投票 <span class="badge">14</span>
+                </button>
+                <button class="btn btn-success pull-right btn-xs" type="button">
+                    回答 <span class="badge">1</span>
+                </button>
+                <button class="btn btn-warning pull-right btn-xs" type="button">
+                    浏览 <span class="badge">403</span>
+                </button>
+            </p>
+
+        </div>
+        <div class="panel-body">
+            JVM管理两种类型的内存，堆和非堆。堆是给开发人员用的上面说的就是，，运行期内GC不会释放空间。如果web
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <p class="panel-title">Mysql索引&emsp;
+                <span class="label label-info">Mysql</span>
+                <button class="btn btn-primary pull-right btn-xs" type="button">
+                    投票 <span class="badge">11</span>
+                </button>
+                <button class="btn btn-success pull-right btn-xs" type="button">
+                    回答 <span class="badge">6</span>
+                </button>
+                <button class="btn btn-warning pull-right btn-xs" type="button">
+                    浏览 <span class="badge">7113</span>
+                </button>
+            </p>
+        </div>
+        <div class="panel-body">
+            索引的目的在于提高查询效率，可以类比字典，如果要查“mysql”这个单词，我们肯定需要定位到m字母，然后从下往下
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <p class="panel-title">Spring AOP&emsp;
+                <span class="label label-danger">Spring</span>
+                <button class="btn btn-primary pull-right btn-xs" type="button">
+                    投票 <span class="badge">1</span>
+                </button>
+                <button class="btn btn-success pull-right btn-xs" type="button">
+                    回答 <span class="badge">0</span>
+                </button>
+                <button class="btn btn-warning pull-right btn-xs" type="button">
+                    浏览 <span class="badge">3</span>
+                </button>
+            </p>
+        </div>
+        <div class="panel-body">
+            面向方面编程 (AOP) 提供从另一个角度来考虑程序结构以完善面象编程（OOP）。 面向对象将应用程序分解成各个层次的对象，而AOP将程序分解成各个方面 或者说 关注点 。
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <p class="panel-title">Spring AOP&emsp;
+                <span class="label label-danger">Spring</span>
+                <button class="btn btn-primary pull-right btn-xs" type="button">
+                    投票 <span class="badge">1</span>
+                </button>
+                <button class="btn btn-success pull-right btn-xs" type="button">
+                    回答 <span class="badge">0</span>
+                </button>
+                <button class="btn btn-warning pull-right btn-xs" type="button">
+                    浏览 <span class="badge">3</span>
+                </button>
+            </p>
+        </div>
+        <div class="panel-body">
+            面向方面编程 (AOP) 提供从另一个角度来考虑程序结构以完善面象编程（OOP）。 面向对象将应用程序分解成各个层次的对象，而AOP将程序分解成各个方面 或者说 关注点 。
+        </div>
+    </div>
+
+</div>
+<nav class="text-center">
+    <ul class="pagination">
+        <li>
+            <a href="#" aria-label="Previous">
+                <span aria-hidden="true">&laquo;</span>
+            </a>
+        </li>
+        <li><a href="#">1</a></li>
+        <li><a href="#">2</a></li>
+        <li><a href="#">3</a></li>
+        <li><a href="#">4</a></li>
+        <li><a href="#">5</a></li>
+        <li>
+            <a href="#" aria-label="Next">
+                <span aria-hidden="true">&raquo;</span>
+            </a>
+        </li>
+    </ul>
+</nav>
+</div>
+<!-- /container -->
+<div id="footer">
+    <div class="container">
+        <p class="muted credit">Design by<a href="https://github.com/qq291462491/bugkillers"> Bugkillers</a> and <a
+                href="http://meituan.com">刘新宇</a>.
+        </p>
+    </div>
+</div>
+
+
+</body>
+</html>

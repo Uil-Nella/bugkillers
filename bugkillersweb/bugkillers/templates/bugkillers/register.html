@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html ng-app="register">
+<head lang="en">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Bugkillers - 注册</title>
+
+    <!--  CSS -->
+    <link href="/static/common/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/bugkillers/css/register.css" rel="stylesheet">
+    <!-- Bootstrap core JavaScript
+================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="/static/common/lib/jquery/jquery-1.11.1.min.js"></script>
+    <script src="/static/common/lib/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/static/common/lib/angularjs/angular.min.js"></script>
+    <script src="/static/common/lib/angularjs/angular-route.min.js"></script>
+
+    <script src="/static/bugkillers/js/register.js"></script>
+
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body ng-controller="registerController">
+<!--import head-->
+<!--<hello say-hello="registerUrl">美女</hello>-->
+
+<div ng-include="'../head/'"></div>
+
+<div class="container content" role="navigation">
+    <ul class="nav nav-tabs">
+        <li role="presentation" id="tab1" ng-class="tabshow[0]"><a href="#">1 填写基本信息</a></li>
+        <li role="presentation" id="tab2" ng-class="tabshow[1]"><a href="#">2 邮箱验证</a></li>
+        <li role="presentation" id="tab3" ng-class="tabshow[2]"><a href="#">3 注册成功</a></li>
+    </ul>
+    <div class="registeritem">
+        <div class="step1" ng-if="stepshow[0]">
+            <form action="" class="form-horizontal showcase-form" role="form" id="myform" name="myform">
+                <div class="form-group">
+                    <div class="col-sm-2">
+                        <label for="uemail" class="control-label">邮箱</label>
+                    </div>
+                    <div class="col-sm-6">
+                        <input type="email" name="uemail" ng-model="vm.user.email" required="" class="form-control"
+                               placeholder="邮箱" ng-pattern="/^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-2">
+                        <label for="" class="control-label ">用户名</label>
+                    </div>
+                    <div class="col-sm-6">
+                        <input type="text" name="userName" ng-model="vm.user.name" required="" class="form-control"
+                               placeholder="由字母、数字、下划线组成，以字母开头，3-12个字符" ng-pattern="/^[A-Za-z]{1}[0-9A-Za-z_]{2,11}$/">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-2">
+                        <label for="" class="control-label">密码</label>
+                    </div>
+                    <div class="col-sm-6">
+                        <input type="password" name="password" class="form-control" placeholder="6-20个字符"
+                               ng-minlength="6" ng-maxlength="20" required="" ng-model="vm.user.password">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-2">
+                        <label for="" class="control-label">重复密码</label>
+                    </div>
+
+                    <div class="col-sm-6">
+                        <input type="password" name="repass" ng-model="vm.user.repass"
+                               class="form-control"
+                               placeholder="重复密码" repeat="password" required="" ng-minlength="6" ng-maxlength="20">
+                    </div>
+                </div>
+                <div class="form-group"
+                     ng-show="(myform.$invalid && myform.$dirty  && vm.show_error) || (!ret && msg.length>0)">
+                    <div class="row">
+                        <div class="col-sm-2"></div>
+                        <div class="col-sm-6 messagealert">
+                            <div class="alert alert-danger">
+                                <ul>
+                                    <li ng-show="myform.uemail.$error.required">邮箱地址不能为空！</li>
+
+                                    <!-- 使用html自带的email验证有问题 11@qq 可以通过 暂时使用正则表达式判断
+                                    <li ng-show="myform.uemail.$dirty  && myform.uemail.$error.email">邮箱格式不正确！</li>
+                                    -->
+                                    <li ng-show="myform.uemail.$dirty  && myform.uemail.$error.pattern">邮箱格式不正确！</li>
+                                    </li>
+                                    <li ng-show="myform.userName.$error.required">用户名不能为空！</li>
+                                    <li ng-show="myform.userName.$dirty  && myform.userName.$error.pattern">用户名格式不正确！
+                                    </li>
+                                    <li ng-show="myform.password.$error.required">密码不能为空！</li>
+                                    <li ng-show="myform.password.$dirty  && myform.password.$error.maxlength">
+                                        密码不能大于20个字符！
+                                    </li>
+                                    <li ng-show="myform.password.$dirty  && myform.password.$error.minlength">
+                                        密码不能小于6个字符！
+                                    </li>
+                                    <li ng-show="myform.repass.$dirty  && myform.repass.$error.repeat">
+                                        两次输入的密码不一致！
+                                    </li>
+                                    <li ng-show="!ret && msg.length>0" ng-bind="msg + ',错误码：'+ code "></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-sm-2">
+                    </div>
+                    <div class="col-sm-6">
+                        <botton class="btn btn-default" ng-click="goBackToMainPage();">取消</botton>
+                        <botton class="btn btn-success" ng-click="vm.submit(myform)">下一步</botton>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="step2" ng-if="stepshow[1]">
+            <div><p>当前版本无需邮箱验证！</p></div>
+            <div>
+                <button ng-click="goToStep3()" class="btn btn-success text-right">下一步</button>
+            </div>
+        </div>
+        <div class="step3" ng-if="stepshow[2]">
+            <div><p class="text-success h2">恭喜您！注册成功！</p></div>
+            <div>
+                页面将在 <b ng-bind="seconds"></b> 秒后自动跳转，或 <a href="#" ng-click="goBackToMainPage();">点击此处</a> 进行跳转...
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--import footer-->
+<div ng-include="'../footer/'"></div>
+</body>
+</html>
