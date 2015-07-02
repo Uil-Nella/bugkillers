@@ -4,10 +4,22 @@
  */
 
 /**
+ * 注册页面全局页面对象
+ * @constructor
+ */
+BK.pages.RegisterPage = function () {
+    this.register = angular.module('register', ['ngRoute']);
+    BK.pages.RegisterPage.__instance = this;
+};
+
+var registerPageInstance = new BK.pages.RegisterPage();
+
+/**
  * 声明angular模型
  * @type {*|module}
  */
-var register = angular.module('register', ['ngRoute']);
+//var register = angular.module('register', ['ngRoute']);
+var register = registerPageInstance.register;
 
 /**
  * 顶级作用域
@@ -21,10 +33,7 @@ register.run(function ($rootScope) {
  * Controllers
  */
 register.factory('Url', function () {//Url服务来管理Url
-    return {
-        registerUrl: '/bugkillers/testform/', //http://host:port/user/regist
-        backUrl: '/bugkillers/index/' //回到点击注册页的页面
-    }
+    return BK.url.registerPage;
 }).controller('registerController', function ($scope, $http, $timeout, Url) {//注册的控制器
         $scope.tabshow = ['active', 'none', 'none'];
         $scope.stepshow = [true, false, false];
@@ -44,7 +53,7 @@ register.factory('Url', function () {//Url服务来管理Url
             vm.show_error = true;
             myform.$setDirty();
             if (myform.$valid) {
-                $http.post(Url.registerUrl, $scope.vm.user)//提交注册
+                $http.post(Url.remote.registerUrl, $scope.vm.user)//提交注册
                     .success(function (returndata) {
                         $scope.ret = returndata.ret;
                         $scope.code = returndata.code;
@@ -69,7 +78,7 @@ register.factory('Url', function () {//Url服务来管理Url
             $scope.timeCount($scope.seconds)
         };
         $scope.timer = null;
-        $scope.timeCount = function (seconds) {
+        $scope.timeCount = function () {
             //当timeout被定义时，它返回一个promise对象
             $scope.timer = $timeout(
                 $scope.timeReduce, 1000
@@ -78,7 +87,7 @@ register.factory('Url', function () {//Url服务来管理Url
         $scope.timeReduce = function () {
             $scope.seconds = $scope.seconds - 1;
             if ($scope.seconds != 0) {
-                $scope.timeCount($scope.seconds)
+                $scope.timeCount();
             } else {
                 if ($scope.timer) {
                     $timeout.cancel($scope.timer);
@@ -88,7 +97,7 @@ register.factory('Url', function () {//Url服务来管理Url
         };
         //注册完成 跳转到之前的页面
         $scope.goBackToMainPage = function () {
-            location.href = Url.backUrl;
+            location.href = Url.local.backUrl;
         }
     }
 )

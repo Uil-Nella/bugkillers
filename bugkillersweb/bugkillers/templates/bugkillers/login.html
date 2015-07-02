@@ -21,7 +21,9 @@
     <script src="/static/common/lib/bootstrap/js/bootstrap.min.js"></script>
     <script src="/static/common/lib/angularjs/angular.min.js"></script>
 
+    <script src="/static/bugkillers/js/base/bkbase.js"></script>
     <script src="/static/bugkillers/js/login.js"></script>
+
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -29,7 +31,7 @@
     <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 </head>
-<body>
+<body ng-app="login" ng-controller="loginCtrl">
 <div id="head" class="container head">
     <div class="logocontainer"><img class="logo" src="/static/bugkillers/img/killerlogo.png" alt="killer"/></div>
     <hr/>
