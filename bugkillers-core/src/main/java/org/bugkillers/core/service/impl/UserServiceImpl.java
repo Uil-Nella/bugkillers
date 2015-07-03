@@ -122,6 +122,7 @@ public class UserServiceImpl implements IUserService {
             if (CollectionUtils.isEmpty(userDOs)){
                 return result.setRet(false).setMsg("邮箱不存在！").setCode(RetCode.LOGIN_EMAIL_NOT_EXIST);
             }
+            userDOExample = new UserDOExample();
             userDOExample.or().andEmailEqualTo(user.getEmail()).andPasswordEqualTo(user.getPassword());
             userDOs = userDOMapper.selectByExample(userDOExample);
             if (CollectionUtils.isNotEmpty(userDOs)) {
