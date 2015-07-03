@@ -61,3 +61,14 @@ CREATE TABLE `bk_comment` (
   `dr` int(4) unsigned NOT NULL DEFAULT '1' COMMENT '1=正常  2=删除',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB CHARACTER SET=utf8 COMMENT='评论表';
+#评论表
+CREATE TABLE `bk_comment` (
+  `id` int(10) NOT NULL AUTO_INCREMENT COMMENT '主键',
+  `question_id` int(10) NOT NULL COMMENT '问题主键',
+  `user_id` int(10) NOT NULL COMMENT '问题所属者主键',
+  `comment_text` VARCHAR(500) NOT NULL COMMENT '评论正文',
+  `bk_create` datetime NOT NULL,
+  `bk_modified` datetime NOT NULL,
+  `dr` int(4) unsigned NOT NULL DEFAULT '1' COMMENT '1=正常  2=删除',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB CHARACTER SET=utf8 COMMENT='评论表';
