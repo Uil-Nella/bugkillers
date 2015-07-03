@@ -27,8 +27,6 @@ public class QuestionDOMapperTest extends AbstractJunitTest {
         questionDO.setQuestionText("Java按时发生的大放送爱疯");
         questionDO.setBkCreate(new Date());
         questionDO.setBkModified(new Date());
-        questionDO.setCreateTime(new Date());
-        questionDO.setUpdateTime(new Date());
         questionDO.setDr(DataValidEnum.VALID.getIndex());
         questionDOMapper.insert(questionDO);
 //        questionDOMapper.insertSelective(questionDO);
