@@ -53,18 +53,44 @@ register.factory('Url', function () {//Url服务来管理Url
             vm.show_error = true;
             myform.$setDirty();
             if (myform.$valid) {
-                $http.post(Url.remote.registerUrl, $scope.vm.user)//提交注册
-                    .success(function (returndata) {
-                        $scope.ret = returndata.ret;
-                        $scope.code = returndata.code;
-                        $scope.msg = returndata.msg;
+                //$http.post(Url.remote.registerUrl, $scope.vm.user)//提交注册
+                //    .success(function (returndata) {
+                //        $scope.ret = returndata.ret;
+                //        $scope.code = returndata.code;
+                //        $scope.msg = returndata.msg;
+                //        if (returndata.ret) {
+                //            //跳到第二步
+                //            $scope.setTab(2);
+                //        }
+                //    });
+                $http({
+                    method: 'POST',
+                    url: Url.remote.registerUrl,
+                    data: $scope.vm.user,
+                    dataType: 'json',
+                    headers: {'Origin': 'http://127.0.0.1:3333'},
+                    async: false,
+                    cache: false,
+                    success: function (returndata) {
+                        $scope.setReturnData(returndata);
                         if (returndata.ret) {
-                            //跳到第二步
-                            $scope.setTab(2);
+                            $scope.goBackToMainPage();
                         }
-                    });
+                    },
+                    error: function (returndata) {
+                        $scope.setReturnData(returndata);
+                    }
+                });
             }
         };
+
+        //设置返回提示信息
+        $scope.setReturnData = function (returndata) {
+            $scope.ret = returndata.ret;
+            $scope.code = returndata.code;
+            $scope.msg = returndata.msg;
+        };
+        //设置页签
         $scope.setTab = function (tabnum) {
             $scope.tabshow = [];
             $scope.tabshow[tabnum - 1] = 'active';
