@@ -1,7 +1,9 @@
-var hostServer = "172.28.237.72:9081"
+var hostServer = "http://172.28.237.72:9081"
+
 
 
 $(document).ready(function () {
+
     $("#getlast").click(function(){
         $.ajax({
             type: "post",//使用get方法访问后台
@@ -29,6 +31,9 @@ $(document).ready(function () {
             headers: {
                 'Content-Type': 'Access-Control-Allow-Origin: *'
             },
+            //xhrFields: {
+            //    withCredentials: true
+            //},
             complete:function () {
                 alert(hostServer);
             },//AJAX请求完成时隐藏loading提示
@@ -56,20 +61,6 @@ $(document).ready(function () {
             }
         });
 
-    });
-
-
-    $.ajax({
-        type: "get",//使用get方法访问后台
-        dataType: "json",//返回json格式的数据
-        url: hostServer,//要访问的后台地址
-        data: "",//要发送的数据
-        complete:function () {
-            $("#load").hide();
-        },//AJAX请求完成时隐藏loading提示
-        success:function (msg) {//msg为返回的数据，在这里做数据绑定
-            alert(msg)
-        }
     });
 
 });
