@@ -1,0 +1,88 @@
+//less test
+@primaryColor: #383939;
+@secondaryColor: #66bbe3;
+
+@boxHeight: 200px;
+@boxWidth: @boxHeight*2;
+
+// mixin  css3 example
+//圆角 兼容浏览器
+.roundedCorners(@radius:12px) {
+  -webkit-border-radius: @radius;
+  -moz-border-radius: @radius;
+  border-radius: @radius;
+}
+
+//当我们要应用于一个对象 只要：
+#box {
+  background-color: @primaryColor;
+  .roundedCorners(20px); //可以传参
+}
+
+/*Rounded Corners*/
+.roundedCorners (@radius: 12px) {
+  -moz-border-radius: @radius;
+  -webkit-border-radius: @radius;
+  border-radius: @radius;
+}
+
+/*Box Shadow*/
+.boxShadow (@hor: 3px, @vert: 2px, @blur: 5px, @shadow: #757171) {
+  -webkit-box-shadow: @hor @vert @blur @shadow;
+  -moz-box-shadow: @hor @vert @blur @shadow;
+  box-shadow: @hor @vert @blur @shadow;
+}
+
+/*Transition*/
+.transition (@range: all, @time: 1s, @ease: ease-in-out) {
+  -moz-transition: @range @time @ease;
+  -webkit-transition: @range @time @ease;
+  -o-transition: @range @time @ease;
+  transition: @range @time @ease;
+}
+
+#box a {
+  display: block;
+  height: @boxHeight;
+  width: @boxWidth;
+  background: @primaryColor;
+  .roundedCorners(20px);
+  .boxShadow;
+}
+
+#box a:hover {
+  background: @secondaryColor;
+  .transition;
+}
+
+//可以用嵌套表示
+#box {
+  a {
+    background-color: @primaryColor;
+    color: #fff;
+    display: block;
+
+    height: @boxHeight;
+    width: @boxWidth;
+    line-height: @boxHeight;
+
+    margin: auto;
+    margin-top: 50px;
+
+    text-align: center;
+    text-decoration: none;
+
+    .roundedCorners(20px);
+    .boxShadow;
+  }
+
+  a:hover {
+    background: @secondaryColor;
+    .transition;
+  }
+
+  p {
+    font-size: 50px;
+    font-family: helvetica, arial, sans-serif;
+  }
+}

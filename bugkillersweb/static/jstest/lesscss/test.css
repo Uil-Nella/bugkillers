@@ -1,0 +1,57 @@
+#box {
+  background-color: #383939;
+  -moz-border-radius: 20px;
+  -webkit-border-radius: 20px;
+  border-radius: 20px;
+}
+/*Rounded Corners*/
+/*Box Shadow*/
+/*Transition*/
+#box a {
+  display: block;
+  height: 200px;
+  width: 400px;
+  background: #383939;
+  -moz-border-radius: 20px;
+  -webkit-border-radius: 20px;
+  border-radius: 20px;
+  -webkit-box-shadow: 3px 2px 5px #757171;
+  -moz-box-shadow: 3px 2px 5px #757171;
+  box-shadow: 3px 2px 5px #757171;
+}
+#box a:hover {
+  background: #66bbe3;
+  -moz-transition: all 1s ease-in-out;
+  -webkit-transition: all 1s ease-in-out;
+  -o-transition: all 1s ease-in-out;
+  transition: all 1s ease-in-out;
+}
+#box a {
+  background-color: #383939;
+  color: #fff;
+  display: block;
+  height: 200px;
+  width: 400px;
+  line-height: 200px;
+  margin: auto;
+  margin-top: 50px;
+  text-align: center;
+  text-decoration: none;
+  -moz-border-radius: 20px;
+  -webkit-border-radius: 20px;
+  border-radius: 20px;
+  -webkit-box-shadow: 3px 2px 5px #757171;
+  -moz-box-shadow: 3px 2px 5px #757171;
+  box-shadow: 3px 2px 5px #757171;
+}
+#box a:hover {
+  background: #66bbe3;
+  -moz-transition: all 1s ease-in-out;
+  -webkit-transition: all 1s ease-in-out;
+  -o-transition: all 1s ease-in-out;
+  transition: all 1s ease-in-out;
+}
+#box p {
+  font-size: 50px;
+  font-family: helvetica, arial, sans-serif;
+}
