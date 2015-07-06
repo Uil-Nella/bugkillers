@@ -32,6 +32,10 @@ var BK = {
             remote: {
                 loginUrl: remoteip + '/user/login'
             }
+        },
+        indexPage: {
+            local: {},
+            remote: {}
         }
     }
 };
