@@ -57,7 +57,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-internal');
     grunt.loadNpmTasks('grunt-contrib-watch');
 
-    //registerTask
+    //registerTasks
     grunt.registerTask('bugkillers', ['jshint', 'clean', 'less', 'watch']);
 
     //registerTask on grunt then just run 'grunt',the task will run
