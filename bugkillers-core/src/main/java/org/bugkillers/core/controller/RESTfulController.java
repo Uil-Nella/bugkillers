@@ -13,7 +13,7 @@ import java.util.Map;
  * Created by liuxinyu on 15/7/7.
  */
 
-@Controller
+//@Controller
 public class RESTfulController /*extends Context*/ {
     /**
      * 查询单个用户
