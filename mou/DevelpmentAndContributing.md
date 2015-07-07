@@ -68,5 +68,15 @@ git checkout feature-xxx-xxx
 在提pull request之前需要将代码和现在最新的代码，master分支上的代码做一下rebase或者merge。     
 pr参考：[Creating Effective Pull Requests](http://codeinthehole.com/writing/pull-requests-and-other-good-practices-for-teams-using-github/)
 
+#####4.5  忽略非必要提交
+
+类似`maven`的`target`文件，idea的`.idea`文件都是非必须的，将其加入git忽略              
+在工程的根目录下有一个`.git`的隐藏文件，编辑它：                    
+```    
+vim .git/info/exclude    
+```    
+
+windows下使用记事本编辑即可，将不必要的目录添加进去    
+  
 ### 加入组织
 在贡献达到一定程度后，便可申请加入组织[bugkillerz](https://github.com/bugkillerz),加入组织后便不用每次修改都要提pr，直接`push`即可。
