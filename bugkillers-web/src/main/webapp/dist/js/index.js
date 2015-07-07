@@ -25,15 +25,13 @@ $(document).ready(function () {
     $("#test").click(function(){
         $.ajax({
             type: "get",//使用get方法访问后台
-            dataType: "jsonp",//返回json格式的数据
+            dataType: "json",//返回json格式的数据
             url: hostServer+"/test/alive",//要访问的后台地址
             data: '',//要发送的数据
             headers: {
                 'Content-Type': 'Access-Control-Allow-Origin: "http://127.0.0.1:9081"'
             },
-            //xhrFields: {
-            //    withCredentials: true
-            //},
+            cros:true,
             complete:function () {
                 alert(hostServer);
             },//AJAX请求完成时隐藏loading提示
