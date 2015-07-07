@@ -101,7 +101,7 @@ register.factory('Url', function () {//Url服务来管理Url
         $scope.seconds = 5;//页面自动跳转倒计
         $scope.goToStep3 = function () {
             $scope.setTab(3);
-            $scope.timeCount($scope.seconds)
+            $scope.timeCount($scope.seconds);
         };
         $scope.timer = null;
         $scope.timeCount = function () {
@@ -112,7 +112,7 @@ register.factory('Url', function () {//Url服务来管理Url
         };
         $scope.timeReduce = function () {
             $scope.seconds = $scope.seconds - 1;
-            if ($scope.seconds != 0) {
+            if ($scope.seconds !== 0) {
                 $scope.timeCount();
             } else {
                 if ($scope.timer) {
@@ -124,7 +124,7 @@ register.factory('Url', function () {//Url服务来管理Url
         //注册完成 跳转到之前的页面
         $scope.goBackToMainPage = function () {
             location.href = Url.local.backUrl;
-        }
+        };
     }
 )
 ;

@@ -286,6 +286,206 @@ public class TagDOExample {
             return (Criteria) this;
         }
 
+        public Criteria andTagPicIsNull() {
+            addCriterion("tag_pic is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andTagPicIsNotNull() {
+            addCriterion("tag_pic is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andTagPicEqualTo(String value) {
+            addCriterion("tag_pic =", value, "tagPic");
+            return (Criteria) this;
+        }
+
+        public Criteria andTagPicNotEqualTo(String value) {
+            addCriterion("tag_pic <>", value, "tagPic");
+            return (Criteria) this;
+        }
+
+        public Criteria andTagPicGreaterThan(String value) {
+            addCriterion("tag_pic >", value, "tagPic");
+            return (Criteria) this;
+        }
+
+        public Criteria andTagPicGreaterThanOrEqualTo(String value) {
+            addCriterion("tag_pic >=", value, "tagPic");
+            return (Criteria) this;
+        }
+
+        public Criteria andTagPicLessThan(String value) {
+            addCriterion("tag_pic <", value, "tagPic");
+            return (Criteria) this;
+        }
+
+        public Criteria andTagPicLessThanOrEqualTo(String value) {
+            addCriterion("tag_pic <=", value, "tagPic");
+            return (Criteria) this;
+        }
+
+        public Criteria andTagPicLike(String value) {
+            addCriterion("tag_pic like", value, "tagPic");
+            return (Criteria) this;
+        }
+
+        public Criteria andTagPicNotLike(String value) {
+            addCriterion("tag_pic not like", value, "tagPic");
+            return (Criteria) this;
+        }
+
+        public Criteria andTagPicIn(List<String> values) {
+            addCriterion("tag_pic in", values, "tagPic");
+            return (Criteria) this;
+        }
+
+        public Criteria andTagPicNotIn(List<String> values) {
+            addCriterion("tag_pic not in", values, "tagPic");
+            return (Criteria) this;
+        }
+
+        public Criteria andTagPicBetween(String value1, String value2) {
+            addCriterion("tag_pic between", value1, value2, "tagPic");
+            return (Criteria) this;
+        }
+
+        public Criteria andTagPicNotBetween(String value1, String value2) {
+            addCriterion("tag_pic not between", value1, value2, "tagPic");
+            return (Criteria) this;
+        }
+
+        public Criteria andTagDesIsNull() {
+            addCriterion("tag_des is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andTagDesIsNotNull() {
+            addCriterion("tag_des is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andTagDesEqualTo(String value) {
+            addCriterion("tag_des =", value, "tagDes");
+            return (Criteria) this;
+        }
+
+        public Criteria andTagDesNotEqualTo(String value) {
+            addCriterion("tag_des <>", value, "tagDes");
+            return (Criteria) this;
+        }
+
+        public Criteria andTagDesGreaterThan(String value) {
+            addCriterion("tag_des >", value, "tagDes");
+            return (Criteria) this;
+        }
+
+        public Criteria andTagDesGreaterThanOrEqualTo(String value) {
+            addCriterion("tag_des >=", value, "tagDes");
+            return (Criteria) this;
+        }
+
+        public Criteria andTagDesLessThan(String value) {
+            addCriterion("tag_des <", value, "tagDes");
+            return (Criteria) this;
+        }
+
+        public Criteria andTagDesLessThanOrEqualTo(String value) {
+            addCriterion("tag_des <=", value, "tagDes");
+            return (Criteria) this;
+        }
+
+        public Criteria andTagDesLike(String value) {
+            addCriterion("tag_des like", value, "tagDes");
+            return (Criteria) this;
+        }
+
+        public Criteria andTagDesNotLike(String value) {
+            addCriterion("tag_des not like", value, "tagDes");
+            return (Criteria) this;
+        }
+
+        public Criteria andTagDesIn(List<String> values) {
+            addCriterion("tag_des in", values, "tagDes");
+            return (Criteria) this;
+        }
+
+        public Criteria andTagDesNotIn(List<String> values) {
+            addCriterion("tag_des not in", values, "tagDes");
+            return (Criteria) this;
+        }
+
+        public Criteria andTagDesBetween(String value1, String value2) {
+            addCriterion("tag_des between", value1, value2, "tagDes");
+            return (Criteria) this;
+        }
+
+        public Criteria andTagDesNotBetween(String value1, String value2) {
+            addCriterion("tag_des not between", value1, value2, "tagDes");
+            return (Criteria) this;
+        }
+
+        public Criteria andGroupIdIsNull() {
+            addCriterion("group_id is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andGroupIdIsNotNull() {
+            addCriterion("group_id is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andGroupIdEqualTo(Integer value) {
+            addCriterion("group_id =", value, "groupId");
+            return (Criteria) this;
+        }
+
+        public Criteria andGroupIdNotEqualTo(Integer value) {
+            addCriterion("group_id <>", value, "groupId");
+            return (Criteria) this;
+        }
+
+        public Criteria andGroupIdGreaterThan(Integer value) {
+            addCriterion("group_id >", value, "groupId");
+            return (Criteria) this;
+        }
+
+        public Criteria andGroupIdGreaterThanOrEqualTo(Integer value) {
+            addCriterion("group_id >=", value, "groupId");
+            return (Criteria) this;
+        }
+
+        public Criteria andGroupIdLessThan(Integer value) {
+            addCriterion("group_id <", value, "groupId");
+            return (Criteria) this;
+        }
+
+        public Criteria andGroupIdLessThanOrEqualTo(Integer value) {
+            addCriterion("group_id <=", value, "groupId");
+            return (Criteria) this;
+        }
+
+        public Criteria andGroupIdIn(List<Integer> values) {
+            addCriterion("group_id in", values, "groupId");
+            return (Criteria) this;
+        }
+
+        public Criteria andGroupIdNotIn(List<Integer> values) {
+            addCriterion("group_id not in", values, "groupId");
+            return (Criteria) this;
+        }
+
+        public Criteria andGroupIdBetween(Integer value1, Integer value2) {
+            addCriterion("group_id between", value1, value2, "groupId");
+            return (Criteria) this;
+        }
+
+        public Criteria andGroupIdNotBetween(Integer value1, Integer value2) {
+            addCriterion("group_id not between", value1, value2, "groupId");
+            return (Criteria) this;
+        }
+
         public Criteria andBkCreateIsNull() {
             addCriterion("bk_create is null");
             return (Criteria) this;

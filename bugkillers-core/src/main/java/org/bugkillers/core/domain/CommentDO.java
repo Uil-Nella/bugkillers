@@ -24,16 +24,6 @@ public class CommentDO {
     private String commentText;
 
     /**
-     *  ,所属表字段为bk_comment.create_time
-     */
-    private Date createTime;
-
-    /**
-     *  ,所属表字段为bk_comment.update_time
-     */
-    private Date updateTime;
-
-    /**
      *  ,所属表字段为bk_comment.bk_create
      */
     private Date bkCreate;
@@ -118,42 +108,6 @@ public class CommentDO {
      */
     public void setCommentText(String commentText) {
         this.commentText = commentText == null ? null : commentText.trim();
-    }
-
-    /**
-     * 获取  字段:bk_comment.create_time
-     *
-     * @return bk_comment.create_time, 
-     */
-    public Date getCreateTime() {
-        return createTime;
-    }
-
-    /**
-     * 设置  字段:bk_comment.create_time
-     *
-     * @param createTime bk_comment.create_time, 
-     */
-    public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
-    }
-
-    /**
-     * 获取  字段:bk_comment.update_time
-     *
-     * @return bk_comment.update_time, 
-     */
-    public Date getUpdateTime() {
-        return updateTime;
-    }
-
-    /**
-     * 设置  字段:bk_comment.update_time
-     *
-     * @param updateTime bk_comment.update_time, 
-     */
-    public void setUpdateTime(Date updateTime) {
-        this.updateTime = updateTime;
     }
 
     /**

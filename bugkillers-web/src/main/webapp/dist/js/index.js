@@ -1,7 +1,9 @@
-var hostServer = "192.168.1.103:9081"
+var hostServer = "http://127.0.0.1:9081"
+
 
 
 $(document).ready(function () {
+
     $("#getlast").click(function(){
         $.ajax({
             type: "post",//使用get方法访问后台
@@ -20,18 +22,46 @@ $(document).ready(function () {
         });
     });
 
+    $("#test").click(function(){
+        $.ajax({
+            type: "get",//使用get方法访问后台
+            dataType: "json",//返回json格式的数据
+            url: hostServer+"/test/alive",//要访问的后台地址
+            data: '',//要发送的数据
+            headers: {
+                'Content-Type': 'Access-Control-Allow-Origin: "http://127.0.0.1:9081"'
+            },
+            cros:true,
+            complete:function () {
+                alert(hostServer);
+            },//AJAX请求完成时隐藏loading提示
+            success:function (msg) {//msg为返回的数据，在这里做数据绑定
+                alert(msg.website)
+            }
+        });
 
-    $.ajax({
-        type: "get",//使用get方法访问后台
-        dataType: "json",//返回json格式的数据
-        url: hostServer,//要访问的后台地址
-        data: "",//要发送的数据
-        complete:function () {
-            $("#load").hide();
-        },//AJAX请求完成时隐藏loading提示
-        success:function (msg) {//msg为返回的数据，在这里做数据绑定
-            alert(msg)
-        }
+    });
+    //$.getJSON(hostServer+"/test/alive?callback=?",function(json){
+    //    alert(json.website);
+    //});
+
+    $("#login").click(function(){
+        $.ajax({
+            type: "post",//使用get方法访问后台
+            dataType: "json",//返回json格式的数据
+            url: hostServer+"/user/login",//要访问的后台地址
+            data: '{ "id": 0,"userName": "11","nickName": "11","password": "11","email": "11@11a","headPic": ""}',//要发送的数据
+            headers: {
+                'Content-Type': 'Access-Control-Allow-Origin: *'
+            },
+            complete:function () {
+                alert(hostServer);
+            },//AJAX请求完成时隐藏loading提示
+            success:function (msg) {//msg为返回的数据，在这里做数据绑定
+                alert(msg)
+            }
+        });
+
     });
 
 });

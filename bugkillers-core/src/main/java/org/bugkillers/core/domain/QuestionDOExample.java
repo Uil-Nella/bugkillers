@@ -486,123 +486,123 @@ public class QuestionDOExample {
             return (Criteria) this;
         }
 
-        public Criteria andCreateTimeIsNull() {
-            addCriterion("create_time is null");
+        public Criteria andQuestionStatusIsNull() {
+            addCriterion("question_status is null");
             return (Criteria) this;
         }
 
-        public Criteria andCreateTimeIsNotNull() {
-            addCriterion("create_time is not null");
+        public Criteria andQuestionStatusIsNotNull() {
+            addCriterion("question_status is not null");
             return (Criteria) this;
         }
 
-        public Criteria andCreateTimeEqualTo(Date value) {
-            addCriterion("create_time =", value, "createTime");
+        public Criteria andQuestionStatusEqualTo(Integer value) {
+            addCriterion("question_status =", value, "questionStatus");
             return (Criteria) this;
         }
 
-        public Criteria andCreateTimeNotEqualTo(Date value) {
-            addCriterion("create_time <>", value, "createTime");
+        public Criteria andQuestionStatusNotEqualTo(Integer value) {
+            addCriterion("question_status <>", value, "questionStatus");
             return (Criteria) this;
         }
 
-        public Criteria andCreateTimeGreaterThan(Date value) {
-            addCriterion("create_time >", value, "createTime");
+        public Criteria andQuestionStatusGreaterThan(Integer value) {
+            addCriterion("question_status >", value, "questionStatus");
             return (Criteria) this;
         }
 
-        public Criteria andCreateTimeGreaterThanOrEqualTo(Date value) {
-            addCriterion("create_time >=", value, "createTime");
+        public Criteria andQuestionStatusGreaterThanOrEqualTo(Integer value) {
+            addCriterion("question_status >=", value, "questionStatus");
             return (Criteria) this;
         }
 
-        public Criteria andCreateTimeLessThan(Date value) {
-            addCriterion("create_time <", value, "createTime");
+        public Criteria andQuestionStatusLessThan(Integer value) {
+            addCriterion("question_status <", value, "questionStatus");
             return (Criteria) this;
         }
 
-        public Criteria andCreateTimeLessThanOrEqualTo(Date value) {
-            addCriterion("create_time <=", value, "createTime");
+        public Criteria andQuestionStatusLessThanOrEqualTo(Integer value) {
+            addCriterion("question_status <=", value, "questionStatus");
             return (Criteria) this;
         }
 
-        public Criteria andCreateTimeIn(List<Date> values) {
-            addCriterion("create_time in", values, "createTime");
+        public Criteria andQuestionStatusIn(List<Integer> values) {
+            addCriterion("question_status in", values, "questionStatus");
             return (Criteria) this;
         }
 
-        public Criteria andCreateTimeNotIn(List<Date> values) {
-            addCriterion("create_time not in", values, "createTime");
+        public Criteria andQuestionStatusNotIn(List<Integer> values) {
+            addCriterion("question_status not in", values, "questionStatus");
             return (Criteria) this;
         }
 
-        public Criteria andCreateTimeBetween(Date value1, Date value2) {
-            addCriterion("create_time between", value1, value2, "createTime");
+        public Criteria andQuestionStatusBetween(Integer value1, Integer value2) {
+            addCriterion("question_status between", value1, value2, "questionStatus");
             return (Criteria) this;
         }
 
-        public Criteria andCreateTimeNotBetween(Date value1, Date value2) {
-            addCriterion("create_time not between", value1, value2, "createTime");
+        public Criteria andQuestionStatusNotBetween(Integer value1, Integer value2) {
+            addCriterion("question_status not between", value1, value2, "questionStatus");
             return (Criteria) this;
         }
 
-        public Criteria andUpdateTimeIsNull() {
-            addCriterion("update_time is null");
+        public Criteria andQuestionTimesIsNull() {
+            addCriterion("question_times is null");
             return (Criteria) this;
         }
 
-        public Criteria andUpdateTimeIsNotNull() {
-            addCriterion("update_time is not null");
+        public Criteria andQuestionTimesIsNotNull() {
+            addCriterion("question_times is not null");
             return (Criteria) this;
         }
 
-        public Criteria andUpdateTimeEqualTo(Date value) {
-            addCriterion("update_time =", value, "updateTime");
+        public Criteria andQuestionTimesEqualTo(Integer value) {
+            addCriterion("question_times =", value, "questionTimes");
             return (Criteria) this;
         }
 
-        public Criteria andUpdateTimeNotEqualTo(Date value) {
-            addCriterion("update_time <>", value, "updateTime");
+        public Criteria andQuestionTimesNotEqualTo(Integer value) {
+            addCriterion("question_times <>", value, "questionTimes");
             return (Criteria) this;
         }
 
-        public Criteria andUpdateTimeGreaterThan(Date value) {
-            addCriterion("update_time >", value, "updateTime");
+        public Criteria andQuestionTimesGreaterThan(Integer value) {
+            addCriterion("question_times >", value, "questionTimes");
             return (Criteria) this;
         }
 
-        public Criteria andUpdateTimeGreaterThanOrEqualTo(Date value) {
-            addCriterion("update_time >=", value, "updateTime");
+        public Criteria andQuestionTimesGreaterThanOrEqualTo(Integer value) {
+            addCriterion("question_times >=", value, "questionTimes");
             return (Criteria) this;
         }
 
-        public Criteria andUpdateTimeLessThan(Date value) {
-            addCriterion("update_time <", value, "updateTime");
+        public Criteria andQuestionTimesLessThan(Integer value) {
+            addCriterion("question_times <", value, "questionTimes");
             return (Criteria) this;
         }
 
-        public Criteria andUpdateTimeLessThanOrEqualTo(Date value) {
-            addCriterion("update_time <=", value, "updateTime");
+        public Criteria andQuestionTimesLessThanOrEqualTo(Integer value) {
+            addCriterion("question_times <=", value, "questionTimes");
             return (Criteria) this;
         }
 
-        public Criteria andUpdateTimeIn(List<Date> values) {
-            addCriterion("update_time in", values, "updateTime");
+        public Criteria andQuestionTimesIn(List<Integer> values) {
+            addCriterion("question_times in", values, "questionTimes");
             return (Criteria) this;
         }
 
-        public Criteria andUpdateTimeNotIn(List<Date> values) {
-            addCriterion("update_time not in", values, "updateTime");
+        public Criteria andQuestionTimesNotIn(List<Integer> values) {
+            addCriterion("question_times not in", values, "questionTimes");
             return (Criteria) this;
         }
 
-        public Criteria andUpdateTimeBetween(Date value1, Date value2) {
-            addCriterion("update_time between", value1, value2, "updateTime");
+        public Criteria andQuestionTimesBetween(Integer value1, Integer value2) {
+            addCriterion("question_times between", value1, value2, "questionTimes");
             return (Criteria) this;
         }
 
-        public Criteria andUpdateTimeNotBetween(Date value1, Date value2) {
-            addCriterion("update_time not between", value1, value2, "updateTime");
+        public Criteria andQuestionTimesNotBetween(Integer value1, Integer value2) {
+            addCriterion("question_times not between", value1, value2, "questionTimes");
             return (Criteria) this;
         }
 

@@ -11,19 +11,14 @@ import org.bugkillers.core.util.RegexUtil;
  */
 public class UserServiceValidator {
     /**
-     * email 正则校验
-     */
-    public static final String RE_EMAIL = "^([a-z0-9A-Z]+[-|\\.]?)+[a-z0-9A-Z]@([a-z0-9A-Z]+(-[a-z0-9A-Z]+)?\\.)+[a-zA-Z]{2,}$";
-
-    /**
      * 登录校验
      *
      * @return
      */
     public static BaseResult<User> loginValidator(User user) {
         BaseResult<User> result = new BaseResult<>();
-        if (null == user||StringUtils.isEmpty(user.getEmail())||(StringUtils.isEmpty(user.getUserName())
-                &StringUtils.isEmpty(user.getPassword()))){
+        if (null == user||StringUtils.isEmpty(user.getPassword())||(StringUtils.isEmpty(user.getUserName())
+                &StringUtils.isEmpty(user.getEmail()))){
             return result.setMsg("必要请求参数不可为空").setCode(RetCode.PARAM_EMPTY);
         }
         return result.setRet(true);

@@ -77,9 +77,9 @@
         </javaClientGenerator>
 
 
-        <!--<table tableName="bk_user" schema="bugkillers" domainObjectName="UserDO" enableCountByExample="false" enableUpdateByExample="false"-->
-               <!--enableDeleteByExample="false" enableSelectByExample="true"-->
-               <!--selectByExampleQueryId="false" >-->
+        <table tableName="bk_user" schema="bugkillers" domainObjectName="UserDO" enableCountByExample="false" enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="true"
+               selectByExampleQueryId="false" >
             <!-- optional   , only for mybatis3 runtime
                  自动生成的键值（identity,或者序列值）
                如果指定此元素，MBG将会生成<selectKey>元素，然后将此元素插入到SQL Map的<insert> 元素之中
@@ -123,20 +123,32 @@
 
             -->
             <!--<columnOverride column="" javaType="" jdbcType="" typeHandler="" delimitedColumnName=""/>-->
-        <!--</table>-->
-        <!--<table tableName="bk_tag" schema="bugkillers" domainObjectName="TagDO" enableCountByExample="false" enableUpdateByExample="false"-->
-               <!--enableDeleteByExample="false" enableSelectByExample="true"-->
-               <!--selectByExampleQueryId="false">-->
-        <!--</table>-->
+        </table>
+        <table tableName="bk_tag" schema="bugkillers" domainObjectName="TagDO" enableCountByExample="false" enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="true"
+               selectByExampleQueryId="false">
+        </table>
         <table tableName="bk_question" schema="bugkillers" domainObjectName="QuestionDO" enableCountByExample="false" enableUpdateByExample="false"
                enableDeleteByExample="false" enableSelectByExample="true"
                selectByExampleQueryId="false">
         </table>
-        <!--<table tableName="bk_comment" schema="bugkillers" domainObjectName="CommentDO" enableCountByExample="false" enableUpdateByExample="false"-->
-               <!--enableDeleteByExample="false" enableSelectByExample="true"-->
-               <!--selectByExampleQueryId="false">-->
-        <!--</table>-->
+        <table tableName="bk_comment" schema="bugkillers" domainObjectName="CommentDO" enableCountByExample="false" enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="true"
+               selectByExampleQueryId="false">
+        </table>
         <table tableName="bk_question_tag" schema="bugkillers" domainObjectName="QuestionTagDO" enableCountByExample="false" enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="true"
+               selectByExampleQueryId="false">
+        </table>
+        <table tableName="bk_tag_group" schema="bugkillers" domainObjectName="TagGroupDO" enableCountByExample="false" enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="true"
+               selectByExampleQueryId="false">
+        </table>
+        <table tableName="bk_tag_user" schema="bugkillers" domainObjectName="TagUserDO" enableCountByExample="false" enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="true"
+               selectByExampleQueryId="false">
+        </table>
+        <table tableName="bk_prestige" schema="bugkillers" domainObjectName="PrestigeDO" enableCountByExample="false" enableUpdateByExample="false"
                enableDeleteByExample="false" enableSelectByExample="true"
                selectByExampleQueryId="false">
         </table>

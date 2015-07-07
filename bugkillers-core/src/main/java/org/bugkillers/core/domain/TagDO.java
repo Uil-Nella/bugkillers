@@ -14,6 +14,21 @@ public class TagDO {
     private String tagName;
 
     /**
+     *  标签图片,所属表字段为bk_tag.tag_pic
+     */
+    private String tagPic;
+
+    /**
+     *  标签描述信息,所属表字段为bk_tag.tag_des
+     */
+    private String tagDes;
+
+    /**
+     *  标签组主键,所属表字段为bk_tag.group_id
+     */
+    private Integer groupId;
+
+    /**
      *  ,所属表字段为bk_tag.bk_create
      */
     private Date bkCreate;
@@ -62,6 +77,60 @@ public class TagDO {
      */
     public void setTagName(String tagName) {
         this.tagName = tagName == null ? null : tagName.trim();
+    }
+
+    /**
+     * 获取 标签图片 字段:bk_tag.tag_pic
+     *
+     * @return bk_tag.tag_pic, 标签图片
+     */
+    public String getTagPic() {
+        return tagPic;
+    }
+
+    /**
+     * 设置 标签图片 字段:bk_tag.tag_pic
+     *
+     * @param tagPic bk_tag.tag_pic, 标签图片
+     */
+    public void setTagPic(String tagPic) {
+        this.tagPic = tagPic == null ? null : tagPic.trim();
+    }
+
+    /**
+     * 获取 标签描述信息 字段:bk_tag.tag_des
+     *
+     * @return bk_tag.tag_des, 标签描述信息
+     */
+    public String getTagDes() {
+        return tagDes;
+    }
+
+    /**
+     * 设置 标签描述信息 字段:bk_tag.tag_des
+     *
+     * @param tagDes bk_tag.tag_des, 标签描述信息
+     */
+    public void setTagDes(String tagDes) {
+        this.tagDes = tagDes == null ? null : tagDes.trim();
+    }
+
+    /**
+     * 获取 标签组主键 字段:bk_tag.group_id
+     *
+     * @return bk_tag.group_id, 标签组主键
+     */
+    public Integer getGroupId() {
+        return groupId;
+    }
+
+    /**
+     * 设置 标签组主键 字段:bk_tag.group_id
+     *
+     * @param groupId bk_tag.group_id, 标签组主键
+     */
+    public void setGroupId(Integer groupId) {
+        this.groupId = groupId;
     }
 
     /**

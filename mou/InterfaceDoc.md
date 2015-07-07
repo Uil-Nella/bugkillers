@@ -1,5 +1,7 @@
 #接口文档
 ##接口
+> 备注:接口暂时没有加安全认证，可自由调用，但会有跨域问题，建议安装Chrom的Cros插件。[CROS](https://www.google.com.hk/url?sa=t&rct=j&q=&esrc=s&source=web&cd=15&cad=rja&uact=8&ved=0CD4QFjAEOAo&url=https%3A%2F%2Fchrome.google.com%2Fwebstore%2Fdetail%2Fallow-control-allow-origi%2Fnlfbmbojpeacfghkpbjhddihlkkiljbi&ei=im6bVfmoA8z28QWzy4GADw&usg=AFQjCNHbySktM7wLJjxA63D4xj6dr3jkTw)
+
 ###1.用户
 ####1.1 注册
 #####1.1.1 请求url    

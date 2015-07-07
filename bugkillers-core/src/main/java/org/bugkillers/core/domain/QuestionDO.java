@@ -29,14 +29,14 @@ public class QuestionDO {
     private String questionText;
 
     /**
-     *  ,所属表字段为bk_question.create_time
+     *  问题状态 1 待回答 2 已经回答 3 已解决 ,所属表字段为bk_question.question_status
      */
-    private Date createTime;
+    private Integer questionStatus;
 
     /**
-     *  ,所属表字段为bk_question.update_time
+     *  浏览次数 每被查询一次加一,所属表字段为bk_question.question_times
      */
-    private Date updateTime;
+    private Integer questionTimes;
 
     /**
      *  ,所属表字段为bk_question.bk_create
@@ -144,39 +144,39 @@ public class QuestionDO {
     }
 
     /**
-     * 获取  字段:bk_question.create_time
+     * 获取 问题状态 1 待回答 2 已经回答 3 已解决  字段:bk_question.question_status
      *
-     * @return bk_question.create_time, 
+     * @return bk_question.question_status, 问题状态 1 待回答 2 已经回答 3 已解决 
      */
-    public Date getCreateTime() {
-        return createTime;
+    public Integer getQuestionStatus() {
+        return questionStatus;
     }
 
     /**
-     * 设置  字段:bk_question.create_time
+     * 设置 问题状态 1 待回答 2 已经回答 3 已解决  字段:bk_question.question_status
      *
-     * @param createTime bk_question.create_time, 
+     * @param questionStatus bk_question.question_status, 问题状态 1 待回答 2 已经回答 3 已解决 
      */
-    public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
+    public void setQuestionStatus(Integer questionStatus) {
+        this.questionStatus = questionStatus;
     }
 
     /**
-     * 获取  字段:bk_question.update_time
+     * 获取 浏览次数 每被查询一次加一 字段:bk_question.question_times
      *
-     * @return bk_question.update_time, 
+     * @return bk_question.question_times, 浏览次数 每被查询一次加一
      */
-    public Date getUpdateTime() {
-        return updateTime;
+    public Integer getQuestionTimes() {
+        return questionTimes;
     }
 
     /**
-     * 设置  字段:bk_question.update_time
+     * 设置 浏览次数 每被查询一次加一 字段:bk_question.question_times
      *
-     * @param updateTime bk_question.update_time, 
+     * @param questionTimes bk_question.question_times, 浏览次数 每被查询一次加一
      */
-    public void setUpdateTime(Date updateTime) {
-        this.updateTime = updateTime;
+    public void setQuestionTimes(Integer questionTimes) {
+        this.questionTimes = questionTimes;
     }
 
     /**

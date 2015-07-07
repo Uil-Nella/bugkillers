@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
  * Created by liuxinyu on 15/6/22.
  */
 @Controller
-@RequestMapping("/question")
+@RequestMapping("/bugkillers/question")
 public class QuestionController {
 
     @Autowired

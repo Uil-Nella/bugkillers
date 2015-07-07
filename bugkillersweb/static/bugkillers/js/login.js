@@ -85,7 +85,7 @@ login.factory('Url', function () {
     };
     //忘记密码
     $scope.forgetPassword = function () {
-        alert('惩罚你再注册一个！嘿嘿...')
-    }
+        alert('惩罚你再注册一个！嘿嘿...');
+    };
 });
 
