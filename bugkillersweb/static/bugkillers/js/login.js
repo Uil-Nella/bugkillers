@@ -58,6 +58,7 @@ login.factory('Url', function () {
             async: false,
             cache: false,
             success: function (returndata) {
+                console.log(returndata);
                 $scope.setReturnData(returndata);
                 if (returndata.ret) {
                     $scope.goBackToMainPage();
