@@ -53,26 +53,24 @@ login.factory('Url', function () {
                 $scope.setReturnData(returndata);
             });
 
-        //$http({
+        //var promise = $http({
         //    method: 'POST',
         //    url: Url.remote.loginUrl,
         //    data: loginuserdata,
         //    dataType: 'json',
         //    async: false,
-        //    cache: false,
-        //    success: function (returndata) {
-        //        alert('success');
-        //        $scope.setReturnData(returndata);
-        //        if (returndata.ret) {
+        //    cache: false
+        //});
+        //promise.then(
+        //    function success(returndata) {
+        //        $scope.setReturnData(returndata.data); //注意这里是.data来获取后台返回的数据
+        //        if (returndata.data.ret) {
         //            $scope.goBackToMainPage();
         //        }
         //    },
-        //    error: function (returndata) {
-        //        alert('error');
-        //        $scope.setReturnData(returndata);
-        //
-        //    }
-        //});
+        //    function error(returndata) {
+        //        $scope.setReturnData(returndata.data);
+        //    });
     };
     //设置返回提示信息
     $scope.setReturnData = function (returndata) {

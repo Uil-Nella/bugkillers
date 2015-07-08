@@ -64,23 +64,6 @@ register.factory('Url', function () {//Url服务来管理Url
                     }).error(function (returndata) {
                         $scope.setReturnData(returndata);
                     });
-                //$http({ //不执行回调
-                //    method: 'POST',
-                //    url: Url.remote.registerUrl,
-                //    data: JSON.stringify($scope.vm.user),
-                //    dataType: 'json',
-                //    async: false,
-                //    cache: false,
-                //    success: function (returndata) {
-                //        $scope.setReturnData(returndata);
-                //        if (returndata.ret) {
-                //            $scope.goBackToMainPage();
-                //        }
-                //    },
-                //    error: function (returndata) {
-                //        $scope.setReturnData(returndata);
-                //    }
-                //});
             }
         };
 
