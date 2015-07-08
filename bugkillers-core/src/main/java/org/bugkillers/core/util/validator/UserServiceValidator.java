@@ -43,7 +43,7 @@ public class UserServiceValidator {
         if (StringUtils.isEmpty(user.getPassword())){
             return result.setMsg("password不可为空,password:"+ user.getPassword()).setCode(RetCode.PARAM_EMPTY);
         }
-        if (RegexUtil.check(RegexUtil.RE_EMAIL, user.getEmail())){
+        if (!RegexUtil.check(RegexUtil.RE_EMAIL, user.getEmail())){
             return result.setMsg("邮箱格式不正确").setCode(RetCode.REGIST_EMAIL_FORMAT_ERROR);
         }
         return result.setRet(true);
