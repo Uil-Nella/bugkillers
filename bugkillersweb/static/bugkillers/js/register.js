@@ -40,46 +40,30 @@ register.factory('Url', function () {//Url服务来管理Url
         $scope.registerUrl = Url.registerUrl;
         $scope.code = '';//ret为false时有效
         $scope.msg = '';//信息
-        $scope.ret = '';//是否成功
+        $scope.ret = true;//是否成功
 
         var vm = $scope.vm = {
             show_error: false,
             user: {
                 repass: '',
-                password: ''
+                password: '',
+                nickName: ''
             }
         };
         vm.submit = function (myform) {
             vm.show_error = true;
             myform.$setDirty();
             if (myform.$valid) {
-                //$http.post(Url.remote.registerUrl, $scope.vm.user)//提交注册
-                //    .success(function (returndata) {
-                //        $scope.ret = returndata.ret;
-                //        $scope.code = returndata.code;
-                //        $scope.msg = returndata.msg;
-                //        if (returndata.ret) {
-                //            //跳到第二步
-                //            $scope.setTab(2);
-                //        }
-                //    });
-                $http({
-                    method: 'POST',
-                    url: Url.remote.registerUrl,
-                    data: $scope.vm.user,
-                    dataType: 'json',
-                    async: false,
-                    cache: false,
-                    success: function (returndata) {
+                $http.post(Url.remote.registerUrl, $scope.vm.user)//提交注册
+                    .success(function (returndata) {
                         $scope.setReturnData(returndata);
                         if (returndata.ret) {
-                            $scope.goBackToMainPage();
+                            //跳到第二步
+                            $scope.setTab(2);
                         }
-                    },
-                    error: function (returndata) {
+                    }).error(function (returndata) {
                         $scope.setReturnData(returndata);
-                    }
-                });
+                    });
             }
         };
 
