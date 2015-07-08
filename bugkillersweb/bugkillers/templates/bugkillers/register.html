@@ -85,7 +85,7 @@
                     </div>
                 </div>
                 <div class="form-group"
-                     ng-show="(myform.$invalid && myform.$dirty  && vm.show_error) || (!ret && msg.length>0)">
+                     ng-show="(myform.$invalid && myform.$dirty  && vm.show_error) || (!ret)">
                     <div class="row">
                         <div class="col-sm-2"></div>
                         <div class="col-sm-6 messagealert">
@@ -111,7 +111,7 @@
                                     <li ng-show="myform.repass.$dirty  && myform.repass.$error.repeat">
                                         两次输入的密码不一致！
                                     </li>
-                                    <li ng-show="!ret && msg.length>0" ng-bind="msg + ',错误码：'+ code "></li>
+                                    <li ng-show="!ret" ng-bind="msg + ',错误码：'+ code "></li>
                                 </ul>
                             </div>
                         </div>

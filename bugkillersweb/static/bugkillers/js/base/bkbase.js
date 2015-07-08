@@ -30,7 +30,7 @@ var BK = {
                 backUrl: '/bugkillers/index/' //回到点击注册页的页面 默认是主页
             },
             remote: {
-                loginUrl: remoteip + '/user/login'
+                loginUrl: remoteip + '/bugkillers/user/login'
             }
         },
         indexPage: {
