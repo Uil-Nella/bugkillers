@@ -68,7 +68,6 @@ register.factory('Url', function () {//Url服务来管理Url
                     url: Url.remote.registerUrl,
                     data: $scope.vm.user,
                     dataType: 'json',
-                    headers: {'Origin': 'http://127.0.0.1:3333'},
                     async: false,
                     cache: false,
                     success: function (returndata) {

@@ -6,7 +6,7 @@
  * 远程服务区ip
  * @type {string}
  */
-var remoteip = 'http://127.0.0.1:9082';
+var remoteip = 'http://127.0.0.1:9081';
 /**
  * 全局对象BK
  * 通过pages实现命名空间的不同来屏蔽js全局污染
@@ -24,7 +24,7 @@ var BK = {
                 registerUrl: remoteip + '/bugkillers/user/regist'
             }
         },
-        loginPage: {
+        loginPage: {//登录页面的url
             local: {
                 registerUrl: '../register/',
                 backUrl: '/bugkillers/index/' //回到点击注册页的页面 默认是主页

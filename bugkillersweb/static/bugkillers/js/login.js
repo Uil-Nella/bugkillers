@@ -55,7 +55,6 @@ login.factory('Url', function () {
             url: Url.remote.loginUrl,
             data: loginuserdata,
             dataType: 'json',
-            headers: {'Origin': 'http://127.0.0.1:3333'},
             async: false,
             cache: false,
             success: function (returndata) {
