@@ -6,7 +6,9 @@
  * 远程服务区ip
  * @type {string}
  */
-var remoteip = 'http://127.0.0.1:9081';
+//var remoteip = 'http://127.0.0.1:9081';
+var remoteip = 'http://115.29.38.204:9081';
+
 /**
  * 全局对象BK
  * 通过pages实现命名空间的不同来屏蔽js全局污染
