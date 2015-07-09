@@ -5,7 +5,7 @@ USE bugkillers;
 CREATE TABLE `bk_user` (
   `id` int(10) NOT NULL AUTO_INCREMENT COMMENT '主键',
   `user_name` VARCHAR(50) NOT NULL COMMENT '用户名',
-  `nick_name` VARCHAR(50) NOT NULL COMMENT '昵称',
+  `nick_name` VARCHAR(50)  COMMENT '昵称',
   `password` VARCHAR(50) NOT NULL COMMENT '密码',
   `email` VARCHAR(50) NOT NULL COMMENT '邮箱',
   `head_pic` VARCHAR(50)  COMMENT '头像路径',

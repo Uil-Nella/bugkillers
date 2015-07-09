@@ -60,7 +60,7 @@
                         <label for="" class="control-label ">用户名</label>
                     </div>
                     <div class="col-sm-6">
-                        <input type="text" name="userName" ng-model="vm.user.name" required="" class="form-control"
+                        <input type="text" name="userName" ng-model="vm.user.userName" required="" class="form-control"
                                placeholder="由字母、数字、下划线组成，以字母开头，3-12个字符" ng-pattern="/^[A-Za-z]{1}[0-9A-Za-z_]{2,11}$/">
                     </div>
                 </div>
@@ -85,7 +85,7 @@
                     </div>
                 </div>
                 <div class="form-group"
-                     ng-show="(myform.$invalid && myform.$dirty  && vm.show_error) || (!ret && msg.length>0)">
+                     ng-show="(myform.$invalid && myform.$dirty  && vm.show_error) || (!ret)">
                     <div class="row">
                         <div class="col-sm-2"></div>
                         <div class="col-sm-6 messagealert">
@@ -111,7 +111,7 @@
                                     <li ng-show="myform.repass.$dirty  && myform.repass.$error.repeat">
                                         两次输入的密码不一致！
                                     </li>
-                                    <li ng-show="!ret && msg.length>0" ng-bind="msg + ',错误码：'+ code "></li>
+                                    <li ng-show="!ret" ng-bind="msg + ',错误码：'+ code "></li>
                                 </ul>
                             </div>
                         </div>
