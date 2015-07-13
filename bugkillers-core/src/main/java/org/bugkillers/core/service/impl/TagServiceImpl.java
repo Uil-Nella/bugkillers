@@ -10,12 +10,14 @@ import org.bugkillers.core.service.ITagService;
 import org.bugkillers.core.util.BeanMapper;
 import org.bugkillers.core.util.FillAttributeUtil;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 /**
  * Created by liuxinyu on 15/7/13.
  */
+@Service
 public class TagServiceImpl implements ITagService {
     @Autowired
     private BeanMapper beanMapper;
@@ -37,7 +39,11 @@ public class TagServiceImpl implements ITagService {
         //TODO 二期再做
         tagDO.setGroupId(1);
         FillAttributeUtil.fillNecessaryAttribute(tagDO, TagDO.class);
-        tagDOMapper.insert(tagDO);
+        if (tagDO.getId()!=null){
+            tagDOMapper.updateByPrimaryKey(tagDO);
+        }else {
+            tagDOMapper.insert(tagDO);
+        }
         //result 处理
         return result.setRet(true);
     }
