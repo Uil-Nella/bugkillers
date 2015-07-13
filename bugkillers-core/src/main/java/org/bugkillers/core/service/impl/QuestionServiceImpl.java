@@ -14,10 +14,12 @@ import org.bugkillers.core.model.User;
 import org.bugkillers.core.result.BaseResult;
 import org.bugkillers.core.service.IQuestionService;
 import org.bugkillers.core.util.BeanMapper;
+import org.bugkillers.core.util.FillAttributeUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -109,18 +111,26 @@ public class QuestionServiceImpl implements IQuestionService {
     @Override
     public BaseResult<Question> createOrModifiedQuestion(Question question) {
         //校验
+        BaseResult<Question> result = new BaseResult<>();
+        boolean flag = true;
         QuestionDO questionDO = new QuestionDO();
         beanMapper.copy(question, questionDO);
-        int questionId = questionDOMapper.insert(questionDO);
+        FillAttributeUtil.fillNecessaryAttribute(questionDO,QuestionDO.class);
+        flag&=questionDOMapper.insert(questionDO)>0;
+
         List<Tag> tags = question.getTags();
         for (Tag tag:tags){
             QuestionTagDO questionTagDO = new QuestionTagDO();
             questionTagDO.setTagId(tag.getId());
             questionTagDO.setTagName(tag.getTagName());
-            questionTagDO.setQuestionId(questionId);
-            questionTagDOMapper.insert(questionTagDO);
+            questionTagDO.setQuestionId(questionDO.getId());
+            FillAttributeUtil.fillNecessaryAttribute(questionTagDO, QuestionTagDO.class);
+            flag&=questionTagDOMapper.insert(questionTagDO)>0;
         }
 
-        return null;
+        if (!flag){
+            return result.setRet(false).setMsg("数据库操作出错");
+        }
+        return result.setRet(true);
     }
 }
