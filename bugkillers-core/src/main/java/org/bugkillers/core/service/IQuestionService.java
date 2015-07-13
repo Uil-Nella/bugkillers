@@ -1,6 +1,7 @@
 package org.bugkillers.core.service;
 
 import org.bugkillers.core.model.Question;
+import org.bugkillers.core.result.BaseResult;
 
 import java.util.List;
 
@@ -28,6 +29,13 @@ public interface IQuestionService {
      * @return
      */
     List<Question> filterByCreate(Integer offset);
+
+    /**
+     * 创建或修改问题
+     * @param question
+     * @return
+     */
+    BaseResult<Question> createOrModifiedQuestion(Question question);
 
 
 
