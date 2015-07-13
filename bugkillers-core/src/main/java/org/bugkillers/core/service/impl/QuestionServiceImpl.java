@@ -19,7 +19,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 /**
@@ -115,8 +114,11 @@ public class QuestionServiceImpl implements IQuestionService {
         boolean flag = true;
         QuestionDO questionDO = new QuestionDO();
         beanMapper.copy(question, questionDO);
-        FillAttributeUtil.fillNecessaryAttribute(questionDO,QuestionDO.class);
+        questionDO.setQuestionStatus(1);
+        FillAttributeUtil.fillNecessaryAttribute(questionDO, QuestionDO.class);
+        questionDO.setUserId(question.getUser().getId());
         flag&=questionDOMapper.insert(questionDO)>0;
+
 
         List<Tag> tags = question.getTags();
         for (Tag tag:tags){
