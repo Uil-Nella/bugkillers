@@ -20,7 +20,6 @@ public class QuestionDOMapperTest extends AbstractJunitTest {
     @Test
     public void insertTest(){
         QuestionDO questionDO = new QuestionDO();
-        questionDO.setDr(1);
         questionDO.setUserId(1);
         questionDO.setQuestionTitle("Java 虚拟机");
         questionDO.setQuestionSummary("Java虚拟机参数配置。");
@@ -28,8 +27,10 @@ public class QuestionDOMapperTest extends AbstractJunitTest {
         questionDO.setBkCreate(new Date());
         questionDO.setBkModified(new Date());
         questionDO.setDr(DataValidEnum.VALID.getIndex());
-        questionDOMapper.insert(questionDO);
-//        questionDOMapper.insertSelective(questionDO);
+        questionDO.setQuestionStatus(DataValidEnum.VALID.getIndex());
+        int id1 = questionDOMapper.insert(questionDO);
+        //int id2 = questionDOMapper.insertSelective(questionDO);
+        Assert.assertTrue(true);
     }
 
     @Test
