@@ -116,6 +116,12 @@
             <version>1.2.2</version>
         </dependency>
 
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>3.1.0</version>
+            <scope>test</scope>
+        </dependency>
 
         <!-- json 相关jar包 -->
         <dependency>
@@ -151,6 +157,12 @@
             <version>1.10</version>
         </dependency>
 
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.4</version>
+        </dependency>
+
         <!--dozer-->
         <dependency>
             <groupId>net.sf.dozer</groupId>
@@ -169,6 +181,13 @@
             <artifactId>springfox-swagger2</artifactId>
             <version>2.0.2</version>
         </dependency>
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-staticdocs</artifactId>
+            <version>2.0.2</version>
+            <scope>test</scope>
+        </dependency>
+
         <!--jackson依赖-->
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
@@ -180,6 +199,12 @@
             <groupId>org.webjars.bower</groupId>
             <artifactId>swagger-ui</artifactId>
             <version>2.1.8-M1</version>
+        </dependency>
+        <!--文档生成器-->
+        <dependency>
+            <groupId>io.github.robwin</groupId>
+            <artifactId>swagger2markup</artifactId>
+            <version>0.7.0</version>
         </dependency>
 
         <!-- httpclient -->
@@ -235,6 +260,8 @@
                 </exclusion>
             </exclusions>
         </dependency>
+
+
 
     </dependencies>
 
@@ -335,6 +362,29 @@
                     </executions>
                 </plugin>
 
+                <plugin>
+                    <groupId>org.asciidoctor</groupId>
+                    <artifactId>asciidoctor-maven-plugin</artifactId>
+                    <version>1.5.2</version>
+                    <executions>
+                        <execution>
+                            <id>generate-docs</id>
+                            <phase>package</phase>
+                            <goals>
+                                <goal>process-asciidoc</goal>
+                            </goals>
+                            <configuration>
+                                <backend>html</backend>
+                                <attributes>
+                                    <toclevels>2</toclevels>
+                                    <toc>left</toc>
+                                    <doctype>book</doctype>
+                                    <generated>src/docs/asciidoc/generated</generated>
+                                </attributes>
+                            </configuration>
+                        </execution>
+                    </executions>
+                </plugin>
 
             </plugins>
         </pluginManagement>

@@ -1,0 +1,21 @@
+## Definitions
+### User
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|email||false|string||
+|headPic||false|string||
+|id||false|integer (int32)||
+|nickName||false|string||
+|password||false|string||
+|userName||false|string||
+
+
+### Tag
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|id||false|integer (int32)||
+|tagDes||false|string||
+|tagName||false|string||
+|tagPic||false|string||
+
+
