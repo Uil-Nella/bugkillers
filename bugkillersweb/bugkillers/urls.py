@@ -12,6 +12,8 @@ urlpatterns = patterns('',
                        url(r'^footer/$', footer),
                        url(r'^login/$', login),
                        url(r'^register/$', register),
+                       url(r'^ask/$', ask),
+
                        url(r'^index/$', index),
                        url(r'^questiondetail/$', questiondetail),
                        url(r'^questionlist/$', questionlist),

@@ -35,7 +35,11 @@ var BK = {
                 loginUrl: remoteip + '/bugkillers/user/login'
             }
         },
-        indexPage: {
+        indexPage: {//首页
+            local: {},
+            remote: {}
+        },
+        askPage: {
             local: {},
             remote: {}
         }
@@ -55,4 +59,24 @@ BK.tools.Array.prototype.inArray = function (value) {
         }
     }
     return false
+};
+
+/**
+ * 代码工具对象
+ * @constructor
+ */
+BK.tools.Code = function () {
+};
+BK.tools.Code.prototype.getCodesHtml = function (codeText) {
+    var codeCount = codeText.indexOf('```');//```是代码标识
+    for (var i = 1; i <= codeCount; i++) {
+        if ((i + 1) / 2 != 0) {//如果是奇数
+            codeText = codeText.replace('```', '<pre>');
+        } else {
+            codeText = codeText.replace('```', '</pre>');
+        }
+    }
+
+
+    return codeText;
 };

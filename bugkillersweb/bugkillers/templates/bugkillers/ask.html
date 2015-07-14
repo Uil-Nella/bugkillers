@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Bugkillers - 提问</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="/static/common/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/bugkillers/css/ask.css" rel="stylesheet">
+    <!--<link href="/static/bugkillers/css/util/code.css" rel="stylesheet">-->
+    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/darkula.min.css" rel="stylesheet">
+    <!-- Bootstrap core JavaScript
+================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="/static/common/lib/jquery/jquery-1.11.1.min.js"></script>
+    <script src="/static/common/lib/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/static/common/lib/angularjs/angular.min.js"></script>
+    <script src="/static/common/lib/angularjs/angular-route.min.js"></script>
+
+    <script src="/static/bugkillers/js/base/bkbase.js"></script>
+    <script src="/static/bugkillers/js/ask.js"></script>
+    <script src="https://cdn.rawgit.com/showdownjs/showdown/1.1.0/dist/showdown.min.js"></script>
+    <script src="http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            initHighlight();
+        });
+        function initHighlight() {
+            // 使用highlight.js
+            $('pre code').each(function (i, block) {
+                hljs.highlightBlock(block);
+            });
+        }
+        function toHtml() {
+            var converter = new showdown.Converter();
+            var text = $('.askdetail').val();
+            var html = converter.makeHtml(text);
+            $('#preview').html(html);
+            initHighlight();
+        }
+    </script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body ng-app="ask" ng-controller="askCtrl">
+<div ng-include="'../head/'"></div>
+
+<div class="container">
+    <div class="panel panel-default">
+        <div class="panel-heading">新的提问</div>
+        <div class="panel-body">
+            <div class="input-group form-group">
+                <span class="input-group-addon" id="sizing-addon2">标题</span>
+                <input type="text" class="form-control" placeholder="在此输入标题" aria-describedby="sizing-addon2">
+            </div>
+            <div class="form-group">
+                <span class="label label-info" data-toggle="tooltip" data-placement="top"
+                      title="双击可删除标签">设计模式</span>
+                <span class="label label-info">Java</span>
+                <span class="label label-success">+增加标签</span>
+                <!--<a class="alert-info">双击可删除标签</a>-->
+            </div>
+            <div class="form-group">
+                <ul class="nav nav-tabs">
+                    <li role="presentation" class="active"><a href="#">编辑</a></li>
+                    <li role="presentation"><a href="#">预览</a></li>
+                    <li role="presentation" class="pull-right">
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-default dropdown-toggle " data-toggle="dropdown"
+                                    aria-haspopup="true" aria-expanded="false">
+                                插入代码 <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Java</a></li>
+                                <li><a href="#">JavaScript</a></li>
+                                <li><a href="#">Python</a></li>
+                                <!--<li role="separator" class="divider"></li>-->
+                                <li><a href="#">Ruby</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="form-group">
+                <textarea class="askdetail form-control" rows="13" placeholder="这里支持Markdown"></textarea>
+            </div>
+            <div id="preview" class="hidden">
+
+            </div>
+            <div class="form-group">
+                <button class="btn btn-primary">提交问题</button>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+</div>
+<div ng-include="'../footer/'"></div>
+
+</body>
+</html>
