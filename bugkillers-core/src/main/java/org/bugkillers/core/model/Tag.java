@@ -11,7 +11,9 @@ public class Tag {
      */
     private String tagName;
 
+    private String tagPic;
 
+    private String tagDes;
 
     /**
      * 获取 主键 字段:bk_tag.id
@@ -49,4 +51,19 @@ public class Tag {
         this.tagName = tagName == null ? null : tagName.trim();
     }
 
+    public String getTagPic() {
+        return tagPic;
+    }
+
+    public void setTagPic(String tagPic) {
+        this.tagPic = tagPic;
+    }
+
+    public String getTagDes() {
+        return tagDes;
+    }
+
+    public void setTagDes(String tagDes) {
+        this.tagDes = tagDes;
+    }
 }

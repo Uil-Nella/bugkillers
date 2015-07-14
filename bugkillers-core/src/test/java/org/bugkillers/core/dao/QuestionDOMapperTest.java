@@ -3,6 +3,7 @@ package org.bugkillers.core.dao;
 import org.bugkillers.core.domain.QuestionDO;
 import org.bugkillers.core.enums.DataValidEnum;
 import org.bugkillers.core.util.AbstractJunitTest;
+import org.bugkillers.core.util.FillAttributeUtil;
 import org.junit.Assert;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,16 +21,15 @@ public class QuestionDOMapperTest extends AbstractJunitTest {
     @Test
     public void insertTest(){
         QuestionDO questionDO = new QuestionDO();
-        questionDO.setDr(1);
         questionDO.setUserId(1);
         questionDO.setQuestionTitle("Java 虚拟机");
         questionDO.setQuestionSummary("Java虚拟机参数配置。");
         questionDO.setQuestionText("Java按时发生的大放送爱疯");
-        questionDO.setBkCreate(new Date());
-        questionDO.setBkModified(new Date());
-        questionDO.setDr(DataValidEnum.VALID.getIndex());
-        questionDOMapper.insert(questionDO);
-//        questionDOMapper.insertSelective(questionDO);
+        FillAttributeUtil.fillNecessaryAttribute(questionDO,QuestionDO.class);
+        questionDO.setQuestionStatus(DataValidEnum.VALID.getIndex());
+        int id1 = questionDOMapper.insert(questionDO);
+        //int id2 = questionDOMapper.insertSelective(questionDO);
+        Assert.assertTrue(true);
     }
 
     @Test
