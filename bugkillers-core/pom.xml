@@ -21,10 +21,15 @@
 
 
     <repositories>
+        <!--<repository>-->
+            <!--<id>jcenter-release</id>-->
+            <!--<name>jcenter</name>-->
+            <!--<url>http://oss.jfrog.org/artifactory/oss-release-local</url>-->
+        <!--</repository>-->
         <repository>
-            <id>jcenter-release</id>
+            <id>jcenter-snapshots</id>
             <name>jcenter</name>
-            <url>http://oss.jfrog.org/artifactory/oss-release-local</url>
+            <url>https://jcenter.bintray.com/</url>
         </repository>
     </repositories>
 
@@ -154,10 +159,15 @@
         </dependency>
 
         <!--springfox依赖-->
+        <!--<dependency>-->
+            <!--<groupId>com.mangofactory</groupId>-->
+            <!--<artifactId>swagger-springmvc</artifactId>-->
+            <!--<version>1.0.2</version>-->
+        <!--</dependency>-->
         <dependency>
-            <groupId>com.mangofactory</groupId>
-            <artifactId>swagger-springmvc</artifactId>
-            <version>1.0.2</version>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger2</artifactId>
+            <version>2.0.2</version>
         </dependency>
         <!--jackson依赖-->
         <dependency>

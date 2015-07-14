@@ -1,6 +1,5 @@
 package org.bugkillers.core.controller;
 
-import com.wordnik.swagger.annotations.ApiOperation;
 import org.bugkillers.core.constants.LogConstants;
 import org.bugkillers.core.exception.UserException;
 import org.bugkillers.core.model.User;
@@ -67,7 +66,7 @@ public class UserController {
      * @param userId
      * @return
      */
-    @ApiOperation(value = "根据id查找用户", notes = "返回用户实体对象", response = User.class, position = 2)
+    //@ApiOperation(value = "根据id查找用户", notes = "返回用户实体对象", response = User.class, position = 2)
     @ResponseBody
     @RequestMapping(value = {"/{userId}"}, method = RequestMethod.GET)
     public ResponseEntity<?> findById(@PathVariable("userId") Integer userId) {
