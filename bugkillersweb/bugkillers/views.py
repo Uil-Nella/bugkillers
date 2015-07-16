@@ -9,7 +9,6 @@ from rest_framework.response import Response
 # 表单提交测试
 @api_view(['POST'])
 def testform(request):
-    json = request.body
     return Response(data={
         "ret": True,
         "code": 0,
@@ -43,6 +42,11 @@ def login(request):
 # 注册
 def register(request):
     return render_to_response('bugkillers/register.html')
+
+
+# 提问
+def ask(request):
+    return render_to_response('bugkillers/ask.html')
 
 
 # 首页

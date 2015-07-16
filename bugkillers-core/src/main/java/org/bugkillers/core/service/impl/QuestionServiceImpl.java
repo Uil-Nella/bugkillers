@@ -11,8 +11,10 @@ import org.bugkillers.core.domain.UserDO;
 import org.bugkillers.core.model.Question;
 import org.bugkillers.core.model.Tag;
 import org.bugkillers.core.model.User;
+import org.bugkillers.core.result.BaseResult;
 import org.bugkillers.core.service.IQuestionService;
 import org.bugkillers.core.util.BeanMapper;
+import org.bugkillers.core.util.FillAttributeUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -96,5 +98,41 @@ public class QuestionServiceImpl implements IQuestionService {
     @Override
     public List<Question> filterByCreate(Integer offset) {
         return null;
+    }
+
+
+    /**
+     * 创建或修改问题
+     *
+     * @param question
+     * @return
+     */
+    @Override
+    public BaseResult<Question> createOrModifiedQuestion(Question question) {
+        //校验
+        BaseResult<Question> result = new BaseResult<>();
+        boolean flag = true;
+        QuestionDO questionDO = new QuestionDO();
+        beanMapper.copy(question, questionDO);
+        questionDO.setQuestionStatus(1);
+        FillAttributeUtil.fillNecessaryAttribute(questionDO, QuestionDO.class);
+        questionDO.setUserId(question.getUser().getId());
+        flag&=questionDOMapper.insert(questionDO)>0;
+
+
+        List<Tag> tags = question.getTags();
+        for (Tag tag:tags){
+            QuestionTagDO questionTagDO = new QuestionTagDO();
+            questionTagDO.setTagId(tag.getId());
+            questionTagDO.setTagName(tag.getTagName());
+            questionTagDO.setQuestionId(questionDO.getId());
+            FillAttributeUtil.fillNecessaryAttribute(questionTagDO, QuestionTagDO.class);
+            flag&=questionTagDOMapper.insert(questionTagDO)>0;
+        }
+
+        if (!flag){
+            return result.setRet(false).setMsg("数据库操作出错");
+        }
+        return result.setRet(true);
     }
 }

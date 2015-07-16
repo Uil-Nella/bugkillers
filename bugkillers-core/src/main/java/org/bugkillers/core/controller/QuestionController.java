@@ -43,5 +43,21 @@ public class QuestionController {
     }
 
 
+    /**
+     * 创建或修改问题
+     * @param question
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping(value = {"/"}, method = RequestMethod.POST)
+    public ResponseEntity<?> createOrModifiedQuestion(Question question) {
+
+
+
+        //return new ResponseEntity<BaseResult<Question>>(null, HttpStatus.OK);
+        return null;
+    }
+
+
 
 }

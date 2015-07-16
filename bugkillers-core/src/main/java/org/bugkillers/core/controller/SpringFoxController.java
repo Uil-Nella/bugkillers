@@ -8,12 +8,12 @@
 
 package org.bugkillers.core.controller;
 
-import com.mangofactory.swagger.annotations.ApiIgnore;
 import org.apache.commons.httpclient.HttpClient;
 import org.apache.commons.httpclient.HttpMethod;
 import org.apache.commons.httpclient.methods.GetMethod;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import springfox.documentation.annotations.ApiIgnore;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -31,7 +31,7 @@ public class SpringFoxController {
  
 //    private final static Log logger = LogFactory.getLog(LogConstants.LOG_LEVEL_INFO);
     private final static String COLON = ":";
-    private final static String API_DOC = "/api-docs";
+    private final static String API_DOC = "/v2/api-docs";
  
     @RequestMapping("/")
     public void api(HttpServletRequest request, HttpServletResponse response) throws IOException {
