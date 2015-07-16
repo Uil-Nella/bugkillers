@@ -17,6 +17,7 @@
         <fastjson.version>1.1.34</fastjson.version>
         <dozer.version>5.4.0</dozer.version>
         <org.slf4j-version>1.6.6</org.slf4j-version>
+        <snippetsDirectory>${project.build.directory}/generated-snippets</snippetsDirectory>
     </properties>
 
 
@@ -188,6 +189,12 @@
             <scope>test</scope>
         </dependency>
 
+        <dependency>
+            <groupId>org.springframework.restdocs</groupId>
+            <artifactId>spring-restdocs</artifactId>
+            <version>1.0.0.M1</version>
+            <scope>test</scope>
+        </dependency>
         <!--jackson依赖-->
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
@@ -206,6 +213,12 @@
             <artifactId>swagger2markup</artifactId>
             <version>0.7.0</version>
         </dependency>
+        <dependency>
+            <groupId>org.asciidoctor</groupId>
+            <artifactId>asciidoctorj</artifactId>
+            <version>1.5.2</version>
+        </dependency>
+
 
         <!-- httpclient -->
         <dependency>
@@ -259,6 +272,12 @@
                     <artifactId>jmxri</artifactId>
                 </exclusion>
             </exclusions>
+        </dependency>
+        <!--groovy依赖-->
+        <dependency>
+            <groupId>org.codehaus.groovy.maven.runtime</groupId>
+            <artifactId>gmaven-runtime-default</artifactId>
+            <version>1.0-rc-3</version>
         </dependency>
 
 
@@ -380,8 +399,89 @@
                                     <toc>left</toc>
                                     <doctype>book</doctype>
                                     <generated>src/docs/asciidoc/generated</generated>
+                                    <snippets>${snippetsDirectory}</snippets>
                                 </attributes>
                             </configuration>
+                        </execution>
+                        <execution>
+                            <id>output-html</id>
+                            <phase>generate-resources</phase>
+                            <goals>
+                                <goal>process-asciidoc</goal>
+                            </goals>
+                            <configuration>
+                                <sourceHighlighter>coderay</sourceHighlighter>
+                                <backend>html</backend>
+                                <attributes>
+                                    <toc/>
+                                    <linkcss>false</linkcss>
+                                </attributes>
+                            </configuration>
+                        </execution>
+                        <execution>
+                            <id>output-docbook</id>
+                            <phase>generate-resources</phase>
+                            <goals>
+                                <goal>process-asciidoc</goal>
+                            </goals>
+                            <configuration>
+                                <backend>docbook</backend>
+                                <doctype>book</doctype>
+
+                            </configuration>
+                        </execution>
+                    </executions>
+                    <configuration>
+                        <sourceDirectory>src/main/asciidoc/generated</sourceDirectory>
+                        <headerFooter>true</headerFooter>
+                        <imagesDir>../resources/images</imagesDir>
+                        <outputDirectory>target/docs</outputDirectory>
+                        <backend>html</backend>
+                        <doctype>book</doctype>
+                        <attributes>
+                            <numbered>true</numbered>
+                            <stylesheet>my-theme.css</stylesheet>
+                        </attributes>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-surefire-plugin</artifactId>
+                    <configuration>
+                        <includes>
+                            <include>**/*Documentation.java</include>
+                        </includes>
+                        <systemPropertyVariables>
+                            <org.springframework.restdocs.outputDir>
+                                ${snippetsDirectory}
+                            </org.springframework.restdocs.outputDir>
+                        </systemPropertyVariables>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-site-plugin</artifactId>
+                    <version>3.2</version>
+                    <dependencies>
+                        <dependency>
+                            <groupId>org.asciidoctor</groupId>
+                            <artifactId>asciidoctor-maven-plugin</artifactId>
+                            <version>1.5.2</version>
+                        </dependency>
+                    </dependencies>
+                </plugin>
+                <plugin>
+                    <groupId>org.codehaus.groovy.maven</groupId>
+                    <artifactId>gmaven-plugin</artifactId>
+                    <version>1.0</version>
+                    <executions>
+                        <execution>
+                            <goals>
+                                <goal>generateStubs</goal>
+                                <goal>compile</goal>
+                                <goal>generateTestStubs</goal>
+                                <goal>testCompile</goal>
+                            </goals>
                         </execution>
                     </executions>
                 </plugin>

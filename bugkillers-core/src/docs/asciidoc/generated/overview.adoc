@@ -21,13 +21,13 @@ BasePath: /
 
 === Tags
 
-* test-controller: Test Controller
-* test-controller
 * user-controller: User Controller
 * user-controller
 * question-controller: Question Controller
 * question-controller
 * tag-controller: Tag Controller
 * tag-controller
+* test-controller: Test Controller
+* test-controller
 
 
