@@ -9,10 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * Created by liuxinyu on 15/6/22.
@@ -50,12 +47,9 @@ public class QuestionController {
      */
     @ResponseBody
     @RequestMapping(value = {"/"}, method = RequestMethod.POST)
-    public ResponseEntity<?> createOrModifiedQuestion(Question question) {
-
-
-
-        //return new ResponseEntity<BaseResult<Question>>(null, HttpStatus.OK);
-        return null;
+    public ResponseEntity<?> createOrModifiedQuestion(@RequestBody Question question) {
+        BaseResult<Question> result = questionService.createOrModifiedQuestion(question);
+        return new ResponseEntity<BaseResult<Question>>(result, HttpStatus.OK);
     }
 
 
