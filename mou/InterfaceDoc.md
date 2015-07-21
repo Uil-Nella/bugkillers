@@ -5,7 +5,7 @@
 ###1.用户
 ####1.1 注册
 #####1.1.1 请求url    
-`http://host:port/user/regist`
+`http://host:port/bugkillers/user/regist`
 #####1.1.2 请求方式POST
 #####1.1.3 请求参数User                          
        
@@ -42,7 +42,7 @@
 ```
 ####1.2登录
 #####1.2.1 请求url    
-`http://host:port/user/login`
+`http://host:port/bugkillers/user/login`
 #####1.2.2 请求方式POST
 #####1.2.3 请求参数User                          
        
@@ -88,3 +88,136 @@
 | 1005 | LOGIN_PASS_ERROR  | 密码错误 | 
 | 1006 | REGIST_EMAIL_FORMAT_ERROR  | 邮箱格式不正确 | 
 
+###2.标签
+####2.1创建标签
+#####2.1.1 请求url    
+`http://host:port/bugkillers/tag/`
+#####2.1.2 请求方式POST
+#####2.1.3 请求参数Tag                          
+       
+| 字段 | 描述 | 备注 |
+| ------------ | ------------- | ------------ |
+| tagName | 标签名称 | 必填 |
+| tagPic | 标签图片url  | 可不填 |
+| tagDes | 标签描述  | 可不填填 |
+
+#####2.1.4 返回对象Result
+
+| 字段 | 描述 | 备注 |
+| ------------ | ------------- | ------------ |
+| ret | 相应标示 | true为正常响应，false为异常响应 |
+| code | 错误码  | 当ret为false时有效 |
+| msg | 错误信息  |  |                
+#####2.1.5 返回json示例              
+```json                  
+{
+  "ret": true,
+  "code": 0,
+  "msg": null,
+  "t": null
+}
+```
+####2.2根据tagId获取标签信息
+#####2.2.1 请求url    
+`http://host:port/bugkillers/tag/{tagId}`
+#####2.2.2 请求方式GET
+#####2.2.3 请求参数TagId                          
+       
+| 字段 | 描述 | 备注 |
+| ------------ | ------------- | ------------ |
+| tagId | 标签id | 必填 |
+
+
+#####2.2.4 返回对象Result
+
+| 字段 | 描述 | 备注 |
+| ------------ | ------------- | ------------ |
+| ret | 相应标示 | true为正常响应，false为异常响应 |
+| code | 错误码  | 当ret为false时有效 |
+| msg | 错误信息  |  |              
+| t | 返回的tag信息  |  |      
+#####2.2.5 返回json示例    
+示例：`http://host:port/bugkillers/tag/2`
+          
+```json                  
+{
+  "ret": true,
+  "code": 0,
+  "msg": null,
+  "t": {
+    "id": 2,
+    "tagName": "Java",
+    "tagPic": "url:/sfsfsdfs",
+    "tagDes": "Java集合2313"
+  }
+}
+```
+####2.3查询所有标签
+#####2.3.1 请求url    
+`http://host:port/bugkillers/tag/findAll`
+#####2.3.2 请求方式GET
+#####2.3.3 请求参数                         
+无
+
+#####2.3.4 返回对象Result
+
+| 字段 | 描述 | 备注 |
+| ------------ | ------------- | ------------ |
+| ret | 相应标示 | true为正常响应，false为异常响应 |
+| code | 错误码  | 当ret为false时有效 |
+| msg | 错误信息  |  |              
+| t | 返回的tag列表  |  |      
+#####2.3.5 返回json示例    
+示例：`http://host:port/bugkillers/tag/2`
+          
+```json                  
+{
+  "ret": true,
+  "code": 0,
+  "msg": null,
+  "t": [
+    {
+      "id": 3,
+      "tagName": "Spring",
+      "tagPic": "adfah",
+      "tagDes": "Spring这个那个"
+    },
+    {
+      "id": 4,
+      "tagName": "Guava",
+      "tagPic": "adfah",
+      "tagDes": "Guava工具类"
+    }
+  ]
+}
+}
+```
+####2.4根据tagId删除标签
+#####2.4.1 请求url    
+`http://host:port/bugkillers/tag/{tagId}`
+#####2.4.2 请求方式DELETE
+#####2.4.3 请求参数TagId                          
+       
+| 字段 | 描述 | 备注 |
+| ------------ | ------------- | ------------ |
+| tagId | 标签id | 必填 |
+
+
+#####2.4.4 返回对象Result
+
+| 字段 | 描述 | 备注 |
+| ------------ | ------------- | ------------ |
+| ret | 相应标示 | true为正常响应，false为异常响应 |
+| code | 错误码  | 当ret为false时有效 |
+| msg | 错误信息  |  |                  
+#####2.4.5 返回json示例    
+示例：`http://host:port/bugkillers/tag/2`
+          
+```json                  
+{
+  "ret": true,
+  "code": 0,
+  "msg": null,
+  "t": null
+}
+```
