@@ -37,15 +37,6 @@ public class Question {
      */
     private String questionText;
 
-    /**
-     *  ,所属表字段为bk_question.create_time
-     */
-    private Date createTime;
-
-    /**
-     *  ,所属表字段为bk_question.update_time
-     */
-    private Date updateTime;
 
     public Integer getId() {
         return id;
@@ -95,19 +86,4 @@ public class Question {
         this.questionText = questionText;
     }
 
-    public Date getCreateTime() {
-        return createTime;
-    }
-
-    public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
-    }
-
-    public Date getUpdateTime() {
-        return updateTime;
-    }
-
-    public void setUpdateTime(Date updateTime) {
-        this.updateTime = updateTime;
-    }
 }
