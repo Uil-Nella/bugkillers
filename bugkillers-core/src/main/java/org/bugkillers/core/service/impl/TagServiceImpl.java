@@ -59,6 +59,9 @@ public class TagServiceImpl implements ITagService {
         Tag tag = new Tag();
         BaseResult<Tag> result = new BaseResult<>();
         TagDO dbTagDO = tagDOMapper.selectByPrimaryKey(tagId);
+        if (null==dbTagDO){
+            return result.setRet(true).setMsg("没有查询到对应结果");
+        }
         beanMapper.copy(dbTagDO,tag);
         return result.setRet(true).setT(tag);
     }
