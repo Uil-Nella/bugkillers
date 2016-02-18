@@ -59,7 +59,7 @@
     <!--<import resource="spring/solr/solr.xml"/>-->
 
     <!--&lt;!&ndash;加载SpringContextHolder&ndash;&gt;-->
-    <!--<bean class="com.meituan.hotel.goods.utils.SpringContextHolder" lazy-init="false"/>-->
+    <!--<bean class="com.xxxx.hotel.goods.utils.SpringContextHolder" lazy-init="false"/>-->
     <!--&lt;!&ndash;  dozer配置  &ndash;&gt;-->
     <bean id="dozer" class="org.dozer.spring.DozerBeanMapperFactoryBean"
           scope="singleton">
