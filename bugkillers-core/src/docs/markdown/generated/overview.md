@@ -7,7 +7,7 @@ bugkillers API
 Version: bugkillers 后台API文档
 
 ### Contact information
-Contact: hd.rd.cos@meituan.com
+Contact: hd.rd@xx.com
 
 ### License information
 License: MTA License
