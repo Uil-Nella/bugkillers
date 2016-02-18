@@ -60,7 +60,7 @@ public class UserServiceTest extends AbstractJunitTest{
     @Test
     public void login02(){
         User userDO = new User();
-        userDO.setEmail("liuxy1@meituan.com");
+        userDO.setEmail("liuxy1@xx.com");
         userDO.setPassword("pp");
         try {
             BaseResult<User> result = userService.login(userDO);
@@ -76,7 +76,7 @@ public class UserServiceTest extends AbstractJunitTest{
     @Test
     public void login03(){
         User userDO = new User();
-        userDO.setEmail("liuxy1@meituan.com");
+        userDO.setEmail("liuxy1@xx.com");
         userDO.setPassword("ppp");
         try {
             userService.login(userDO);
@@ -87,7 +87,7 @@ public class UserServiceTest extends AbstractJunitTest{
 
     public User getUserDO(){
         User user = new User();
-        user.setEmail("liuxy1@meituan.com");
+        user.setEmail("liuxy1@xx.com");
         user.setNickName("新宇");
         user.setUserName("AllenX");
         user.setPassword("pp");
