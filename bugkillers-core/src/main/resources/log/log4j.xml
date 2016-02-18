@@ -113,20 +113,5 @@
         <appender-ref ref="stdout"/>
     </root>
 
-    <!-- 日志监控 -->
-    <!--<appender name="exceptionlog" class="com.meituan.scribe.log4j.AsyncScribeAppender">-->
-        <!--<param name="Threshold" value="error"/>-->
-        <!--<param name="hostname" value="mobile-hotel"/>-->
-        <!--<param name="scribeHost" value="127.0.0.1"/>-->
-        <!--<param name="scribePort" value="4252"/>-->
-        <!--<param name="scribeCategory" value="cos_errorlog"/>-->
-        <!--<param name="printExceptionStack" value="false"/>-->
-        <!--<param name="addStackTraceToMessage" value="false"/>-->
-        <!--<param name="timeToWaitBeforeRetry" value="6000"/>-->
-        <!--<param name="sizeOfInMemoryStoreForward" value="100"/>-->
-        <!--<layout class="com.sankuai.meituan.log4j1.pattern.MtPatternLayout">-->
-            <!--<param name="ConversionPattern"-->
-                   <!--value="%d %p ${host_name} 127.0.0.1 errorlog appkey=mobile-hotel location=%F:%L rawlog=%replace{%m}{= \n|\t}{: &lt;br/&gt;} rawexception=%replace{%throwable}{= \n|\t}{: &lt;br/&gt;}%n"/>-->
-        <!--</layout>-->
-    <!--</appender>-->
+   
 </log4j:configuration>
