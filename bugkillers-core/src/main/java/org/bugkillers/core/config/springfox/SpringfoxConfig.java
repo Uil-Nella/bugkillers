@@ -80,7 +80,7 @@
 //                PROJECT_NAME + " API",
 //                PROJECT_NAME + " 后台API文档",
 //                "http://127.0.0.1:9081/api",
-//                "hd.rd.cos@meituan.com",
+//                "hd.rd.cos@xxx.com",
 //                "MTA License",
 //                "MTA API License URL"
 //        );
